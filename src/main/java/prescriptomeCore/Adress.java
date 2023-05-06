@@ -3,11 +3,11 @@ package prescriptomeCore;
 import java.util.Date;
 /**
  * @author Jean Nikiema
- * 
+ *
  */
 public class Adress {
-	private String AdressID;	
-	private String ligne1;	
+	private String AdressID;
+	private String ligne1;
 	private String ligne2;
 	private String City;
 	private String State;
@@ -17,10 +17,11 @@ public class Adress {
 	private boolean Validity;
 	private Date Createtime;
 	private Date Modifytime;
-	
 
-	public Adress(String adressID,
-			String ligne1,	
+
+	public Adress(
+			String adressID,
+			String ligne1,
 			String ligne2,
 			String City,
 			String State,
@@ -30,10 +31,10 @@ public class Adress {
 			boolean Validity,
 			Date Createtime,
 			Date Modifytime) {
-		// TODO Auto-generated constructor stub
+
 		this.setAdressID(adressID);
 		this.setLigne1(ligne1);
-		this.setLigne2(ligne2); 
+		this.setLigne2(ligne2);
 		this.setCity(City);
 		this.setState(State);
 		this.setZipCode(ZipCode);
@@ -46,8 +47,19 @@ public class Adress {
 
 
 
+	/**
+	 * 
+	 */
+	public Adress() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 	private java.lang.Object __equalsCalc = null;
 
+	@Override
 	public synchronized boolean equals(java.lang.Object obj) {
 		if (!(obj instanceof Adress)) return false;
 		Adress other = (Adress) obj;
@@ -57,43 +69,43 @@ public class Adress {
 		}
 		__equalsCalc = obj;
 		boolean _equals;
-		_equals = true && 
-				((this.ligne1==null && other.getLigne1()==null) || 
+		_equals = true &&
+				((this.ligne1==null && other.getLigne1()==null) ||
 						(this.ligne1!=null &&
 						this.ligne1.equals(other.getLigne1())))  &&
-				
-				((this.ligne2==null && other.getLigne2()==null) || 
+
+				((this.ligne2==null && other.getLigne2()==null) ||
 						(this.ligne2!=null &&
 						this.ligne2.equals(other.getLigne2())))  &&
 
-				((this.City==null && other.getCity()==null) || 
+				((this.City==null && other.getCity()==null) ||
 						(this.City!=null &&
 						this.City.equals(other.getCity())))  &&
 
-				((this.State==null && other.getState()==null) || 
+				((this.State==null && other.getState()==null) ||
 						(this.State!=null &&
 						this.State.equals(other.getState())))  &&
 
-				((this.ZipCode==null && other.getZipCode()==null) || 
+				((this.ZipCode==null && other.getZipCode()==null) ||
 						(this.ZipCode!=null &&
 						this.ZipCode.equals(other.getZipCode())))  &&
 
-				((this.Country==null && other.getCountry()==null) || 
+				((this.Country==null && other.getCountry()==null) ||
 						(this.Country!=null &&
 						this.Country.equals(other.getCountry())))  &&
 
-				((this.Validitytime==null && other.getValiditytime()==null) || 
+				((this.Validitytime==null && other.getValiditytime()==null) ||
 						(this.Validitytime!=null &&
 						this.Validitytime.equals(other.getValiditytime())))  &&
 
 
 				this.Validity ==other.isValidity()  &&
 
-				((this.Createtime==null && other.getCreatetime()==null) || 
+				((this.Createtime==null && other.getCreatetime()==null) ||
 						(this.Createtime!=null &&
 						this.Createtime.equals(other.getCreatetime())))  &&
 
-				((this.Modifytime==null && other.getModifytime()==null) || 
+				((this.Modifytime==null && other.getModifytime()==null) ||
 						(this.Modifytime!=null &&
 						this.Modifytime.equals(other.getModifytime())));
 
@@ -102,6 +114,7 @@ public class Adress {
 	}
 
 	private boolean __hashCodeCalc = false;
+	@Override
 	public synchronized int hashCode() {
 		if (__hashCodeCalc) {
 			return 0;

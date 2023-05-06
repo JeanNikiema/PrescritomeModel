@@ -1,10 +1,11 @@
 package prescriptomeCore;
 
 import java.util.Date;
+
 import org.eclipse.rdf4j.model.IRI;
 /**
  * @author Jean Nikiema
- * 
+ *
  */
 public class Procedure {
 	private String procedureID;
@@ -243,6 +244,7 @@ public class Procedure {
 
 	private java.lang.Object __equalsCalc = null;
 
+	@Override
 	public synchronized boolean equals(java.lang.Object obj) {
 		if (!(obj instanceof Procedure)) return false;
 		Procedure other = (Procedure) obj;
@@ -252,58 +254,58 @@ public class Procedure {
 		}
 		__equalsCalc = obj;
 		boolean _equals;
-		_equals = true && 
+		_equals = true &&
 
 
 
-				((this.getProcedureID()==null && other.getProcedureID()==null) || 
+				((this.getProcedureID()==null && other.getProcedureID()==null) ||
 						(this.getProcedureID()!=null &&
 						this.getProcedureID().equals(other.getProcedureID())))  &&
 
-				((this.getEncounter()==null && other.getEncounter()==null) || 
+				((this.getEncounter()==null && other.getEncounter()==null) ||
 						(this.getEncounter()!=null &&
 						this.getEncounter().equals(other.getEncounter())))  &&
 
-				((this.getTypeCode()==null && other.getTypeCode()==null) || 
+				((this.getTypeCode()==null && other.getTypeCode()==null) ||
 						(this.getTypeCode()!=null &&
 						this.getTypeCode().equals(other.getTypeCode())))  &&
 
-				((this.getOriginaleTypeCode()==null && other.getOriginaleTypeCode()==null) || 
+				((this.getOriginaleTypeCode()==null && other.getOriginaleTypeCode()==null) ||
 						(this.getOriginaleTypeCode()!=null &&
 						this.getOriginaleTypeCode().equals(other.getOriginaleTypeCode())))  &&
 
-				((this.getProcedureDate()==null && other.getProcedureDate()==null) || 
+				((this.getProcedureDate()==null && other.getProcedureDate()==null) ||
 						(this.getProcedureDate()!=null &&
 						this.getProcedureDate().equals(other.getProcedureDate())))  &&
 
 				(this.getQuantity()==other.getQuantity())  &&
 
-				((this.getInformationSourceTypeCode()==null && other.getInformationSourceTypeCode()==null) || 
+				((this.getInformationSourceTypeCode()==null && other.getInformationSourceTypeCode()==null) ||
 						(this.getInformationSourceTypeCode()!=null &&
 						this.getInformationSourceTypeCode().equals(other.getInformationSourceTypeCode())))  &&
 
 				(this.getPriorityCode()==other.getPriorityCode())  &&
 
-				((this.getStartDate()==null && other.getStartDate()==null) || 
+				((this.getStartDate()==null && other.getStartDate()==null) ||
 						(this.getStartDate()!=null &&
 						this.getStartDate().equals(other.getStartDate())))  &&
-				((this.getEndDate()==null && other.getEndDate()==null) || 
+				((this.getEndDate()==null && other.getEndDate()==null) ||
 						(this.getEndDate()!=null &&
 						this.getEndDate().equals(other.getEndDate())))  &&
-				((this.getDevice()==null && other.getDevice()==null) || 
+				((this.getDevice()==null && other.getDevice()==null) ||
 						(this.getDevice()!=null &&
 						this.getDevice().equals(other.getDevice())))  &&
 
 
-				((this.Validitytime==null && other.getValiditytime()==null) || 
+				((this.Validitytime==null && other.getValiditytime()==null) ||
 						(this.Validitytime!=null &&
 						this.Validitytime.equals(other.getValiditytime())))  &&
 
-				((this.Modifytime==null && other.getModifytime()==null) || 
+				((this.Modifytime==null && other.getModifytime()==null) ||
 						(this.Modifytime!=null &&
 						this.Modifytime.equals(other.getModifytime())))  &&
 
-				((this.Createtime==null && other.getCreatetime()==null) || 
+				((this.Createtime==null && other.getCreatetime()==null) ||
 						(this.Createtime!=null &&
 						this.Createtime.equals(other.getCreatetime())));
 
@@ -313,6 +315,7 @@ public class Procedure {
 
 	private boolean __hashCodeCalc = false;
 
+	@Override
 	public synchronized int hashCode() {
 		if (__hashCodeCalc) {
 			return 0;

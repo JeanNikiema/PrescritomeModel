@@ -3,7 +3,7 @@ package prescriptomeCore;
 import java.util.Date;
 /**
  * @author Jean Nikiema
- * 
+ *
  */
 public class PatientGroup {
 	private String DatabaseSource;
@@ -22,10 +22,18 @@ public class PatientGroup {
 	}
 
 
+	/**
+	 * 
+	 */
+	public PatientGroup() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 
 	private java.lang.Object __equalsCalc = null;
 
+	@Override
 	public synchronized boolean equals(java.lang.Object obj) {
 		if (!(obj instanceof PatientGroup)) return false;
 		PatientGroup other = (PatientGroup) obj;
@@ -35,21 +43,21 @@ public class PatientGroup {
 		}
 		__equalsCalc = obj;
 		boolean _equals;
-		_equals = true && 
-				((this.DatabaseSource==null && other.getDatabaseSource()==null) || 
+		_equals = true &&
+				((this.DatabaseSource==null && other.getDatabaseSource()==null) ||
 						(this.DatabaseSource!=null &&
 						this.DatabaseSource.equals(other.getDatabaseSource())))  &&
 
-				((this.GroupID==null && other.getGroupID()==null) || 
+				((this.GroupID==null && other.getGroupID()==null) ||
 						(this.GroupID!=null &&
 						this.GroupID.equals(other.getGroupID())))  &&
 
 
-				((this.Createtime==null && other.getCreatetime()==null) || 
+				((this.Createtime==null && other.getCreatetime()==null) ||
 						(this.Createtime!=null &&
 						this.Createtime.equals(other.getCreatetime())))  &&
 
-				((this.Modifytime==null && other.getModifytime()==null) || 
+				((this.Modifytime==null && other.getModifytime()==null) ||
 						(this.Modifytime!=null &&
 						this.Modifytime.equals(other.getModifytime())));
 
@@ -90,6 +98,7 @@ public class PatientGroup {
 
 
 	private boolean __hashCodeCalc = false;
+	@Override
 	public synchronized int hashCode() {
 		if (__hashCodeCalc) {
 			return 0;
@@ -115,9 +124,5 @@ public class PatientGroup {
 		__hashCodeCalc = false;
 		return _hashCode;
 	}
-
-
-
-
 
 }

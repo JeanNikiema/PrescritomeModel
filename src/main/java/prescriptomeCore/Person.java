@@ -3,7 +3,7 @@ package prescriptomeCore;
 import java.util.Date;
 /**
  * @author Jean Nikiema
- * 
+ *
  */
 /**
  * @author Jean Nikiema
@@ -12,12 +12,12 @@ import java.util.Date;
 public class Person {
 
 	private int BirthMonth;
-	private int BirthYear;	
-	private int BirthDay;	
+	private int BirthYear;
+	private int BirthDay; // 
 	private String identifierSource;
 	private String DataBaseIdentifier;
 	private String genderCode;
-	private String EthnicID;
+	private String EthnicID; //
 	private String SexeCode;
 	private String Name;
 	private Date Validitytime;
@@ -25,7 +25,7 @@ public class Person {
 	private Date Createtime;
 	private Date Modifytime;
 	private Adress adress;
-	
+
 	/**
 	 * @param BirthMonth
 	 * @param BirthYear
@@ -42,7 +42,10 @@ public class Person {
 	 * @param Modifytime
 	 * @param adress
 	 */
-	public Person(int BirthMonth,	
+
+	
+	public Person(
+			int BirthMonth,
 			int BirthYear,
 			int BirthDay,
 			String identifierSource,
@@ -55,10 +58,9 @@ public class Person {
 			boolean DeathIndicator,
 			Date Createtime,
 			Date Modifytime,Adress adress) {
-		// TODO Auto-generated constructor stub
 
 		this.setBirthMonth(BirthMonth);
-		this.setBirthYear(BirthYear); 
+		this.setBirthYear(BirthYear);
 		this.setBirthDay(BirthDay);
 		this.setIdentifierSource(identifierSource);
 		this.setDataBaseIdentifier(DataBaseIdentifier);
@@ -71,15 +73,21 @@ public class Person {
 		this.setCreatetime(Createtime);
 		this.setModifytime(Modifytime);
 		this.setAdress(adress);
-
-
 	}
 
 
+	/**
+	 * 
+	 */
+	public Person() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 
 	private java.lang.Object __equalsCalc = null;
 
+	@Override
 	public synchronized boolean equals(java.lang.Object obj) {
 		if (!(obj instanceof Person)) return false;
 		Person other = (Person) obj;
@@ -89,53 +97,53 @@ public class Person {
 		}
 		__equalsCalc = obj;
 		boolean _equals;
-		_equals = true && 
+		_equals = true &&
 				this.BirthMonth==other.getBirthMonth() &&
 
 				this.BirthYear==other.getBirthYear() &&
 
 				this.BirthDay==other.getBirthDay() &&
-				
-						((this.adress==null && other.getAdress()==null) || 
+
+						((this.adress==null && other.getAdress()==null) ||
 								(this.adress!=null &&
 								this.adress.equals(other.getAdress())))  &&
 
-				((this.identifierSource==null && other.getIdentifierSource()==null) || 
+				((this.identifierSource==null && other.getIdentifierSource()==null) ||
 						(this.identifierSource!=null &&
 						this.identifierSource.equals(other.getIdentifierSource())))  &&
 
-				((this.DataBaseIdentifier==null && other.getDataBaseIdentifier()==null) || 
+				((this.DataBaseIdentifier==null && other.getDataBaseIdentifier()==null) ||
 						(this.DataBaseIdentifier!=null &&
 						this.DataBaseIdentifier.equals(other.getDataBaseIdentifier())))  &&
 
-				((this.genderCode==null && other.getGenderCode()==null) || 
+				((this.genderCode==null && other.getGenderCode()==null) ||
 						(this.genderCode!=null &&
 						this.genderCode.equals(other.getGenderCode())))  &&
 
-				((this.EthnicID==null && other.getEthnicID()==null) || 
+				((this.EthnicID==null && other.getEthnicID()==null) ||
 						(this.EthnicID!=null &&
 						this.EthnicID.equals(other.getEthnicID())))  &&
 
-				((this.SexeCode==null && other.getSexeCode()==null) || 
+				((this.SexeCode==null && other.getSexeCode()==null) ||
 						(this.SexeCode!=null &&
 						this.SexeCode.equals(other.getSexeCode())))  &&
 
-				((this.Name==null && other.getName()==null) || 
+				((this.Name==null && other.getName()==null) ||
 						(this.Name!=null &&
 						this.Name.equals(other.getName())))  &&
 
-				((this.Validitytime==null && other.getValiditytime()==null) || 
+				((this.Validitytime==null && other.getValiditytime()==null) ||
 						(this.Validitytime!=null &&
 						this.Validitytime.equals(other.getValiditytime())))  &&
 
 
 				this.DeathIndicator ==other.isDeathIndicator()  &&
 
-				((this.Createtime==null && other.getCreatetime()==null) || 
+				((this.Createtime==null && other.getCreatetime()==null) ||
 						(this.Createtime!=null &&
 						this.Createtime.equals(other.getCreatetime())))  &&
 
-				((this.Modifytime==null && other.getModifytime()==null) || 
+				((this.Modifytime==null && other.getModifytime()==null) ||
 						(this.Modifytime!=null &&
 						this.Modifytime.equals(other.getModifytime())));
 
@@ -299,6 +307,7 @@ public class Person {
 
 
 	private boolean __hashCodeCalc = false;
+	@Override
 	public synchronized int hashCode() {
 		if (__hashCodeCalc) {
 			return 0;
@@ -317,7 +326,7 @@ public class Person {
 		if (getAdress() != null) {
 			_hashCode += getAdress().hashCode();
 		}
-		
+
 		if (getGenderCode() != null) {
 			_hashCode += getGenderCode().hashCode();
 		}

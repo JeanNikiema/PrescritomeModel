@@ -4,7 +4,7 @@ import java.util.Date;
 
 /**
  * @author Jean Nikiema
- * 
+ *
  */
 public class Encounter {
 
@@ -39,8 +39,14 @@ public class Encounter {
 		this.setCreatetime(createtime);
 		this.setModifytime(modifytime);
 	}
+	
+	// constructeur par defaut
+	public Encounter() {
+		super() ;
+	}
 	private java.lang.Object __equalsCalc = null;
 
+	@Override
 	public synchronized boolean equals(java.lang.Object obj) {
 		if (!(obj instanceof Encounter)) return false;
 		Encounter other = (Encounter) obj;
@@ -50,35 +56,35 @@ public class Encounter {
 		}
 		__equalsCalc = obj;
 		boolean _equals;
-		_equals = true && 
+		_equals = true &&
 
 
 
-				((this.FacilityID==null && other.getFacilityID()==null) || 
+				((this.FacilityID==null && other.getFacilityID()==null) ||
 						(this.FacilityID!=null &&
 						this.FacilityID.equals(other.getFacilityID())))  &&
 
-				((this.EncounterID==null && other.getEncounterID()==null) || 
+				((this.EncounterID==null && other.getEncounterID()==null) ||
 						(this.EncounterID!=null &&
 						this.EncounterID.equals(other.getEncounterID())))  &&
 
-				((this.ProviderID==null && other.getProviderID()==null) || 
+				((this.ProviderID==null && other.getProviderID()==null) ||
 						(this.ProviderID!=null &&
 						this.ProviderID.equals(other.getProviderID())))  &&
 
-				((this.PatientID==null && other.getPatientID()==null) || 
+				((this.PatientID==null && other.getPatientID()==null) ||
 						(this.PatientID!=null &&
 						this.PatientID.equals(other.getPatientID())))  &&
 
-				((this.Validitytime==null && other.getValiditytime()==null) || 
+				((this.Validitytime==null && other.getValiditytime()==null) ||
 						(this.Validitytime!=null &&
 						this.Validitytime.equals(other.getValiditytime())))  &&
 
-				((this.Modifytime==null && other.getModifytime()==null) || 
+				((this.Modifytime==null && other.getModifytime()==null) ||
 						(this.Modifytime!=null &&
 						this.Modifytime.equals(other.getModifytime())))  &&
 
-				((this.Createtime==null && other.getCreatetime()==null) || 
+				((this.Createtime==null && other.getCreatetime()==null) ||
 						(this.Createtime!=null &&
 						this.Createtime.equals(other.getCreatetime())));
 
@@ -88,6 +94,7 @@ public class Encounter {
 
 	private boolean __hashCodeCalc = false;
 
+	@Override
 	public synchronized int hashCode() {
 		if (__hashCodeCalc) {
 			return 0;

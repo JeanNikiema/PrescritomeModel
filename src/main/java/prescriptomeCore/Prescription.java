@@ -6,20 +6,23 @@ import java.util.Set;
 import org.eclipse.rdf4j.model.IRI;
 /**
  * @author Jean Nikiema
- * 
+ *
  */
 public class Prescription extends DrugEncounter {
 
 
-	public Prescription(String encounterID, String providerID, String patientID, String facilityID, Date validitytime,
+	public Prescription(
+			String encounterID, String providerID, String patientID, String facilityID, Date validitytime,
 			Date createtime, Date modifytime, IRI drugIDDataSource, IRI drugIDOCRx, Stay stayExposure,
 			Set<IRI> drugIDTherapeuticIndication, IRI routeOfAdministrationSource, IRI routeOfAdministrationOCRx,
 			IRI encounterUnitOfPresentation) {
+		
 		super(encounterID, providerID, patientID, facilityID, validitytime, createtime, modifytime, drugIDDataSource,
 				drugIDOCRx, stayExposure, drugIDTherapeuticIndication, routeOfAdministrationSource, routeOfAdministrationOCRx,
 				encounterUnitOfPresentation);
 		// TODO Auto-generated constructor stub
 	}
+	
 	// statut of the prescription if it is a refill
 	private int refills;
 	//order date
@@ -71,6 +74,7 @@ public class Prescription extends DrugEncounter {
 	 * @param dosefrequenceQuantity
 	 * @param doseFrequenceUnit
 	 */
+	
 	public Prescription(String encounterID, String providerID, String patientID, String facilityID, Date validitytime,
 			Date createtime, Date modifytime, IRI drugIDDataSource, IRI drugIDOCRx, Stay stayExposure,
 			Set<IRI> drugIDTherapeuticIndication, IRI routeOfAdministrationSource, IRI routeOfAdministrationOCRx,
@@ -94,6 +98,7 @@ public class Prescription extends DrugEncounter {
 
 	private java.lang.Object __equalsCalc = null;
 
+	@Override
 	public synchronized boolean equals(java.lang.Object obj) {
 		if (!(obj instanceof Prescription)) return false;
 		Prescription other = (Prescription) obj;
@@ -103,16 +108,16 @@ public class Prescription extends DrugEncounter {
 		}
 		__equalsCalc = obj;
 		boolean _equals;
-		_equals = true && 
-				((this.getStayExposure()==null && other.getStayExposure()==null) || 
+		_equals = true &&
+				((this.getStayExposure()==null && other.getStayExposure()==null) ||
 						(this.getStayExposure()!=null &&
 						this.getStayExposure().equals(other.getStayExposure())))  &&
 
-//				((this.getEncounterPrescription()==null && other.getEncounterPrescription()==null) || 
+//				((this.getEncounterPrescription()==null && other.getEncounterPrescription()==null) ||
 //						(this.getEncounterPrescription()!=null &&
 //						this.getEncounterPrescription().equals(other.getEncounterPrescription())))  &&
 
-				((this.getDoseFrequenceUnit()==null && other.getDoseFrequenceUnit()==null) || 
+				((this.getDoseFrequenceUnit()==null && other.getDoseFrequenceUnit()==null) ||
 						(this.getDoseFrequenceUnit()!=null &&
 						this.getDoseFrequenceUnit().equals(other.getDoseFrequenceUnit())))  &&
 
@@ -120,15 +125,15 @@ public class Prescription extends DrugEncounter {
 				(this.getDosefrequenceQuantity()==other.getDosefrequenceQuantity())  &&
 
 
-				((this.getRouteOfAdministrationSource()==null && other.getRouteOfAdministrationSource()==null) || 
+				((this.getRouteOfAdministrationSource()==null && other.getRouteOfAdministrationSource()==null) ||
 						(this.getRouteOfAdministrationSource()!=null &&
 						this.getRouteOfAdministrationSource().equals(other.getRouteOfAdministrationSource())))  &&
 
-				((this.getRouteOfAdministrationOCRx()==null && other.getRouteOfAdministrationOCRx()==null) || 
+				((this.getRouteOfAdministrationOCRx()==null && other.getRouteOfAdministrationOCRx()==null) ||
 						(this.getRouteOfAdministrationOCRx()!=null &&
 						this.getRouteOfAdministrationOCRx().equals(other.getRouteOfAdministrationOCRx())))  &&
 
-				((this.getEncounterUnitOfPresentation()==null && other.getEncounterUnitOfPresentation()==null) || 
+				((this.getEncounterUnitOfPresentation()==null && other.getEncounterUnitOfPresentation()==null) ||
 						(this.getEncounterUnitOfPresentation()!=null &&
 						this.getEncounterUnitOfPresentation().equals(other.getEncounterUnitOfPresentation())))  &&
 
@@ -136,59 +141,59 @@ public class Prescription extends DrugEncounter {
 
 				(this.getRefills()==other.getRefills())  &&
 
-				((this.getOrderedDate()==null && other.getOrderedDate()==null) || 
+				((this.getOrderedDate()==null && other.getOrderedDate()==null) ||
 						(this.getOrderedDate()!=null &&
 						this.getOrderedDate().equals(other.getOrderedDate())))  &&
 
 				(this.getOrderedDose()==other.getOrderedDose())  &&
 
-				((this.getEffectiveStartDate()==null && other.getEffectiveStartDate()==null) || 
+				((this.getEffectiveStartDate()==null && other.getEffectiveStartDate()==null) ||
 						(this.getEffectiveStartDate()!=null &&
 						this.getEffectiveStartDate().equals(other.getEffectiveStartDate())))  &&
 
-				((this.getEffectiveEndDate()==null && other.getEffectiveEndDate()==null) || 
+				((this.getEffectiveEndDate()==null && other.getEffectiveEndDate()==null) ||
 						(this.getEffectiveEndDate()!=null &&
 						this.getEffectiveEndDate().equals(other.getEffectiveEndDate())))  &&
 
 				(this.getOrderQuantity()==other.getOrderQuantity())  &&
 
-				((this.getDrugIDDataSource()==null && other.getDrugIDDataSource()==null) || 
+				((this.getDrugIDDataSource()==null && other.getDrugIDDataSource()==null) ||
 						(this.getDrugIDDataSource()!=null &&
 						this.getDrugIDDataSource().equals(other.getDrugIDDataSource())))  &&
 
-				((this.getDrugIDOCRx()==null && other.getDrugIDOCRx()==null) || 
+				((this.getDrugIDOCRx()==null && other.getDrugIDOCRx()==null) ||
 						(this.getDrugIDOCRx()!=null &&
 						this.getDrugIDOCRx().equals(other.getDrugIDOCRx())))  &&
 
-				((this.getDrugIDTherapeuticIndication()==null && other.getDrugIDTherapeuticIndication()==null) || 
+				((this.getDrugIDTherapeuticIndication()==null && other.getDrugIDTherapeuticIndication()==null) ||
 						(this.getDrugIDTherapeuticIndication()!=null &&
 						this.getDrugIDTherapeuticIndication().equals(other.getDrugIDTherapeuticIndication())))  &&
 
-				((this.getFacilityID()==null && other.getFacilityID()==null) || 
+				((this.getFacilityID()==null && other.getFacilityID()==null) ||
 						(this.getFacilityID()!=null &&
 						this.getFacilityID().equals(other.getFacilityID())))  &&
 
-				((this.getEncounterID()==null && other.getEncounterID()==null) || 
+				((this.getEncounterID()==null && other.getEncounterID()==null) ||
 						(this.getEncounterID()!=null &&
 						this.getEncounterID().equals(other.getEncounterID())))  &&
 
-				((this.getProviderID()==null && other.getProviderID()==null) || 
+				((this.getProviderID()==null && other.getProviderID()==null) ||
 						(this.getProviderID()!=null &&
 						this.getProviderID().equals(other.getProviderID())))  &&
 
-				((this.getPatientID()==null && other.getPatientID()==null) || 
+				((this.getPatientID()==null && other.getPatientID()==null) ||
 						(this.getPatientID()!=null &&
 						this.getPatientID().equals(other.getPatientID())))  &&
 
-				((this.getValiditytime()==null && other.getValiditytime()==null) || 
+				((this.getValiditytime()==null && other.getValiditytime()==null) ||
 						(this.getValiditytime()!=null &&
 						this.getValiditytime().equals(other.getValiditytime())))  &&
 
-				((this.getModifytime()==null && other.getModifytime()==null) || 
+				((this.getModifytime()==null && other.getModifytime()==null) ||
 						(this.getModifytime()!=null &&
 						this.getModifytime().equals(other.getModifytime())))  &&
 
-				((this.getCreatetime()==null && other.getCreatetime()==null) || 
+				((this.getCreatetime()==null && other.getCreatetime()==null) ||
 						(this.getCreatetime()!=null &&
 						this.getCreatetime().equals(other.getCreatetime())));
 
@@ -198,6 +203,7 @@ public class Prescription extends DrugEncounter {
 
 	private boolean __hashCodeCalc = false;
 
+	@Override
 	public synchronized int hashCode() {
 		if (__hashCodeCalc) {
 			return 0;

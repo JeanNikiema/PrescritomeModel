@@ -1,10 +1,11 @@
 package prescriptomeCore;
 
 import java.util.Date;
+
 import org.eclipse.rdf4j.model.IRI;
 /**
  * @author Jean Nikiema
- * 
+ *
  */
 public class Diagnosis {
 
@@ -41,6 +42,20 @@ public class Diagnosis {
 		this.Createtime = createtime;
 		this.Modifytime = modifytime;
 	}
+	
+	
+	
+
+	/**
+	 * 
+	 */
+	public Diagnosis() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 
 	public String getDiagnosisID() {
 		return DiagnosisID;
@@ -131,6 +146,7 @@ public class Diagnosis {
 
 	private java.lang.Object __equalsCalc = null;
 
+	@Override
 	public synchronized boolean equals(java.lang.Object obj) {
 		if (!(obj instanceof Diagnosis)) return false;
 		Diagnosis other = (Diagnosis) obj;
@@ -140,25 +156,25 @@ public class Diagnosis {
 		}
 		__equalsCalc = obj;
 		boolean _equals;
-		_equals = true && 
+		_equals = true &&
 
 
 
-				((this.getDiagnosisID()==null && other.getDiagnosisID()==null) || 
+				((this.getDiagnosisID()==null && other.getDiagnosisID()==null) ||
 						(this.getDiagnosisID()!=null &&
 						this.getDiagnosisID().equals(other.getDiagnosisID())))  &&
 
-				((this.getOriginalDiagnosisCode()==null && other.getOriginalDiagnosisCode()==null) || 
+				((this.getOriginalDiagnosisCode()==null && other.getOriginalDiagnosisCode()==null) ||
 						(this.getOriginalDiagnosisCode()!=null &&
 						this.getOriginalDiagnosisCode().equals(other.getOriginalDiagnosisCode())))  &&
 
 
-				((this.getDiagnosisCode()==null && other.getDiagnosisCode()==null) || 
+				((this.getDiagnosisCode()==null && other.getDiagnosisCode()==null) ||
 						(this.getDiagnosisCode()!=null &&
 						this.getDiagnosisCode().equals(other.getDiagnosisCode())))  &&
 
 
-				((this.getReportedDate()==null && other.getReportedDate()==null) || 
+				((this.getReportedDate()==null && other.getReportedDate()==null) ||
 						(this.getReportedDate()!=null &&
 						this.getReportedDate().equals(other.getReportedDate())))  &&
 
@@ -167,27 +183,27 @@ public class Diagnosis {
 				(this.isPresentAtEncounter()==other.isPresentAtEncounter())  &&
 
 
-				((this.EncounterID==null && other.getEncounterID()==null) || 
+				((this.EncounterID==null && other.getEncounterID()==null) ||
 						(this.EncounterID!=null &&
 						this.EncounterID.equals(other.getEncounterID())))  &&
 
-				((this.ProviderID==null && other.getProviderID()==null) || 
+				((this.ProviderID==null && other.getProviderID()==null) ||
 						(this.ProviderID!=null &&
 						this.ProviderID.equals(other.getProviderID())))  &&
 
-				((this.PatientID==null && other.getPatientID()==null) || 
+				((this.PatientID==null && other.getPatientID()==null) ||
 						(this.PatientID!=null &&
 						this.PatientID.equals(other.getPatientID())))  &&
 
-				((this.Validitytime==null && other.getValiditytime()==null) || 
+				((this.Validitytime==null && other.getValiditytime()==null) ||
 						(this.Validitytime!=null &&
 						this.Validitytime.equals(other.getValiditytime())))  &&
 
-				((this.Modifytime==null && other.getModifytime()==null) || 
+				((this.Modifytime==null && other.getModifytime()==null) ||
 						(this.Modifytime!=null &&
 						this.Modifytime.equals(other.getModifytime())))  &&
 
-				((this.Createtime==null && other.getCreatetime()==null) || 
+				((this.Createtime==null && other.getCreatetime()==null) ||
 						(this.Createtime!=null &&
 						this.Createtime.equals(other.getCreatetime())));
 
@@ -197,6 +213,7 @@ public class Diagnosis {
 
 	private boolean __hashCodeCalc = false;
 
+	@Override
 	public synchronized int hashCode() {
 		if (__hashCodeCalc) {
 			return 0;

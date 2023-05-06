@@ -1,0 +1,532 @@
+<Bundle xmlns="http://hl7.org/fhir">
+   <type value="transaction"></type>
+   <entry>
+      <fullUrl value="urn:uuid:f0efdbcf-a81f-4201-a71f-e7db6d19856e"></fullUrl>
+      <resource>
+         <Patient xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-person/StructureDefinition/Patient"></profile>
+            </meta>
+            <text>
+               <status value="generated"></status>
+               <div xmlns="http://www.w3.org/1999/xhtml"> 
+                  <div class="hapiHeaderText">10595272 
+                     <b>PATIENT_10595272 </b> 
+                  </div> 
+                  <table class="hapiPropertyTable"> 
+                     <tbody> 
+                        <tr> 
+                           <td>Identifier</td> 
+                           <td>10595272</td> 
+                        </tr> 
+                        <tr> 
+                           <td>Address</td> 
+                           <td> 
+                              <span>Musterstrasse 1 </span> 
+                              <br></br> 
+                              <span>Berlin </span> 
+                              <span>DE </span> 
+                           </td> 
+                        </tr> 
+                        <tr> 
+                           <td>Date of birth</td> 
+                           <td> 
+                              <span></span> 
+                           </td> 
+                        </tr> 
+                     </tbody> 
+                  </table> 
+               </div>
+            </text>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="MR"></code>
+                  </coding>
+               </type>
+               <system value="http://www.imi-mimic.de/patients"></system>
+               <value value="10595272"></value>
+            </identifier>
+            <name>
+               <use value="official"></use>
+               <family value="Patient_10595272">
+                  <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
+                     <valueString value="Patient_10595272"></valueString>
+                  </extension>
+               </family>
+               <given value="10595272"></given>
+            </name>
+            <gender value="female"></gender>
+            <birthDate>
+               <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                  <valueCode value="masked"></valueCode>
+               </extension>
+            </birthDate>
+            <deceasedBoolean value="false"></deceasedBoolean>
+            <address>
+               <type value="postal"></type>
+               <line value="Musterstrasse 1">
+                  <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
+                     <valueString value="Musterstrasse"></valueString>
+                  </extension>
+                  <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
+                     <valueString value="1"></valueString>
+                  </extension>
+               </line>
+               <city value="Berlin"></city>
+               <postalCode value="12043"></postalCode>
+               <country value="DE"></country>
+            </address>
+            <maritalStatus>
+               <coding>
+                  <system value="http://hl7.org/fhir/ValueSet/marital-status"></system>
+                  <code value="S"></code>
+                  <display value="Never Married"></display>
+               </coding>
+            </maritalStatus>
+         </Patient>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Patient"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/patients|10595272"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:bf8dccf5-6d32-4315-b6de-31d0f865dd85"></fullUrl>
+      <resource>
+         <Organization xmlns="http://hl7.org/fhir">
+            <identifier>
+               <system value="http://www.imi-mimic.de"></system>
+               <value value="hospital"></value>
+            </identifier>
+            <type>
+               <coding>
+                  <system value="http://hl7.org/fhir/organization-type"></system>
+                  <code value="prov"></code>
+                  <display value="Healthcare Provider"></display>
+               </coding>
+            </type>
+            <name value="IMI-Mimic Hospital"></name>
+         </Organization>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Organization"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de|hospital"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:9329769f-b474-4684-9fa7-163a46b71676"></fullUrl>
+      <resource>
+         <Condition xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"></profile>
+            </meta>
+            <identifier>
+               <system value="http://www.imi-mimic.de/diags"></system>
+               <value value="null_4"></value>
+            </identifier>
+            <subject>
+               <reference value="10595272"></reference>
+            </subject>
+            <recordedDate>
+               <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                  <valueCode value="unknown"></valueCode>
+               </extension>
+            </recordedDate>
+         </Condition>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Condition"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/diags|null_4"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:3e5ae1c9-03fe-49c4-b945-71c3572c6348"></fullUrl>
+      <resource>
+         <Condition xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"></profile>
+            </meta>
+            <identifier>
+               <system value="http://www.imi-mimic.de/diags"></system>
+               <value value="null_3"></value>
+            </identifier>
+            <subject>
+               <reference value="10595272"></reference>
+            </subject>
+            <recordedDate>
+               <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                  <valueCode value="unknown"></valueCode>
+               </extension>
+            </recordedDate>
+         </Condition>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Condition"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/diags|null_3"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:a4223bce-9fc7-44b8-8593-a1fd3313a68b"></fullUrl>
+      <resource>
+         <Condition xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"></profile>
+            </meta>
+            <identifier>
+               <system value="http://www.imi-mimic.de/diags"></system>
+               <value value="null_2"></value>
+            </identifier>
+            <subject>
+               <reference value="10595272"></reference>
+            </subject>
+            <recordedDate>
+               <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                  <valueCode value="unknown"></valueCode>
+               </extension>
+            </recordedDate>
+         </Condition>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Condition"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/diags|null_2"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:a76beb95-b963-44ea-86e1-ee17c9f98f69"></fullUrl>
+      <resource>
+         <Condition xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"></profile>
+            </meta>
+            <identifier>
+               <system value="http://www.imi-mimic.de/diags"></system>
+               <value value="null_1"></value>
+            </identifier>
+            <subject>
+               <reference value="10595272"></reference>
+            </subject>
+            <recordedDate>
+               <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                  <valueCode value="unknown"></valueCode>
+               </extension>
+            </recordedDate>
+         </Condition>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Condition"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/diags|null_1"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:58e3da60-b9ec-4caa-9504-06656307678d"></fullUrl>
+      <resource>
+         <Location xmlns="http://hl7.org/fhir">
+            <identifier>
+               <system value="http://www.imi-mimic.de/location/Emergency_Department_Observation"></system>
+               <value value="Emergency Department Observation"></value>
+            </identifier>
+            <name value="Emergency Department Observation"></name>
+            <type>
+               <coding>
+                  <system value="http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType"></system>
+                  <code value="_ServiceDeliveryLocationRoleType"></code>
+                  <display value="ServiceDeliveryLocationRoleType"></display>
+               </coding>
+            </type>
+            <physicalType>
+               <coding>
+                  <system value="http://terminology.hl7.org/CodeSystem/location-physical-type"></system>
+                  <code value="wa"></code>
+                  <display value="Ward"></display>
+               </coding>
+            </physicalType>
+            <managingOrganization>
+               <reference value="urn:uuid:fd113fca-1a7d-4241-acfc-17234d783fd2"></reference>
+            </managingOrganization>
+         </Location>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Location"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/location/Emergency_Department_Observation|Emergency Department Observation"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:3392a69b-0800-45d9-805b-e660b4bd2042"></fullUrl>
+      <resource>
+         <Encounter xmlns="http://hl7.org/fhir">
+            <status value="finished"></status>
+            <class>
+               <system value="https://www.medizininformatik-initiative.de/fhir/core/CodeSystem/EncounterClassAdditionsDE"></system>
+               <code value="_ActEncounterCode"></code>
+               <display value="ActEncounterCode"></display>
+            </class>
+            <period>
+               <start value="2168-04-25T00:00:00+00:00"></start>
+               <end value="2168-04-25T00:00:00+00:00"></end>
+            </period>
+            <location>
+               <location>
+                  <reference value="urn:uuid:58e3da60-b9ec-4caa-9504-06656307678d"></reference>
+               </location>
+               <status value="completed"></status>
+               <physicalType>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/location-physical-type"></system>
+                     <code value="wa"></code>
+                     <display value="Ward"></display>
+                  </coding>
+               </physicalType>
+               <period>
+                  <start value="2168-04-25T00:00:00+00:00"></start>
+                  <end value="2168-04-25T00:00:00+00:00"></end>
+               </period>
+            </location>
+            <serviceProvider>
+               <reference value="urn:uuid:fd113fca-1a7d-4241-acfc-17234d783fd2"></reference>
+            </serviceProvider>
+            <partOf>
+               <reference value="urn:uuid:3beb0884-773e-41dc-876a-3cc6d44a6d78"></reference>
+            </partOf>
+         </Encounter>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Encounter"></url>
+         <ifNoneExist value="identifier=null|null"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:ccfdaf43-b92d-4f92-b49d-732e57756c95"></fullUrl>
+      <resource>
+         <Location xmlns="http://hl7.org/fhir">
+            <identifier>
+               <system value="http://www.imi-mimic.de/location/Emergency_Department"></system>
+               <value value="Emergency Department"></value>
+            </identifier>
+            <name value="Emergency Department"></name>
+            <type>
+               <coding>
+                  <system value="http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType"></system>
+                  <code value="_ServiceDeliveryLocationRoleType"></code>
+                  <display value="ServiceDeliveryLocationRoleType"></display>
+               </coding>
+            </type>
+            <physicalType>
+               <coding>
+                  <system value="http://terminology.hl7.org/CodeSystem/location-physical-type"></system>
+                  <code value="wa"></code>
+                  <display value="Ward"></display>
+               </coding>
+            </physicalType>
+            <managingOrganization>
+               <reference value="urn:uuid:16ae1b9a-4c9e-4766-a139-cd25022e0aa0"></reference>
+            </managingOrganization>
+         </Location>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Location"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/location/Emergency_Department|Emergency Department"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:4e7995f3-90b0-4ad3-8dfe-d3093f956ba2"></fullUrl>
+      <resource>
+         <Encounter xmlns="http://hl7.org/fhir">
+            <status value="finished"></status>
+            <class>
+               <system value="https://www.medizininformatik-initiative.de/fhir/core/CodeSystem/EncounterClassAdditionsDE"></system>
+               <code value="_ActEncounterCode"></code>
+               <display value="ActEncounterCode"></display>
+            </class>
+            <period>
+               <start value="2168-04-25T00:00:00+00:00"></start>
+               <end value="2168-04-25T00:00:00+00:00"></end>
+            </period>
+            <location>
+               <location>
+                  <reference value="urn:uuid:ccfdaf43-b92d-4f92-b49d-732e57756c95"></reference>
+               </location>
+               <status value="completed"></status>
+               <physicalType>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/location-physical-type"></system>
+                     <code value="wa"></code>
+                     <display value="Ward"></display>
+                  </coding>
+               </physicalType>
+               <period>
+                  <start value="2168-04-25T00:00:00+00:00"></start>
+                  <end value="2168-04-25T00:00:00+00:00"></end>
+               </period>
+            </location>
+            <serviceProvider>
+               <reference value="urn:uuid:16ae1b9a-4c9e-4766-a139-cd25022e0aa0"></reference>
+            </serviceProvider>
+            <partOf>
+               <reference value="urn:uuid:3beb0884-773e-41dc-876a-3cc6d44a6d78"></reference>
+            </partOf>
+         </Encounter>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Encounter"></url>
+         <ifNoneExist value="identifier=null|null"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:9c58d650-cf9b-4fb9-b921-4cd6761183b4"></fullUrl>
+      <resource>
+         <Location xmlns="http://hl7.org/fhir">
+            <identifier>
+               <system value="http://www.imi-mimic.de/location/Unknown"></system>
+               <value value="Unknown"></value>
+            </identifier>
+            <name value="Unknown"></name>
+            <type>
+               <coding>
+                  <system value="http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType"></system>
+                  <code value="_ServiceDeliveryLocationRoleType"></code>
+                  <display value="ServiceDeliveryLocationRoleType"></display>
+               </coding>
+            </type>
+            <physicalType>
+               <coding>
+                  <system value="http://terminology.hl7.org/CodeSystem/location-physical-type"></system>
+                  <code value="wa"></code>
+                  <display value="Ward"></display>
+               </coding>
+            </physicalType>
+            <managingOrganization>
+               <reference value="urn:uuid:7db6d84d-c544-44b0-8555-12c77b7ea32b"></reference>
+            </managingOrganization>
+         </Location>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Location"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/location/Unknown|Unknown"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:dbd3d5a6-c2b4-4d48-a6b4-6175ddbb6214"></fullUrl>
+      <resource>
+         <Encounter xmlns="http://hl7.org/fhir">
+            <status value="finished"></status>
+            <class>
+               <system value="https://www.medizininformatik-initiative.de/fhir/core/CodeSystem/EncounterClassAdditionsDE"></system>
+               <code value="_ActEncounterCode"></code>
+               <display value="ActEncounterCode"></display>
+            </class>
+            <period>
+               <start value="2168-04-25T00:00:00+00:00"></start>
+            </period>
+            <location>
+               <location>
+                  <reference value="urn:uuid:9c58d650-cf9b-4fb9-b921-4cd6761183b4"></reference>
+               </location>
+               <status value="completed"></status>
+               <physicalType>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/location-physical-type"></system>
+                     <code value="wa"></code>
+                     <display value="Ward"></display>
+                  </coding>
+               </physicalType>
+               <period>
+                  <start value="2168-04-25T00:00:00+00:00"></start>
+               </period>
+            </location>
+            <serviceProvider>
+               <reference value="urn:uuid:7db6d84d-c544-44b0-8555-12c77b7ea32b"></reference>
+            </serviceProvider>
+            <partOf>
+               <reference value="urn:uuid:3beb0884-773e-41dc-876a-3cc6d44a6d78"></reference>
+            </partOf>
+         </Encounter>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Encounter"></url>
+         <ifNoneExist value="identifier=null|null"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:3beb0884-773e-41dc-876a-3cc6d44a6d78"></fullUrl>
+      <resource>
+         <Encounter xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-fall/StructureDefinition/KontaktGesundheitseinrichtung"></profile>
+            </meta>
+            <identifier>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="VN"></code>
+                  </coding>
+               </type>
+               <system value="http://www.imi-mimic.de/encs"></system>
+               <value value="23009302"></value>
+            </identifier>
+            <status value="finished"></status>
+            <class>
+               <system value="https://www.medizininformatik-initiative.de/fhir/core/ValueSet/EncounterClassDE"></system>
+               <code value="N"></code>
+               <display value="Segment nicht anwendbar"></display>
+            </class>
+            <period>
+               <start value="2168-04-25T00:00:00+00:00"></start>
+               <end value="2168-04-25T00:00:00+00:00"></end>
+            </period>
+            <diagnosis>
+               <condition>
+                  <reference value="urn:uuid:9329769f-b474-4684-9fa7-163a46b71676"></reference>
+               </condition>
+               <rank value="4"></rank>
+            </diagnosis>
+            <diagnosis>
+               <condition>
+                  <reference value="urn:uuid:3e5ae1c9-03fe-49c4-b945-71c3572c6348"></reference>
+               </condition>
+               <rank value="3"></rank>
+            </diagnosis>
+            <diagnosis>
+               <condition>
+                  <reference value="urn:uuid:a4223bce-9fc7-44b8-8593-a1fd3313a68b"></reference>
+               </condition>
+               <rank value="2"></rank>
+            </diagnosis>
+            <diagnosis>
+               <condition>
+                  <reference value="urn:uuid:a76beb95-b963-44ea-86e1-ee17c9f98f69"></reference>
+               </condition>
+               <rank value="1"></rank>
+            </diagnosis>
+            <hospitalization>
+               <dischargeDisposition>
+                  <coding>
+                     <system value="https://www.medizininformatik-initiative.de/fhir/core/modul-fall/CodeSystem/Entlassungsgrund"></system>
+                     <code value="039"></code>
+                     <display value="Behandlung aus sonstigen Gruenden beendet, keine Angabe"></display>
+                  </coding>
+               </dischargeDisposition>
+            </hospitalization>
+         </Encounter>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Encounter"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/encs|23009302"></ifNoneExist>
+      </request>
+   </entry>
+</Bundle>

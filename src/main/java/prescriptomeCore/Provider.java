@@ -4,7 +4,7 @@ import java.util.Date;
 
 /**
  * @author Jean Nikiema
- * 
+ *
  */
 public class Provider extends Person{
 	private String ProviderRole;
@@ -45,17 +45,18 @@ public class Provider extends Person{
 		// TODO Auto-generated constructor stub
 
 		this.setProviderRole(ProviderRole);
-		this.setProviderID(ProviderID); 
+		this.setProviderID(ProviderID);
 		this.setProviderFacility(ProviderFacility);
 		this.setValiditytimeProvider(ValiditytimeProvider);
 		this.setCreatetimeProvider(CreatetimeProvider);
 		this.setModifytimeProvider(ModifytimeProvider);
-		
+
 	}
 
 
 	private java.lang.Object __equalsCalc = null;
 
+	@Override
 	public synchronized boolean equals(java.lang.Object obj) {
 		if (!(obj instanceof Provider)) return false;
 		Provider other = (Provider) obj;
@@ -65,18 +66,18 @@ public class Provider extends Person{
 		}
 		__equalsCalc = obj;
 		boolean _equals;
-		_equals = true && 
+		_equals = true &&
 
-				((this.getProviderRole()==null && other.getProviderRole()==null) || 
+				((this.getProviderRole()==null && other.getProviderRole()==null) ||
 						(this.getProviderRole()!=null &&
 						this.getProviderRole().equals(other.getProviderRole())))  &&
 
 
-				((this.getProviderID()==null && other.getProviderID()==null) || 
+				((this.getProviderID()==null && other.getProviderID()==null) ||
 						(this.getProviderID()!=null &&
 						this.getProviderID().equals(other.getProviderID())))  &&
 
-				((this.getProviderFacility()==null && other.getProviderFacility()==null) || 
+				((this.getProviderFacility()==null && other.getProviderFacility()==null) ||
 						(this.getProviderFacility()!=null &&
 						this.getProviderFacility().equals(other.getProviderFacility())))  &&
 
@@ -86,47 +87,47 @@ public class Provider extends Person{
 
 				this.getBirthDay()==other.getBirthDay() &&
 
-						((this.getAdress()==null && other.getAdress()==null) || 
+						((this.getAdress()==null && other.getAdress()==null) ||
 								(this.getAdress()!=null &&
 								this.getAdress().equals(other.getAdress())))  &&
 
-				((this.getIdentifierSource()==null && other.getIdentifierSource()==null) || 
+				((this.getIdentifierSource()==null && other.getIdentifierSource()==null) ||
 						(this.getIdentifierSource()!=null &&
 						this.getIdentifierSource().equals(other.getIdentifierSource())))  &&
 
-				((this.getDataBaseIdentifier()==null && other.getDataBaseIdentifier()==null) || 
+				((this.getDataBaseIdentifier()==null && other.getDataBaseIdentifier()==null) ||
 						(this.getDataBaseIdentifier()!=null &&
 						this.getDataBaseIdentifier().equals(other.getDataBaseIdentifier())))  &&
 
-				((this.getGenderCode()==null && other.getGenderCode()==null) || 
+				((this.getGenderCode()==null && other.getGenderCode()==null) ||
 						(this.getGenderCode()!=null &&
 						this.getGenderCode().equals(other.getGenderCode())))  &&
 
-				((this.getEthnicID()==null && other.getEthnicID()==null) || 
+				((this.getEthnicID()==null && other.getEthnicID()==null) ||
 						(this.getEthnicID()!=null &&
 						this.getEthnicID().equals(other.getEthnicID())))  &&
 
-				((this.getSexeCode()==null && other.getSexeCode()==null) || 
+				((this.getSexeCode()==null && other.getSexeCode()==null) ||
 						(this.getSexeCode()!=null &&
 						this.getSexeCode().equals(other.getSexeCode())))  &&
 
-				((this.getName()==null && other.getName()==null) || 
+				((this.getName()==null && other.getName()==null) ||
 						(this.getName()!=null &&
 						this.getName().equals(other.getName())))  &&
 
-				((this.getValiditytime()==null && other.getValiditytime()==null) || 
+				((this.getValiditytime()==null && other.getValiditytime()==null) ||
 						(this.getValiditytime()!=null &&
 						this.getValiditytime().equals(other.getValiditytime())))  &&
 
-				((this.getValiditytimeProvider()==null && other.getValiditytimeProvider()==null) || 
+				((this.getValiditytimeProvider()==null && other.getValiditytimeProvider()==null) ||
 						(this.getValiditytimeProvider()!=null &&
 						this.getValiditytimeProvider().equals(other.getValiditytimeProvider())))  &&
 
-				((this.getCreatetimeProvider()==null && other.getCreatetimeProvider()==null) || 
+				((this.getCreatetimeProvider()==null && other.getCreatetimeProvider()==null) ||
 						(this.getCreatetimeProvider()!=null &&
 						this.getCreatetimeProvider().equals(other.getCreatetimeProvider())))  &&
 
-				((this.getModifytimeProvider()==null && other.getModifytimeProvider()==null) || 
+				((this.getModifytimeProvider()==null && other.getModifytimeProvider()==null) ||
 						(this.getModifytimeProvider()!=null &&
 						this.getModifytimeProvider().equals(other.getModifytimeProvider())))  &&
 
@@ -134,11 +135,11 @@ public class Provider extends Person{
 
 				this.isDeathIndicator() ==other.isDeathIndicator()  &&
 
-				((this.getCreatetime()==null && other.getCreatetime()==null) || 
+				((this.getCreatetime()==null && other.getCreatetime()==null) ||
 						(this.getCreatetime()!=null &&
 						this.getCreatetime().equals(other.getCreatetime())))  &&
 
-				((this.getModifytime()==null && other.getModifytime()==null) || 
+				((this.getModifytime()==null && other.getModifytime()==null) ||
 						(this.getModifytime()!=null &&
 						this.getModifytime().equals(other.getModifytime())));
 
@@ -149,6 +150,7 @@ public class Provider extends Person{
 
 
 	private boolean __hashCodeCalc = false;
+	@Override
 	public synchronized int hashCode() {
 		if (__hashCodeCalc) {
 			return 0;
@@ -174,7 +176,7 @@ public class Provider extends Person{
 		if (getAdress() != null) {
 			_hashCode += getAdress().hashCode();
 		}
-		
+
 		if (this.getDataBaseIdentifier() != null) {
 			_hashCode += this.getDataBaseIdentifier().hashCode();
 		}
