@@ -58,27 +58,27 @@ public class XMLDataToJavaObject {
     	
 
     	for(int i=0; i<patientList.getLength(); i++) {
-    		Node node = (Node) patientList.item(i) ;
-    		Element elementPat = (Element) node ;
+    		Node patientNode = (Node) patientList.item(i) ;
+    		Element elementPat = (Element) patientNode ;
     		switch(i) {
     		case 6:
-    			family = node.getTextContent() ;
+    			family = patientNode.getTextContent() ;
     		  case 11:
-    			  identifiant = node.getTextContent() ;
+    			  identifiant = patientNode.getTextContent() ;
     		    break;
     		  case 15:
-    			  rue = node.getTextContent() ;
+    			  rue = patientNode.getTextContent() ;
     			 break;
     		  case 17:
-    			  city = node.getTextContent() ;
+    			  city = patientNode.getTextContent() ;
     		    break;
     		  case 18:
-    			  country = node.getTextContent() ;
+    			  country = patientNode.getTextContent() ;
     			 break;
     		  case 37:
     			  gender = elementPat.getAttribute("value");
-    		  case 40:
-    			  birthDate = patientList.item(40).getTextContent();
+    		  case 38:
+    			  birthDate = elementPat.getAttribute("value");
     		break;
     		  case 50:
     			  postalCode = elementPat.getAttribute("value") ;
@@ -90,8 +90,6 @@ public class XMLDataToJavaObject {
     		    // code block
     		}
     	}
-    	
-		
 		
 //    	System.out.println("\n********************* organisationList **********************") ;
     	String name = null ;

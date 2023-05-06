@@ -1,7 +1,7 @@
 <Bundle xmlns="http://hl7.org/fhir">
    <type value="transaction"></type>
    <entry>
-      <fullUrl value="urn:uuid:f0efdbcf-a81f-4201-a71f-e7db6d19856e"></fullUrl>
+      <fullUrl value="urn:uuid:e457828e-cf99-46aa-b75d-64d9e401f9cb"></fullUrl>
       <resource>
          <Patient xmlns="http://hl7.org/fhir">
             <meta>
@@ -10,14 +10,14 @@
             <text>
                <status value="generated"></status>
                <div xmlns="http://www.w3.org/1999/xhtml"> 
-                  <div class="hapiHeaderText">10595272 
-                     <b>PATIENT_10595272 </b> 
+                  <div class="hapiHeaderText">16774328 
+                     <b>PATIENT_16774328 </b> 
                   </div> 
                   <table class="hapiPropertyTable"> 
                      <tbody> 
                         <tr> 
                            <td>Identifier</td> 
-                           <td>10595272</td> 
+                           <td>16774328</td> 
                         </tr> 
                         <tr> 
                            <td>Address</td> 
@@ -31,7 +31,7 @@
                         <tr> 
                            <td>Date of birth</td> 
                            <td> 
-                              <span></span> 
+                              <span>01 January 2074</span> 
                            </td> 
                         </tr> 
                      </tbody> 
@@ -46,20 +46,20 @@
                      <code value="MR"></code>
                   </coding>
                </type>
-               <system value="http://www.imi-mimic.de/patients"></system>
-               <value value="10595272"></value>
+               <system value="http://www.umontreal.ca/patients"></system>
+               <value value="16774328"></value>
             </identifier>
             <name>
                <use value="official"></use>
-               <family value="Patient_10595272">
+               <family value="Patient_16774328">
                   <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
-                     <valueString value="Patient_10595272"></valueString>
+                     <valueString value="Patient_16774328"></valueString>
                   </extension>
                </family>
-               <given value="10595272"></given>
+               <given value="16774328"></given>
             </name>
             <gender value="female"></gender>
-            <birthDate>
+            <birthDate value="2074-01-01">
                <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
                   <valueCode value="masked"></valueCode>
                </extension>
@@ -82,8 +82,8 @@
             <maritalStatus>
                <coding>
                   <system value="http://hl7.org/fhir/ValueSet/marital-status"></system>
-                  <code value="S"></code>
-                  <display value="Never Married"></display>
+                  <code value="W"></code>
+                  <display value="Widowed"></display>
                </coding>
             </maritalStatus>
          </Patient>
@@ -91,11 +91,11 @@
       <request>
          <method value="POST"></method>
          <url value="Patient"></url>
-         <ifNoneExist value="identifier=http://www.imi-mimic.de/patients|10595272"></ifNoneExist>
+         <ifNoneExist value="identifier=http://www.umontreal.ca/patients|16774328"></ifNoneExist>
       </request>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:bf8dccf5-6d32-4315-b6de-31d0f865dd85"></fullUrl>
+      <fullUrl value="urn:uuid:8c60a56d-fdb3-4d49-b8ab-2d508e3c0fe8"></fullUrl>
       <resource>
          <Organization xmlns="http://hl7.org/fhir">
             <identifier>
@@ -119,7 +119,61 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:4bb2840b-a0b4-4a8e-831d-2da9af2914b6"></fullUrl>
+      <fullUrl value="urn:uuid:ceb73fe2-af52-41fa-a610-ec86749a88dc"></fullUrl>
+      <resource>
+         <Condition xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"></profile>
+            </meta>
+            <identifier>
+               <system value="http://www.imi-mimic.de/diags"></system>
+               <value value="null_6"></value>
+            </identifier>
+            <subject>
+               <reference value="16774328"></reference>
+            </subject>
+            <recordedDate>
+               <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                  <valueCode value="unknown"></valueCode>
+               </extension>
+            </recordedDate>
+         </Condition>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Condition"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/diags|null_6"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:6a5db0de-1a3e-4154-b3de-c702b27ac989"></fullUrl>
+      <resource>
+         <Condition xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"></profile>
+            </meta>
+            <identifier>
+               <system value="http://www.imi-mimic.de/diags"></system>
+               <value value="null_5"></value>
+            </identifier>
+            <subject>
+               <reference value="16774328"></reference>
+            </subject>
+            <recordedDate>
+               <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                  <valueCode value="unknown"></valueCode>
+               </extension>
+            </recordedDate>
+         </Condition>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Condition"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/diags|null_5"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:e4fb11b7-21af-4d1f-8010-49aa5ad6c1f3"></fullUrl>
       <resource>
          <Condition xmlns="http://hl7.org/fhir">
             <meta>
@@ -130,7 +184,7 @@
                <value value="null_4"></value>
             </identifier>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
             <recordedDate>
                <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
@@ -146,7 +200,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:dd715379-b595-44a9-b6cb-0f5ed7664a62"></fullUrl>
+      <fullUrl value="urn:uuid:4840f5fe-9351-4e42-8b27-2297ba3377ed"></fullUrl>
       <resource>
          <Condition xmlns="http://hl7.org/fhir">
             <meta>
@@ -157,7 +211,7 @@
                <value value="null_3"></value>
             </identifier>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
             <recordedDate>
                <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
@@ -173,7 +227,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:8997fc23-5b63-4f95-add0-e203421c283f"></fullUrl>
+      <fullUrl value="urn:uuid:22333704-c4c2-4412-9d0f-c0ede0741b98"></fullUrl>
       <resource>
          <Condition xmlns="http://hl7.org/fhir">
             <meta>
@@ -184,7 +238,7 @@
                <value value="null_2"></value>
             </identifier>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
             <recordedDate>
                <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
@@ -200,7 +254,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:4105cbf8-2796-44bf-a7ad-b44c12d93fdd"></fullUrl>
+      <fullUrl value="urn:uuid:c1f5cdea-7f9f-4126-a59d-73e7cf37e6ba"></fullUrl>
       <resource>
          <Condition xmlns="http://hl7.org/fhir">
             <meta>
@@ -211,7 +265,7 @@
                <value value="null_1"></value>
             </identifier>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
             <recordedDate>
                <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
@@ -227,84 +281,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:9c58d650-cf9b-4fb9-b921-4cd6761183b4"></fullUrl>
-      <resource>
-         <Location xmlns="http://hl7.org/fhir">
-            <identifier>
-               <system value="http://www.imi-mimic.de/location/Unknown"></system>
-               <value value="Unknown"></value>
-            </identifier>
-            <name value="Unknown"></name>
-            <type>
-               <coding>
-                  <system value="http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType"></system>
-                  <code value="_ServiceDeliveryLocationRoleType"></code>
-                  <display value="ServiceDeliveryLocationRoleType"></display>
-               </coding>
-            </type>
-            <physicalType>
-               <coding>
-                  <system value="http://terminology.hl7.org/CodeSystem/location-physical-type"></system>
-                  <code value="wa"></code>
-                  <display value="Ward"></display>
-               </coding>
-            </physicalType>
-            <managingOrganization>
-               <reference value="urn:uuid:7db6d84d-c544-44b0-8555-12c77b7ea32b"></reference>
-            </managingOrganization>
-         </Location>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="Location"></url>
-         <ifNoneExist value="identifier=http://www.imi-mimic.de/location/Unknown|Unknown"></ifNoneExist>
-      </request>
-   </entry>
-   <entry>
-      <fullUrl value="urn:uuid:af7a2bbe-9c8d-4b4d-a4b3-010477652210"></fullUrl>
-      <resource>
-         <Encounter xmlns="http://hl7.org/fhir">
-            <status value="finished"></status>
-            <class>
-               <system value="https://www.medizininformatik-initiative.de/fhir/core/CodeSystem/EncounterClassAdditionsDE"></system>
-               <code value="_ActEncounterCode"></code>
-               <display value="ActEncounterCode"></display>
-            </class>
-            <period>
-               <start value="2163-07-10T00:00:00+00:00"></start>
-            </period>
-            <location>
-               <location>
-                  <reference value="urn:uuid:9c58d650-cf9b-4fb9-b921-4cd6761183b4"></reference>
-               </location>
-               <status value="completed"></status>
-               <physicalType>
-                  <coding>
-                     <system value="http://terminology.hl7.org/CodeSystem/location-physical-type"></system>
-                     <code value="wa"></code>
-                     <display value="Ward"></display>
-                  </coding>
-               </physicalType>
-               <period>
-                  <start value="2163-07-10T00:00:00+00:00"></start>
-               </period>
-            </location>
-            <serviceProvider>
-               <reference value="urn:uuid:7db6d84d-c544-44b0-8555-12c77b7ea32b"></reference>
-            </serviceProvider>
-            <partOf>
-               <reference value="urn:uuid:6e35946b-8f2c-4c63-a049-3669808a12f7"></reference>
-            </partOf>
-         </Encounter>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="Encounter"></url>
-         <ifNoneExist value="identifier=null|null"></ifNoneExist>
-      </request>
-   </entry>
-   <entry>
-      <fullUrl value="urn:uuid:ccfdaf43-b92d-4f92-b49d-732e57756c95"></fullUrl>
+      <fullUrl value="urn:uuid:6444c5f1-f79f-4533-964b-6781bb4ba13d"></fullUrl>
       <resource>
          <Location xmlns="http://hl7.org/fhir">
             <identifier>
@@ -327,7 +304,7 @@
                </coding>
             </physicalType>
             <managingOrganization>
-               <reference value="urn:uuid:16ae1b9a-4c9e-4766-a139-cd25022e0aa0"></reference>
+               <reference value="urn:uuid:7ac33a09-da80-455a-befb-230b7252a16c"></reference>
             </managingOrganization>
          </Location>
       </resource>
@@ -338,7 +315,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:7259e542-cc9a-47ec-8322-6a5596f220a1"></fullUrl>
+      <fullUrl value="urn:uuid:5570cb6f-4426-4a8c-a033-8a559096fd72"></fullUrl>
       <resource>
          <Encounter xmlns="http://hl7.org/fhir">
             <status value="finished"></status>
@@ -348,12 +325,12 @@
                <display value="ActEncounterCode"></display>
             </class>
             <period>
-               <start value="2163-07-07T00:00:00+00:00"></start>
-               <end value="2163-07-07T00:00:00+00:00"></end>
+               <start value="2157-01-27T00:00:00+00:00"></start>
+               <end value="2157-01-27T00:00:00+00:00"></end>
             </period>
             <location>
                <location>
-                  <reference value="urn:uuid:ccfdaf43-b92d-4f92-b49d-732e57756c95"></reference>
+                  <reference value="urn:uuid:6444c5f1-f79f-4533-964b-6781bb4ba13d"></reference>
                </location>
                <status value="completed"></status>
                <physicalType>
@@ -364,15 +341,15 @@
                   </coding>
                </physicalType>
                <period>
-                  <start value="2163-07-07T00:00:00+00:00"></start>
-                  <end value="2163-07-07T00:00:00+00:00"></end>
+                  <start value="2157-01-27T00:00:00+00:00"></start>
+                  <end value="2157-01-27T00:00:00+00:00"></end>
                </period>
             </location>
             <serviceProvider>
-               <reference value="urn:uuid:16ae1b9a-4c9e-4766-a139-cd25022e0aa0"></reference>
+               <reference value="urn:uuid:7ac33a09-da80-455a-befb-230b7252a16c"></reference>
             </serviceProvider>
             <partOf>
-               <reference value="urn:uuid:6e35946b-8f2c-4c63-a049-3669808a12f7"></reference>
+               <reference value="urn:uuid:a40be234-ce3e-45ff-96c6-c14fa417de97"></reference>
             </partOf>
          </Encounter>
       </resource>
@@ -383,7 +360,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:96708859-4594-465e-87b2-a7d4de27b2ef"></fullUrl>
+      <fullUrl value="urn:uuid:4d73769a-9ccc-4b5d-aa3c-9a8224c61b1d"></fullUrl>
       <resource>
          <Location xmlns="http://hl7.org/fhir">
             <identifier>
@@ -406,7 +383,7 @@
                </coding>
             </physicalType>
             <managingOrganization>
-               <reference value="urn:uuid:0c4ebaa0-5bf6-4e7a-8b97-3bec13d2a003"></reference>
+               <reference value="urn:uuid:76993fef-4671-4936-8ad2-533db375301d"></reference>
             </managingOrganization>
          </Location>
       </resource>
@@ -417,7 +394,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:8bbf4377-e466-47ed-9735-b2a232368a30"></fullUrl>
+      <fullUrl value="urn:uuid:74120ebc-6f56-4375-9a48-728e6f2eccfe"></fullUrl>
       <resource>
          <Encounter xmlns="http://hl7.org/fhir">
             <status value="finished"></status>
@@ -427,12 +404,12 @@
                <display value="ActEncounterCode"></display>
             </class>
             <period>
-               <start value="2163-07-07T00:00:00+00:00"></start>
-               <end value="2163-07-07T00:00:00+00:00"></end>
+               <start value="2157-01-27T00:00:00+00:00"></start>
+               <end value="2157-01-30T00:00:00+00:00"></end>
             </period>
             <location>
                <location>
-                  <reference value="urn:uuid:96708859-4594-465e-87b2-a7d4de27b2ef"></reference>
+                  <reference value="urn:uuid:4d73769a-9ccc-4b5d-aa3c-9a8224c61b1d"></reference>
                </location>
                <status value="completed"></status>
                <physicalType>
@@ -443,15 +420,15 @@
                   </coding>
                </physicalType>
                <period>
-                  <start value="2163-07-07T00:00:00+00:00"></start>
-                  <end value="2163-07-07T00:00:00+00:00"></end>
+                  <start value="2157-01-27T00:00:00+00:00"></start>
+                  <end value="2157-01-30T00:00:00+00:00"></end>
                </period>
             </location>
             <serviceProvider>
-               <reference value="urn:uuid:0c4ebaa0-5bf6-4e7a-8b97-3bec13d2a003"></reference>
+               <reference value="urn:uuid:76993fef-4671-4936-8ad2-533db375301d"></reference>
             </serviceProvider>
             <partOf>
-               <reference value="urn:uuid:6e35946b-8f2c-4c63-a049-3669808a12f7"></reference>
+               <reference value="urn:uuid:a40be234-ce3e-45ff-96c6-c14fa417de97"></reference>
             </partOf>
          </Encounter>
       </resource>
@@ -462,7 +439,84 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:6e35946b-8f2c-4c63-a049-3669808a12f7"></fullUrl>
+      <fullUrl value="urn:uuid:f3663e71-57f7-4abe-b7b2-fcf4756aea7f"></fullUrl>
+      <resource>
+         <Location xmlns="http://hl7.org/fhir">
+            <identifier>
+               <system value="http://www.imi-mimic.de/location/Unknown"></system>
+               <value value="Unknown"></value>
+            </identifier>
+            <name value="Unknown"></name>
+            <type>
+               <coding>
+                  <system value="http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType"></system>
+                  <code value="_ServiceDeliveryLocationRoleType"></code>
+                  <display value="ServiceDeliveryLocationRoleType"></display>
+               </coding>
+            </type>
+            <physicalType>
+               <coding>
+                  <system value="http://terminology.hl7.org/CodeSystem/location-physical-type"></system>
+                  <code value="wa"></code>
+                  <display value="Ward"></display>
+               </coding>
+            </physicalType>
+            <managingOrganization>
+               <reference value="urn:uuid:0146ffb9-9c89-411a-a6c7-652fca21c43d"></reference>
+            </managingOrganization>
+         </Location>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Location"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/location/Unknown|Unknown"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:646249c4-2cdb-4da4-b3b0-d27899807fb9"></fullUrl>
+      <resource>
+         <Encounter xmlns="http://hl7.org/fhir">
+            <status value="finished"></status>
+            <class>
+               <system value="https://www.medizininformatik-initiative.de/fhir/core/CodeSystem/EncounterClassAdditionsDE"></system>
+               <code value="_ActEncounterCode"></code>
+               <display value="ActEncounterCode"></display>
+            </class>
+            <period>
+               <start value="2157-01-30T00:00:00+00:00"></start>
+            </period>
+            <location>
+               <location>
+                  <reference value="urn:uuid:f3663e71-57f7-4abe-b7b2-fcf4756aea7f"></reference>
+               </location>
+               <status value="completed"></status>
+               <physicalType>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/location-physical-type"></system>
+                     <code value="wa"></code>
+                     <display value="Ward"></display>
+                  </coding>
+               </physicalType>
+               <period>
+                  <start value="2157-01-30T00:00:00+00:00"></start>
+               </period>
+            </location>
+            <serviceProvider>
+               <reference value="urn:uuid:0146ffb9-9c89-411a-a6c7-652fca21c43d"></reference>
+            </serviceProvider>
+            <partOf>
+               <reference value="urn:uuid:a40be234-ce3e-45ff-96c6-c14fa417de97"></reference>
+            </partOf>
+         </Encounter>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Encounter"></url>
+         <ifNoneExist value="identifier=null|null"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:a40be234-ce3e-45ff-96c6-c14fa417de97"></fullUrl>
       <resource>
          <Encounter xmlns="http://hl7.org/fhir">
             <meta>
@@ -476,39 +530,51 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/encs"></system>
-               <value value="21515348"></value>
+               <value value="24082212"></value>
             </identifier>
             <status value="finished"></status>
             <class>
                <system value="https://www.medizininformatik-initiative.de/fhir/core/ValueSet/EncounterClassDE"></system>
-               <code value="E"></code>
-               <display value="Notfall"></display>
+               <code value="normalstationaer"></code>
+               <display value="Normalstationaer"></display>
             </class>
             <period>
-               <start value="2163-07-07T00:00:00+00:00"></start>
-               <end value="2163-07-10T00:00:00+00:00"></end>
+               <start value="2157-01-27T00:00:00+00:00"></start>
+               <end value="2157-01-30T00:00:00+00:00"></end>
             </period>
             <diagnosis>
                <condition>
-                  <reference value="urn:uuid:4bb2840b-a0b4-4a8e-831d-2da9af2914b6"></reference>
+                  <reference value="urn:uuid:ceb73fe2-af52-41fa-a610-ec86749a88dc"></reference>
+               </condition>
+               <rank value="6"></rank>
+            </diagnosis>
+            <diagnosis>
+               <condition>
+                  <reference value="urn:uuid:6a5db0de-1a3e-4154-b3de-c702b27ac989"></reference>
+               </condition>
+               <rank value="5"></rank>
+            </diagnosis>
+            <diagnosis>
+               <condition>
+                  <reference value="urn:uuid:e4fb11b7-21af-4d1f-8010-49aa5ad6c1f3"></reference>
                </condition>
                <rank value="4"></rank>
             </diagnosis>
             <diagnosis>
                <condition>
-                  <reference value="urn:uuid:dd715379-b595-44a9-b6cb-0f5ed7664a62"></reference>
+                  <reference value="urn:uuid:4840f5fe-9351-4e42-8b27-2297ba3377ed"></reference>
                </condition>
                <rank value="3"></rank>
             </diagnosis>
             <diagnosis>
                <condition>
-                  <reference value="urn:uuid:8997fc23-5b63-4f95-add0-e203421c283f"></reference>
+                  <reference value="urn:uuid:22333704-c4c2-4412-9d0f-c0ede0741b98"></reference>
                </condition>
                <rank value="2"></rank>
             </diagnosis>
             <diagnosis>
                <condition>
-                  <reference value="urn:uuid:4105cbf8-2796-44bf-a7ad-b44c12d93fdd"></reference>
+                  <reference value="urn:uuid:c1f5cdea-7f9f-4126-a59d-73e7cf37e6ba"></reference>
                </condition>
                <rank value="1"></rank>
             </diagnosis>
@@ -516,8 +582,8 @@
                <dischargeDisposition>
                   <coding>
                      <system value="https://www.medizininformatik-initiative.de/fhir/core/modul-fall/CodeSystem/Entlassungsgrund"></system>
-                     <code value="039"></code>
-                     <display value="Behandlung aus sonstigen Gruenden beendet, keine Angabe"></display>
+                     <code value="019"></code>
+                     <display value="Behandlung regulaer beendet, keine Angabe"></display>
                   </coding>
                </dischargeDisposition>
             </hospitalization>
@@ -526,11 +592,11 @@
       <request>
          <method value="POST"></method>
          <url value="Encounter"></url>
-         <ifNoneExist value="identifier=http://www.imi-mimic.de/encs|21515348"></ifNoneExist>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/encs|24082212"></ifNoneExist>
       </request>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:e3a7b53e-232c-4f08-bc22-091d60d94423"></fullUrl>
+      <fullUrl value="urn:uuid:bbdabf7e-d3db-49e9-aa2e-f9b4ca998d70"></fullUrl>
       <resource>
          <Medication xmlns="http://hl7.org/fhir">
             <text>
@@ -552,21 +618,21 @@
             </meta>
             <identifier>
                <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21515348_0"></value>
+               <value value="24082212_0"></value>
             </identifier>
             <status value="completed"></status>
             <medicationReference>
-               <reference value="urn:uuid:e3a7b53e-232c-4f08-bc22-091d60d94423"></reference>
+               <reference value="urn:uuid:bbdabf7e-d3db-49e9-aa2e-f9b4ca998d70"></reference>
             </medicationReference>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
             <context>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </context>
             <effectivePeriod>
-               <start value="2163-07-07T00:00:00+00:00"></start>
-               <end value="2163-07-07T00:00:00+00:00"></end>
+               <start value="2157-01-27T00:00:00+00:00"></start>
+               <end value="2157-01-30T00:00:00+00:00"></end>
             </effectivePeriod>
          </MedicationAdministration>
       </resource>
@@ -583,21 +649,21 @@
             </meta>
             <identifier>
                <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21515348_1"></value>
+               <value value="24082212_1"></value>
             </identifier>
             <status value="completed"></status>
             <medicationReference>
-               <reference value="urn:uuid:e3a7b53e-232c-4f08-bc22-091d60d94423"></reference>
+               <reference value="urn:uuid:bbdabf7e-d3db-49e9-aa2e-f9b4ca998d70"></reference>
             </medicationReference>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
             <context>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </context>
             <effectivePeriod>
-               <start value="2163-07-07T00:00:00+00:00"></start>
-               <end value="2163-07-10T00:00:00+00:00"></end>
+               <start value="2157-01-27T00:00:00+00:00"></start>
+               <end value="2157-01-28T00:00:00+00:00"></end>
             </effectivePeriod>
          </MedicationAdministration>
       </resource>
@@ -614,21 +680,21 @@
             </meta>
             <identifier>
                <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21515348_2"></value>
+               <value value="24082212_2"></value>
             </identifier>
             <status value="completed"></status>
             <medicationReference>
-               <reference value="urn:uuid:e3a7b53e-232c-4f08-bc22-091d60d94423"></reference>
+               <reference value="urn:uuid:bbdabf7e-d3db-49e9-aa2e-f9b4ca998d70"></reference>
             </medicationReference>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
             <context>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </context>
             <effectivePeriod>
-               <start value="2163-07-07T00:00:00+00:00"></start>
-               <end value="2163-07-10T00:00:00+00:00"></end>
+               <start value="2157-01-27T00:00:00+00:00"></start>
+               <end value="2157-01-28T00:00:00+00:00"></end>
             </effectivePeriod>
          </MedicationAdministration>
       </resource>
@@ -645,21 +711,21 @@
             </meta>
             <identifier>
                <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21515348_3"></value>
+               <value value="24082212_3"></value>
             </identifier>
             <status value="completed"></status>
             <medicationReference>
-               <reference value="urn:uuid:e3a7b53e-232c-4f08-bc22-091d60d94423"></reference>
+               <reference value="urn:uuid:bbdabf7e-d3db-49e9-aa2e-f9b4ca998d70"></reference>
             </medicationReference>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
             <context>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </context>
             <effectivePeriod>
-               <start value="2163-07-07T00:00:00+00:00"></start>
-               <end value="2163-07-10T00:00:00+00:00"></end>
+               <start value="2157-01-27T00:00:00+00:00"></start>
+               <end value="2157-01-30T00:00:00+00:00"></end>
             </effectivePeriod>
          </MedicationAdministration>
       </resource>
@@ -676,21 +742,21 @@
             </meta>
             <identifier>
                <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21515348_4"></value>
+               <value value="24082212_4"></value>
             </identifier>
             <status value="completed"></status>
             <medicationReference>
-               <reference value="urn:uuid:e3a7b53e-232c-4f08-bc22-091d60d94423"></reference>
+               <reference value="urn:uuid:bbdabf7e-d3db-49e9-aa2e-f9b4ca998d70"></reference>
             </medicationReference>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
             <context>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </context>
             <effectivePeriod>
-               <start value="2163-07-08T00:00:00+00:00"></start>
-               <end value="2163-07-10T00:00:00+00:00"></end>
+               <start value="2157-01-27T00:00:00+00:00"></start>
+               <end value="2157-01-30T00:00:00+00:00"></end>
             </effectivePeriod>
          </MedicationAdministration>
       </resource>
@@ -707,21 +773,21 @@
             </meta>
             <identifier>
                <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21515348_5"></value>
+               <value value="24082212_5"></value>
             </identifier>
             <status value="completed"></status>
             <medicationReference>
-               <reference value="urn:uuid:e3a7b53e-232c-4f08-bc22-091d60d94423"></reference>
+               <reference value="urn:uuid:bbdabf7e-d3db-49e9-aa2e-f9b4ca998d70"></reference>
             </medicationReference>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
             <context>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </context>
             <effectivePeriod>
-               <start value="2163-07-07T00:00:00+00:00"></start>
-               <end value="2163-07-10T00:00:00+00:00"></end>
+               <start value="2157-01-27T00:00:00+00:00"></start>
+               <end value="2157-01-30T00:00:00+00:00"></end>
             </effectivePeriod>
          </MedicationAdministration>
       </resource>
@@ -738,21 +804,21 @@
             </meta>
             <identifier>
                <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21515348_6"></value>
+               <value value="24082212_6"></value>
             </identifier>
             <status value="completed"></status>
             <medicationReference>
-               <reference value="urn:uuid:e3a7b53e-232c-4f08-bc22-091d60d94423"></reference>
+               <reference value="urn:uuid:bbdabf7e-d3db-49e9-aa2e-f9b4ca998d70"></reference>
             </medicationReference>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
             <context>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </context>
             <effectivePeriod>
-               <start value="2163-07-09T00:00:00+00:00"></start>
-               <end value="2163-07-10T00:00:00+00:00"></end>
+               <start value="2157-01-28T00:00:00+00:00"></start>
+               <end value="2157-01-29T00:00:00+00:00"></end>
             </effectivePeriod>
          </MedicationAdministration>
       </resource>
@@ -769,548 +835,21 @@
             </meta>
             <identifier>
                <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21515348_7"></value>
+               <value value="24082212_7"></value>
             </identifier>
             <status value="completed"></status>
             <medicationReference>
-               <reference value="urn:uuid:e3a7b53e-232c-4f08-bc22-091d60d94423"></reference>
+               <reference value="urn:uuid:bbdabf7e-d3db-49e9-aa2e-f9b4ca998d70"></reference>
             </medicationReference>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
             <context>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </context>
             <effectivePeriod>
-               <start value="2163-07-09T00:00:00+00:00"></start>
-               <end value="2163-07-10T00:00:00+00:00"></end>
-            </effectivePeriod>
-         </MedicationAdministration>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="MedicationAdministration"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <MedicationAdministration xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
-            </meta>
-            <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21515348_8"></value>
-            </identifier>
-            <status value="completed"></status>
-            <medicationReference>
-               <reference value="urn:uuid:e3a7b53e-232c-4f08-bc22-091d60d94423"></reference>
-            </medicationReference>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <context>
-               <reference value="21515348"></reference>
-            </context>
-            <effectivePeriod>
-               <start value="2163-07-07T00:00:00+00:00"></start>
-               <end value="2163-07-10T00:00:00+00:00"></end>
-            </effectivePeriod>
-         </MedicationAdministration>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="MedicationAdministration"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <MedicationAdministration xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
-            </meta>
-            <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21515348_9"></value>
-            </identifier>
-            <status value="completed"></status>
-            <medicationReference>
-               <reference value="urn:uuid:e3a7b53e-232c-4f08-bc22-091d60d94423"></reference>
-            </medicationReference>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <context>
-               <reference value="21515348"></reference>
-            </context>
-            <effectivePeriod>
-               <start value="2163-07-07T00:00:00+00:00"></start>
-               <end value="2163-07-07T00:00:00+00:00"></end>
-            </effectivePeriod>
-         </MedicationAdministration>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="MedicationAdministration"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <MedicationAdministration xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
-            </meta>
-            <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21515348_10"></value>
-            </identifier>
-            <status value="completed"></status>
-            <medicationReference>
-               <reference value="urn:uuid:e3a7b53e-232c-4f08-bc22-091d60d94423"></reference>
-            </medicationReference>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <context>
-               <reference value="21515348"></reference>
-            </context>
-            <effectivePeriod>
-               <start value="2163-07-07T00:00:00+00:00"></start>
-               <end value="2163-07-10T00:00:00+00:00"></end>
-            </effectivePeriod>
-         </MedicationAdministration>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="MedicationAdministration"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <MedicationAdministration xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
-            </meta>
-            <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21515348_11"></value>
-            </identifier>
-            <status value="completed"></status>
-            <medicationReference>
-               <reference value="urn:uuid:e3a7b53e-232c-4f08-bc22-091d60d94423"></reference>
-            </medicationReference>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <context>
-               <reference value="21515348"></reference>
-            </context>
-            <effectivePeriod>
-               <start value="2163-07-07T00:00:00+00:00"></start>
-               <end value="2163-07-10T00:00:00+00:00"></end>
-            </effectivePeriod>
-         </MedicationAdministration>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="MedicationAdministration"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <MedicationAdministration xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
-            </meta>
-            <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21515348_12"></value>
-            </identifier>
-            <status value="completed"></status>
-            <medicationReference>
-               <reference value="urn:uuid:e3a7b53e-232c-4f08-bc22-091d60d94423"></reference>
-            </medicationReference>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <context>
-               <reference value="21515348"></reference>
-            </context>
-            <effectivePeriod>
-               <start value="2163-07-08T00:00:00+00:00"></start>
-               <end value="2163-07-08T00:00:00+00:00"></end>
-            </effectivePeriod>
-         </MedicationAdministration>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="MedicationAdministration"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <MedicationAdministration xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
-            </meta>
-            <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21515348_13"></value>
-            </identifier>
-            <status value="completed"></status>
-            <medicationReference>
-               <reference value="urn:uuid:e3a7b53e-232c-4f08-bc22-091d60d94423"></reference>
-            </medicationReference>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <context>
-               <reference value="21515348"></reference>
-            </context>
-            <effectivePeriod>
-               <start value="2163-07-07T00:00:00+00:00"></start>
-               <end value="2163-07-08T00:00:00+00:00"></end>
-            </effectivePeriod>
-         </MedicationAdministration>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="MedicationAdministration"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <MedicationAdministration xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
-            </meta>
-            <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21515348_14"></value>
-            </identifier>
-            <status value="completed"></status>
-            <medicationReference>
-               <reference value="urn:uuid:e3a7b53e-232c-4f08-bc22-091d60d94423"></reference>
-            </medicationReference>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <context>
-               <reference value="21515348"></reference>
-            </context>
-            <effectivePeriod>
-               <start value="2163-07-07T00:00:00+00:00"></start>
-               <end value="2163-07-10T00:00:00+00:00"></end>
-            </effectivePeriod>
-         </MedicationAdministration>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="MedicationAdministration"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <MedicationAdministration xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
-            </meta>
-            <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21515348_15"></value>
-            </identifier>
-            <status value="completed"></status>
-            <medicationReference>
-               <reference value="urn:uuid:e3a7b53e-232c-4f08-bc22-091d60d94423"></reference>
-            </medicationReference>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <context>
-               <reference value="21515348"></reference>
-            </context>
-            <effectivePeriod>
-               <start value="2163-07-07T00:00:00+00:00"></start>
-               <end value="2163-07-10T00:00:00+00:00"></end>
-            </effectivePeriod>
-         </MedicationAdministration>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="MedicationAdministration"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <MedicationAdministration xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
-            </meta>
-            <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21515348_16"></value>
-            </identifier>
-            <status value="completed"></status>
-            <medicationReference>
-               <reference value="urn:uuid:e3a7b53e-232c-4f08-bc22-091d60d94423"></reference>
-            </medicationReference>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <context>
-               <reference value="21515348"></reference>
-            </context>
-            <effectivePeriod>
-               <start value="2163-07-07T00:00:00+00:00"></start>
-               <end value="2163-07-07T00:00:00+00:00"></end>
-            </effectivePeriod>
-         </MedicationAdministration>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="MedicationAdministration"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <MedicationAdministration xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
-            </meta>
-            <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21515348_17"></value>
-            </identifier>
-            <status value="completed"></status>
-            <medicationReference>
-               <reference value="urn:uuid:e3a7b53e-232c-4f08-bc22-091d60d94423"></reference>
-            </medicationReference>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <context>
-               <reference value="21515348"></reference>
-            </context>
-            <effectivePeriod>
-               <start value="2163-07-07T00:00:00+00:00"></start>
-               <end value="2163-07-10T00:00:00+00:00"></end>
-            </effectivePeriod>
-         </MedicationAdministration>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="MedicationAdministration"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <MedicationAdministration xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
-            </meta>
-            <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21515348_18"></value>
-            </identifier>
-            <status value="completed"></status>
-            <medicationReference>
-               <reference value="urn:uuid:e3a7b53e-232c-4f08-bc22-091d60d94423"></reference>
-            </medicationReference>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <context>
-               <reference value="21515348"></reference>
-            </context>
-            <effectivePeriod>
-               <start value="2163-07-08T00:00:00+00:00"></start>
-               <end value="2163-07-10T00:00:00+00:00"></end>
-            </effectivePeriod>
-         </MedicationAdministration>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="MedicationAdministration"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <MedicationAdministration xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
-            </meta>
-            <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21515348_19"></value>
-            </identifier>
-            <status value="completed"></status>
-            <medicationReference>
-               <reference value="urn:uuid:e3a7b53e-232c-4f08-bc22-091d60d94423"></reference>
-            </medicationReference>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <context>
-               <reference value="21515348"></reference>
-            </context>
-            <effectivePeriod>
-               <start value="2163-07-07T00:00:00+00:00"></start>
-               <end value="2163-07-07T00:00:00+00:00"></end>
-            </effectivePeriod>
-         </MedicationAdministration>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="MedicationAdministration"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <MedicationAdministration xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
-            </meta>
-            <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21515348_20"></value>
-            </identifier>
-            <status value="completed"></status>
-            <medicationReference>
-               <reference value="urn:uuid:e3a7b53e-232c-4f08-bc22-091d60d94423"></reference>
-            </medicationReference>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <context>
-               <reference value="21515348"></reference>
-            </context>
-            <effectivePeriod>
-               <start value="2163-07-08T00:00:00+00:00"></start>
-               <end value="2163-07-10T00:00:00+00:00"></end>
-            </effectivePeriod>
-         </MedicationAdministration>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="MedicationAdministration"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <MedicationAdministration xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
-            </meta>
-            <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21515348_21"></value>
-            </identifier>
-            <status value="completed"></status>
-            <medicationReference>
-               <reference value="urn:uuid:e3a7b53e-232c-4f08-bc22-091d60d94423"></reference>
-            </medicationReference>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <context>
-               <reference value="21515348"></reference>
-            </context>
-            <effectivePeriod>
-               <start value="2163-07-07T00:00:00+00:00"></start>
-               <end value="2163-07-07T00:00:00+00:00"></end>
-            </effectivePeriod>
-         </MedicationAdministration>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="MedicationAdministration"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <MedicationAdministration xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
-            </meta>
-            <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21515348_22"></value>
-            </identifier>
-            <status value="completed"></status>
-            <medicationReference>
-               <reference value="urn:uuid:e3a7b53e-232c-4f08-bc22-091d60d94423"></reference>
-            </medicationReference>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <context>
-               <reference value="21515348"></reference>
-            </context>
-            <effectivePeriod>
-               <start value="2163-07-08T00:00:00+00:00"></start>
-               <end value="2163-07-09T00:00:00+00:00"></end>
-            </effectivePeriod>
-         </MedicationAdministration>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="MedicationAdministration"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <MedicationAdministration xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
-            </meta>
-            <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21515348_23"></value>
-            </identifier>
-            <status value="completed"></status>
-            <medicationReference>
-               <reference value="urn:uuid:e3a7b53e-232c-4f08-bc22-091d60d94423"></reference>
-            </medicationReference>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <context>
-               <reference value="21515348"></reference>
-            </context>
-            <effectivePeriod>
-               <start value="2163-07-08T00:00:00+00:00"></start>
-               <end value="2163-07-09T00:00:00+00:00"></end>
-            </effectivePeriod>
-         </MedicationAdministration>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="MedicationAdministration"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <MedicationAdministration xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
-            </meta>
-            <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21515348_24"></value>
-            </identifier>
-            <status value="completed"></status>
-            <medicationReference>
-               <reference value="urn:uuid:e3a7b53e-232c-4f08-bc22-091d60d94423"></reference>
-            </medicationReference>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <context>
-               <reference value="21515348"></reference>
-            </context>
-            <effectivePeriod>
-               <start value="2163-07-07T00:00:00+00:00"></start>
-               <end value="2163-07-10T00:00:00+00:00"></end>
+               <start value="2157-01-27T00:00:00+00:00"></start>
+               <end value="2157-01-30T00:00:00+00:00"></end>
             </effectivePeriod>
          </MedicationAdministration>
       </resource>
@@ -1335,110 +874,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763614"></value>
+               <value value="80053111"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
-            </partOf>
-            <status value="final"></status>
-            <code>
-               <text value="Basophils"></text>
-            </code>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <effectiveDateTime value="2163-07-08T00:00:00+00:00"></effectiveDateTime>
-            <valueQuantity>
-               <value value="0.0"></value>
-               <unit value="%"></unit>
-            </valueQuantity>
-         </Observation>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="Observation"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <Observation xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
-            </meta>
-            <identifier>
-               <use value="usual"></use>
-               <type>
-                  <coding>
-                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
-                     <code value="OBI"></code>
-                     <display value="Optometrist license number"></display>
-                  </coding>
-               </type>
-               <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763615"></value>
-               <assigner>
-                  <reference value="10595272"></reference>
-               </assigner>
-            </identifier>
-            <partOf>
-               <reference value="21515348"></reference>
-            </partOf>
-            <status value="final"></status>
-            <code>
-               <text value="Eosinophils"></text>
-            </code>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <effectiveDateTime value="2163-07-08T00:00:00+00:00"></effectiveDateTime>
-            <valueQuantity>
-               <value value="0.5"></value>
-               <unit value="%"></unit>
-            </valueQuantity>
-         </Observation>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="Observation"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <Observation xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
-            </meta>
-            <identifier>
-               <use value="usual"></use>
-               <type>
-                  <coding>
-                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
-                     <code value="OBI"></code>
-                     <display value="Optometrist license number"></display>
-                  </coding>
-               </type>
-               <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763616"></value>
-               <assigner>
-                  <reference value="10595272"></reference>
-               </assigner>
-            </identifier>
-            <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Hematocrit"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-08T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-27T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="31.3"></value>
+               <value value="29.0"></value>
                <unit value="%"></unit>
             </valueQuantity>
          </Observation>
@@ -1464,24 +917,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763617"></value>
+               <value value="80053112"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Hemoglobin"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-08T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-27T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="10.6"></value>
+               <value value="9.4"></value>
                <unit value="g/dL"></unit>
             </valueQuantity>
          </Observation>
@@ -1507,67 +960,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763618"></value>
+               <value value="80053113"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
-            </partOf>
-            <status value="final"></status>
-            <code>
-               <text value="Lymphocytes"></text>
-            </code>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <effectiveDateTime value="2163-07-08T00:00:00+00:00"></effectiveDateTime>
-            <valueQuantity>
-               <value value="19.0"></value>
-               <unit value="%"></unit>
-            </valueQuantity>
-         </Observation>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="Observation"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <Observation xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
-            </meta>
-            <identifier>
-               <use value="usual"></use>
-               <type>
-                  <coding>
-                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
-                     <code value="OBI"></code>
-                     <display value="Optometrist license number"></display>
-                  </coding>
-               </type>
-               <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763619"></value>
-               <assigner>
-                  <reference value="10595272"></reference>
-               </assigner>
-            </identifier>
-            <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="MCH"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-08T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-27T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="26.0"></value>
+               <value value="29.1"></value>
                <unit value="pg"></unit>
             </valueQuantity>
          </Observation>
@@ -1593,25 +1003,25 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763620"></value>
+               <value value="80053114"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="MCHC"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-08T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-27T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="34.0"></value>
-               <unit value="%"></unit>
+               <value value="32.4"></value>
+               <unit value="g/dL"></unit>
             </valueQuantity>
          </Observation>
       </resource>
@@ -1636,24 +1046,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763621"></value>
+               <value value="80053115"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="MCV"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-08T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-27T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="77.0"></value>
+               <value value="90.0"></value>
                <unit value="fL"></unit>
             </valueQuantity>
          </Observation>
@@ -1679,110 +1089,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763622"></value>
+               <value value="80053116"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
-            </partOf>
-            <status value="final"></status>
-            <code>
-               <text value="Monocytes"></text>
-            </code>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <effectiveDateTime value="2163-07-08T00:00:00+00:00"></effectiveDateTime>
-            <valueQuantity>
-               <value value="2.7"></value>
-               <unit value="%"></unit>
-            </valueQuantity>
-         </Observation>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="Observation"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <Observation xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
-            </meta>
-            <identifier>
-               <use value="usual"></use>
-               <type>
-                  <coding>
-                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
-                     <code value="OBI"></code>
-                     <display value="Optometrist license number"></display>
-                  </coding>
-               </type>
-               <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763623"></value>
-               <assigner>
-                  <reference value="10595272"></reference>
-               </assigner>
-            </identifier>
-            <partOf>
-               <reference value="21515348"></reference>
-            </partOf>
-            <status value="final"></status>
-            <code>
-               <text value="Neutrophils"></text>
-            </code>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <effectiveDateTime value="2163-07-08T00:00:00+00:00"></effectiveDateTime>
-            <valueQuantity>
-               <value value="77.7"></value>
-               <unit value="%"></unit>
-            </valueQuantity>
-         </Observation>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="Observation"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <Observation xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
-            </meta>
-            <identifier>
-               <use value="usual"></use>
-               <type>
-                  <coding>
-                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
-                     <code value="OBI"></code>
-                     <display value="Optometrist license number"></display>
-                  </coding>
-               </type>
-               <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763624"></value>
-               <assigner>
-                  <reference value="10595272"></reference>
-               </assigner>
-            </identifier>
-            <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Platelet Count"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-08T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-27T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="963.0"></value>
+               <value value="183.0"></value>
                <unit value="K/uL"></unit>
             </valueQuantity>
          </Observation>
@@ -1808,24 +1132,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763625"></value>
+               <value value="80053117"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="RDW"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-08T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-27T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="14.1"></value>
+               <value value="13.5"></value>
                <unit value="%"></unit>
             </valueQuantity>
          </Observation>
@@ -1851,24 +1175,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763626"></value>
+               <value value="80053118"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Red Blood Cells"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-08T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-27T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="4.09"></value>
+               <value value="3.23"></value>
                <unit value="m/uL"></unit>
             </valueQuantity>
          </Observation>
@@ -1894,24 +1218,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763627"></value>
+               <value value="80053119"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="White Blood Cells"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-08T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-27T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="9.4"></value>
+               <value value="4.9"></value>
                <unit value="K/uL"></unit>
             </valueQuantity>
          </Observation>
@@ -1937,26 +1261,502 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763628"></value>
+               <value value="80053120"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="RDW-SD"></text>
+            </code>
+            <subject>
+               <reference value="16774328"></reference>
+            </subject>
+            <effectiveDateTime value="2157-01-27T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="44.0"></value>
+               <unit value="fL"></unit>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.imi-mimic.de/labevents"></system>
+               <value value="80053121"></value>
+               <assigner>
+                  <reference value="16774328"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="24082212"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="Hematocrit"></text>
+            </code>
+            <subject>
+               <reference value="16774328"></reference>
+            </subject>
+            <effectiveDateTime value="2157-01-28T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="27.0"></value>
+               <unit value="%"></unit>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.imi-mimic.de/labevents"></system>
+               <value value="80053122"></value>
+               <assigner>
+                  <reference value="16774328"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="24082212"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="Hemoglobin"></text>
+            </code>
+            <subject>
+               <reference value="16774328"></reference>
+            </subject>
+            <effectiveDateTime value="2157-01-28T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="8.6"></value>
+               <unit value="g/dL"></unit>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.imi-mimic.de/labevents"></system>
+               <value value="80053123"></value>
+               <assigner>
+                  <reference value="16774328"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="24082212"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="MCH"></text>
+            </code>
+            <subject>
+               <reference value="16774328"></reference>
+            </subject>
+            <effectiveDateTime value="2157-01-28T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="29.1"></value>
+               <unit value="pg"></unit>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.imi-mimic.de/labevents"></system>
+               <value value="80053124"></value>
+               <assigner>
+                  <reference value="16774328"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="24082212"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="MCHC"></text>
+            </code>
+            <subject>
+               <reference value="16774328"></reference>
+            </subject>
+            <effectiveDateTime value="2157-01-28T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="31.9"></value>
+               <unit value="g/dL"></unit>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.imi-mimic.de/labevents"></system>
+               <value value="80053125"></value>
+               <assigner>
+                  <reference value="16774328"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="24082212"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="MCV"></text>
+            </code>
+            <subject>
+               <reference value="16774328"></reference>
+            </subject>
+            <effectiveDateTime value="2157-01-28T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="91.0"></value>
+               <unit value="fL"></unit>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.imi-mimic.de/labevents"></system>
+               <value value="80053126"></value>
+               <assigner>
+                  <reference value="16774328"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="24082212"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="Platelet Count"></text>
+            </code>
+            <subject>
+               <reference value="16774328"></reference>
+            </subject>
+            <effectiveDateTime value="2157-01-28T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="168.0"></value>
+               <unit value="K/uL"></unit>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.imi-mimic.de/labevents"></system>
+               <value value="80053127"></value>
+               <assigner>
+                  <reference value="16774328"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="24082212"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="RDW"></text>
+            </code>
+            <subject>
+               <reference value="16774328"></reference>
+            </subject>
+            <effectiveDateTime value="2157-01-28T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="13.3"></value>
+               <unit value="%"></unit>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.imi-mimic.de/labevents"></system>
+               <value value="80053128"></value>
+               <assigner>
+                  <reference value="16774328"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="24082212"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="Red Blood Cells"></text>
+            </code>
+            <subject>
+               <reference value="16774328"></reference>
+            </subject>
+            <effectiveDateTime value="2157-01-28T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="2.96"></value>
+               <unit value="m/uL"></unit>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.imi-mimic.de/labevents"></system>
+               <value value="80053129"></value>
+               <assigner>
+                  <reference value="16774328"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="24082212"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="White Blood Cells"></text>
+            </code>
+            <subject>
+               <reference value="16774328"></reference>
+            </subject>
+            <effectiveDateTime value="2157-01-28T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="3.5"></value>
+               <unit value="K/uL"></unit>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.imi-mimic.de/labevents"></system>
+               <value value="80053130"></value>
+               <assigner>
+                  <reference value="16774328"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="24082212"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="RDW-SD"></text>
+            </code>
+            <subject>
+               <reference value="16774328"></reference>
+            </subject>
+            <effectiveDateTime value="2157-01-28T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="44.4"></value>
+               <unit value="fL"></unit>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.imi-mimic.de/labevents"></system>
+               <value value="80053131"></value>
+               <assigner>
+                  <reference value="16774328"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Anion Gap"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-08T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-28T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="17.0"></value>
+               <value value="16.0"></value>
                <unit value="mEq/L"></unit>
             </valueQuantity>
+            <note>
+               <text value="NEW CALCULATION AND REFERENCE RANGE AS OF ___."></text>
+            </note>
          </Observation>
       </resource>
       <request>
@@ -1980,24 +1780,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763629"></value>
+               <value value="80053132"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Bicarbonate"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-08T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-28T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="25.0"></value>
+               <value value="23.0"></value>
                <unit value="mEq/L"></unit>
             </valueQuantity>
          </Observation>
@@ -2023,24 +1823,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763630"></value>
+               <value value="80053133"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Calcium, Total"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-08T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-28T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="9.4"></value>
+               <value value="8.6"></value>
                <unit value="mg/dL"></unit>
             </valueQuantity>
          </Observation>
@@ -2066,24 +1866,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763631"></value>
+               <value value="80053134"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Chloride"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-08T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-28T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="94.0"></value>
+               <value value="114.0"></value>
                <unit value="mEq/L"></unit>
             </valueQuantity>
          </Observation>
@@ -2109,24 +1909,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763632"></value>
+               <value value="80053135"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Creatinine"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-08T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-28T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="0.8"></value>
+               <value value="0.5"></value>
                <unit value="mg/dL"></unit>
             </valueQuantity>
          </Observation>
@@ -2152,28 +1952,28 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763633"></value>
+               <value value="80053136"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Glucose"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-08T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-28T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="91.0"></value>
+               <value value="86.0"></value>
                <unit value="mg/dL"></unit>
             </valueQuantity>
             <note>
-               <text value="IF FASTING, 70-100 NORMAL, &gt;125 PROVISIONAL DIABETES."></text>
+               <text value="If fasting, 70-100 normal, &gt;125 provisional diabetes."></text>
             </note>
          </Observation>
       </resource>
@@ -2198,24 +1998,108 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763634"></value>
+               <value value="80053137"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="H"></text>
+            </code>
+            <subject>
+               <reference value="16774328"></reference>
+            </subject>
+            <effectiveDateTime value="2157-01-28T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="7.0"></value>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.imi-mimic.de/labevents"></system>
+               <value value="80053138"></value>
+               <assigner>
+                  <reference value="16774328"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="24082212"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="I"></text>
+            </code>
+            <subject>
+               <reference value="16774328"></reference>
+            </subject>
+            <effectiveDateTime value="2157-01-28T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="1.0"></value>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.imi-mimic.de/labevents"></system>
+               <value value="80053139"></value>
+               <assigner>
+                  <reference value="16774328"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Magnesium"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-08T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-28T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="2.1"></value>
+               <value value="2.2"></value>
                <unit value="mg/dL"></unit>
             </valueQuantity>
          </Observation>
@@ -2241,24 +2125,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763635"></value>
+               <value value="80053140"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Phosphate"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-08T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-28T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="3.1"></value>
+               <value value="2.8"></value>
                <unit value="mg/dL"></unit>
             </valueQuantity>
          </Observation>
@@ -2284,24 +2168,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763636"></value>
+               <value value="80053141"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Potassium"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-08T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-28T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="4.2"></value>
+               <value value="4.0"></value>
                <unit value="mEq/L"></unit>
             </valueQuantity>
          </Observation>
@@ -2327,26 +2211,29 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763637"></value>
+               <value value="80053142"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Sodium"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-08T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-28T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="132.0"></value>
+               <value value="153.0"></value>
                <unit value="mEq/L"></unit>
             </valueQuantity>
+            <note>
+               <text value="___"></text>
+            </note>
          </Observation>
       </resource>
       <request>
@@ -2370,24 +2257,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763638"></value>
+               <value value="80053143"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Urea Nitrogen"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-08T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-28T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="20.0"></value>
+               <value value="12.0"></value>
                <unit value="mg/dL"></unit>
             </valueQuantity>
          </Observation>
@@ -2413,26 +2300,240 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763639"></value>
+               <value value="80053144"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="L"></text>
+            </code>
+            <subject>
+               <reference value="16774328"></reference>
+            </subject>
+            <effectiveDateTime value="2157-01-28T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="6.0"></value>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.imi-mimic.de/labevents"></system>
+               <value value="80053145"></value>
+               <assigner>
+                  <reference value="16774328"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="24082212"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="H"></text>
+            </code>
+            <subject>
+               <reference value="16774328"></reference>
+            </subject>
+            <effectiveDateTime value="2157-01-28T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="3.0"></value>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.imi-mimic.de/labevents"></system>
+               <value value="80053146"></value>
+               <assigner>
+                  <reference value="16774328"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="24082212"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="I"></text>
+            </code>
+            <subject>
+               <reference value="16774328"></reference>
+            </subject>
+            <effectiveDateTime value="2157-01-28T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="1.0"></value>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.imi-mimic.de/labevents"></system>
+               <value value="80053147"></value>
+               <assigner>
+                  <reference value="16774328"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="24082212"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="Sodium"></text>
+            </code>
+            <subject>
+               <reference value="16774328"></reference>
+            </subject>
+            <effectiveDateTime value="2157-01-28T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="149.0"></value>
+               <unit value="mEq/L"></unit>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.imi-mimic.de/labevents"></system>
+               <value value="80053148"></value>
+               <assigner>
+                  <reference value="16774328"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="24082212"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="L"></text>
+            </code>
+            <subject>
+               <reference value="16774328"></reference>
+            </subject>
+            <effectiveDateTime value="2157-01-28T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="6.0"></value>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.imi-mimic.de/labevents"></system>
+               <value value="80053149"></value>
+               <assigner>
+                  <reference value="16774328"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Anion Gap"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-09T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-29T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="11.0"></value>
+               <value value="10.0"></value>
                <unit value="mEq/L"></unit>
             </valueQuantity>
+            <note>
+               <text value="New calculation and Reference range as of ___."></text>
+            </note>
          </Observation>
       </resource>
       <request>
@@ -2456,24 +2557,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763640"></value>
+               <value value="80053150"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Bicarbonate"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-09T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-29T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="29.0"></value>
+               <value value="26.0"></value>
                <unit value="mEq/L"></unit>
             </valueQuantity>
          </Observation>
@@ -2499,24 +2600,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763641"></value>
+               <value value="80053151"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Chloride"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-09T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-29T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="96.0"></value>
+               <value value="108.0"></value>
                <unit value="mEq/L"></unit>
             </valueQuantity>
          </Observation>
@@ -2542,22 +2643,22 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763642"></value>
+               <value value="80053152"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Creatinine"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-09T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-29T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
                <value value="0.7"></value>
                <unit value="mg/dL"></unit>
@@ -2585,28 +2686,28 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763643"></value>
+               <value value="80053153"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Glucose"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-09T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-29T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="86.0"></value>
+               <value value="100.0"></value>
                <unit value="mg/dL"></unit>
             </valueQuantity>
             <note>
-               <text value="IF FASTING, 70-100 NORMAL, &gt;125 PROVISIONAL DIABETES."></text>
+               <text value="If fasting, 70-100 normal, &gt;125 provisional diabetes."></text>
             </note>
          </Observation>
       </resource>
@@ -2631,24 +2732,108 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763644"></value>
+               <value value="80053154"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="H"></text>
+            </code>
+            <subject>
+               <reference value="16774328"></reference>
+            </subject>
+            <effectiveDateTime value="2157-01-29T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="0.0"></value>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.imi-mimic.de/labevents"></system>
+               <value value="80053155"></value>
+               <assigner>
+                  <reference value="16774328"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="24082212"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="I"></text>
+            </code>
+            <subject>
+               <reference value="16774328"></reference>
+            </subject>
+            <effectiveDateTime value="2157-01-29T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="1.0"></value>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.imi-mimic.de/labevents"></system>
+               <value value="80053156"></value>
+               <assigner>
+                  <reference value="16774328"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Potassium"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-09T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-29T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="3.7"></value>
+               <value value="4.0"></value>
                <unit value="mEq/L"></unit>
             </valueQuantity>
          </Observation>
@@ -2674,24 +2859,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763645"></value>
+               <value value="80053157"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Sodium"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-09T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-29T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="132.0"></value>
+               <value value="144.0"></value>
                <unit value="mEq/L"></unit>
             </valueQuantity>
          </Observation>
@@ -2717,24 +2902,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763646"></value>
+               <value value="80053158"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Urea Nitrogen"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-09T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-29T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="23.0"></value>
+               <value value="6.0"></value>
                <unit value="mg/dL"></unit>
             </valueQuantity>
          </Observation>
@@ -2760,24 +2945,66 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763647"></value>
+               <value value="80053159"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="L"></text>
+            </code>
+            <subject>
+               <reference value="16774328"></reference>
+            </subject>
+            <effectiveDateTime value="2157-01-29T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="6.0"></value>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.imi-mimic.de/labevents"></system>
+               <value value="80053160"></value>
+               <assigner>
+                  <reference value="16774328"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Hematocrit"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-09T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-29T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="26.6"></value>
+               <value value="26.2"></value>
                <unit value="%"></unit>
             </valueQuantity>
          </Observation>
@@ -2803,24 +3030,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763648"></value>
+               <value value="80053161"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Hemoglobin"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-09T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-29T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="9.0"></value>
+               <value value="8.2"></value>
                <unit value="g/dL"></unit>
             </valueQuantity>
          </Observation>
@@ -2846,24 +3073,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763649"></value>
+               <value value="80053162"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="MCH"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-09T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-29T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="25.9"></value>
+               <value value="28.4"></value>
                <unit value="pg"></unit>
             </valueQuantity>
          </Observation>
@@ -2889,25 +3116,25 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763650"></value>
+               <value value="80053163"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="MCHC"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-09T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-29T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="33.9"></value>
-               <unit value="%"></unit>
+               <value value="31.3"></value>
+               <unit value="g/dL"></unit>
             </valueQuantity>
          </Observation>
       </resource>
@@ -2932,24 +3159,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763651"></value>
+               <value value="80053164"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="MCV"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-09T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-29T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="76.0"></value>
+               <value value="91.0"></value>
                <unit value="fL"></unit>
             </valueQuantity>
          </Observation>
@@ -2975,24 +3202,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763652"></value>
+               <value value="80053165"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Platelet Count"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-09T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-29T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="739.0"></value>
+               <value value="168.0"></value>
                <unit value="K/uL"></unit>
             </valueQuantity>
          </Observation>
@@ -3018,24 +3245,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763653"></value>
+               <value value="80053166"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="RDW"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-09T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-29T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="13.9"></value>
+               <value value="13.2"></value>
                <unit value="%"></unit>
             </valueQuantity>
          </Observation>
@@ -3061,24 +3288,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763654"></value>
+               <value value="80053167"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Red Blood Cells"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-09T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-29T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="3.49"></value>
+               <value value="2.89"></value>
                <unit value="m/uL"></unit>
             </valueQuantity>
          </Observation>
@@ -3104,24 +3331,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763655"></value>
+               <value value="80053168"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="White Blood Cells"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-09T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-29T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="6.9"></value>
+               <value value="3.2"></value>
                <unit value="K/uL"></unit>
             </valueQuantity>
          </Observation>
@@ -3147,25 +3374,25 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763656"></value>
+               <value value="80053169"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
-               <text value="Anion Gap"></text>
+               <text value="RDW-SD"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-10T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-29T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="13.0"></value>
-               <unit value="mEq/L"></unit>
+               <value value="43.9"></value>
+               <unit value="fL"></unit>
             </valueQuantity>
          </Observation>
       </resource>
@@ -3190,25 +3417,25 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763657"></value>
+               <value value="80053170"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
-               <text value="Bicarbonate"></text>
+               <text value="Hematocrit"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-10T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-30T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="30.0"></value>
-               <unit value="mEq/L"></unit>
+               <value value="26.4"></value>
+               <unit value="%"></unit>
             </valueQuantity>
          </Observation>
       </resource>
@@ -3233,25 +3460,25 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763658"></value>
+               <value value="80053171"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
-               <text value="Chloride"></text>
+               <text value="Hemoglobin"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-10T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-30T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="100.0"></value>
-               <unit value="mEq/L"></unit>
+               <value value="8.6"></value>
+               <unit value="g/dL"></unit>
             </valueQuantity>
          </Observation>
       </resource>
@@ -3276,22 +3503,22 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763659"></value>
+               <value value="80053172"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Creatinine"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-10T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-30T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
                <value value="0.7"></value>
                <unit value="mg/dL"></unit>
@@ -3319,25 +3546,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763660"></value>
+               <value value="80053173"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
-               <text value="Ferritin"></text>
+               <text value="H"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-10T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-30T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="305.0"></value>
-               <unit value="ng/mL"></unit>
+               <value value="1.0"></value>
             </valueQuantity>
          </Observation>
       </resource>
@@ -3362,71 +3588,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763661"></value>
+               <value value="80053174"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
-               <text value="Glucose"></text>
+               <text value="I"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-10T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-30T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="83.0"></value>
-               <unit value="mg/dL"></unit>
-            </valueQuantity>
-            <note>
-               <text value="IF FASTING, 70-100 NORMAL, &gt;125 PROVISIONAL DIABETES."></text>
-            </note>
-         </Observation>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="Observation"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <Observation xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
-            </meta>
-            <identifier>
-               <use value="usual"></use>
-               <type>
-                  <coding>
-                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
-                     <code value="OBI"></code>
-                     <display value="Optometrist license number"></display>
-                  </coding>
-               </type>
-               <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763662"></value>
-               <assigner>
-                  <reference value="10595272"></reference>
-               </assigner>
-            </identifier>
-            <partOf>
-               <reference value="21515348"></reference>
-            </partOf>
-            <status value="final"></status>
-            <code>
-               <text value="Immunoglobulin A"></text>
-            </code>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <effectiveDateTime value="2163-07-10T00:00:00+00:00"></effectiveDateTime>
-            <valueQuantity>
-               <value value="372.0"></value>
-               <unit value="mg/dL"></unit>
+               <value value="1.0"></value>
             </valueQuantity>
          </Observation>
       </resource>
@@ -3451,282 +3630,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763663"></value>
+               <value value="80053175"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
-            </partOf>
-            <status value="final"></status>
-            <code>
-               <text value="Immunoglobulin G"></text>
-            </code>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <effectiveDateTime value="2163-07-10T00:00:00+00:00"></effectiveDateTime>
-            <valueQuantity>
-               <value value="1306.0"></value>
-               <unit value="mg/dL"></unit>
-            </valueQuantity>
-         </Observation>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="Observation"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <Observation xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
-            </meta>
-            <identifier>
-               <use value="usual"></use>
-               <type>
-                  <coding>
-                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
-                     <code value="OBI"></code>
-                     <display value="Optometrist license number"></display>
-                  </coding>
-               </type>
-               <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763664"></value>
-               <assigner>
-                  <reference value="10595272"></reference>
-               </assigner>
-            </identifier>
-            <partOf>
-               <reference value="21515348"></reference>
-            </partOf>
-            <status value="final"></status>
-            <code>
-               <text value="Immunoglobulin M"></text>
-            </code>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <effectiveDateTime value="2163-07-10T00:00:00+00:00"></effectiveDateTime>
-            <valueQuantity>
-               <value value="57.0"></value>
-               <unit value="mg/dL"></unit>
-            </valueQuantity>
-         </Observation>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="Observation"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <Observation xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
-            </meta>
-            <identifier>
-               <use value="usual"></use>
-               <type>
-                  <coding>
-                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
-                     <code value="OBI"></code>
-                     <display value="Optometrist license number"></display>
-                  </coding>
-               </type>
-               <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763665"></value>
-               <assigner>
-                  <reference value="10595272"></reference>
-               </assigner>
-            </identifier>
-            <partOf>
-               <reference value="21515348"></reference>
-            </partOf>
-            <status value="final"></status>
-            <code>
-               <text value="Iron"></text>
-            </code>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <effectiveDateTime value="2163-07-10T00:00:00+00:00"></effectiveDateTime>
-            <valueQuantity>
-               <value value="32.0"></value>
-               <unit value="ug/dL"></unit>
-            </valueQuantity>
-         </Observation>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="Observation"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <Observation xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
-            </meta>
-            <identifier>
-               <use value="usual"></use>
-               <type>
-                  <coding>
-                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
-                     <code value="OBI"></code>
-                     <display value="Optometrist license number"></display>
-                  </coding>
-               </type>
-               <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763666"></value>
-               <assigner>
-                  <reference value="10595272"></reference>
-               </assigner>
-            </identifier>
-            <partOf>
-               <reference value="21515348"></reference>
-            </partOf>
-            <status value="final"></status>
-            <code>
-               <text value="Iron Binding Capacity, Total"></text>
-            </code>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <effectiveDateTime value="2163-07-10T00:00:00+00:00"></effectiveDateTime>
-            <valueQuantity>
-               <value value="307.0"></value>
-               <unit value="ug/dL"></unit>
-            </valueQuantity>
-         </Observation>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="Observation"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <Observation xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
-            </meta>
-            <identifier>
-               <use value="usual"></use>
-               <type>
-                  <coding>
-                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
-                     <code value="OBI"></code>
-                     <display value="Optometrist license number"></display>
-                  </coding>
-               </type>
-               <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763667"></value>
-               <assigner>
-                  <reference value="10595272"></reference>
-               </assigner>
-            </identifier>
-            <partOf>
-               <reference value="21515348"></reference>
-            </partOf>
-            <status value="final"></status>
-            <code>
-               <text value="Potassium"></text>
-            </code>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <effectiveDateTime value="2163-07-10T00:00:00+00:00"></effectiveDateTime>
-            <valueQuantity>
-               <value value="3.9"></value>
-               <unit value="mEq/L"></unit>
-            </valueQuantity>
-         </Observation>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="Observation"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <Observation xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
-            </meta>
-            <identifier>
-               <use value="usual"></use>
-               <type>
-                  <coding>
-                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
-                     <code value="OBI"></code>
-                     <display value="Optometrist license number"></display>
-                  </coding>
-               </type>
-               <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763669"></value>
-               <assigner>
-                  <reference value="10595272"></reference>
-               </assigner>
-            </identifier>
-            <partOf>
-               <reference value="21515348"></reference>
-            </partOf>
-            <status value="final"></status>
-            <code>
-               <text value="Protein, Total"></text>
-            </code>
-            <subject>
-               <reference value="10595272"></reference>
-            </subject>
-            <effectiveDateTime value="2163-07-10T00:00:00+00:00"></effectiveDateTime>
-            <valueQuantity>
-               <value value="6.6"></value>
-               <unit value="g/dL"></unit>
-            </valueQuantity>
-         </Observation>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="Observation"></url>
-      </request>
-   </entry>
-   <entry>
-      <resource>
-         <Observation xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
-            </meta>
-            <identifier>
-               <use value="usual"></use>
-               <type>
-                  <coding>
-                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
-                     <code value="OBI"></code>
-                     <display value="Optometrist license number"></display>
-                  </coding>
-               </type>
-               <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763670"></value>
-               <assigner>
-                  <reference value="10595272"></reference>
-               </assigner>
-            </identifier>
-            <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
                <text value="Sodium"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-10T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-30T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="139.0"></value>
+               <value value="146.0"></value>
                <unit value="mEq/L"></unit>
             </valueQuantity>
          </Observation>
@@ -3752,24 +3673,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763671"></value>
+               <value value="80053176"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
-               <text value="Transferrin"></text>
+               <text value="Urea Nitrogen"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-10T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-30T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="236.0"></value>
+               <value value="7.0"></value>
                <unit value="mg/dL"></unit>
             </valueQuantity>
          </Observation>
@@ -3795,25 +3716,24 @@
                   </coding>
                </type>
                <system value="http://www.imi-mimic.de/labevents"></system>
-               <value value="6763672"></value>
+               <value value="80053177"></value>
                <assigner>
-                  <reference value="10595272"></reference>
+                  <reference value="16774328"></reference>
                </assigner>
             </identifier>
             <partOf>
-               <reference value="21515348"></reference>
+               <reference value="24082212"></reference>
             </partOf>
             <status value="final"></status>
             <code>
-               <text value="Urea Nitrogen"></text>
+               <text value="L"></text>
             </code>
             <subject>
-               <reference value="10595272"></reference>
+               <reference value="16774328"></reference>
             </subject>
-            <effectiveDateTime value="2163-07-10T00:00:00+00:00"></effectiveDateTime>
+            <effectiveDateTime value="2157-01-30T00:00:00+00:00"></effectiveDateTime>
             <valueQuantity>
-               <value value="18.0"></value>
-               <unit value="mg/dL"></unit>
+               <value value="3.0"></value>
             </valueQuantity>
          </Observation>
       </resource>
