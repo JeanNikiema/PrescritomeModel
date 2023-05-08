@@ -8,6 +8,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
+import java.util.TimeZone;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPathExpressionException;
@@ -24,7 +25,7 @@ import prescriptomeCore.Encounter;
 import prescriptomeCore.Patient;
 
 public class XMLDataToJavaObject {
-    SimpleDateFormat simpleDateFormter = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+    SimpleDateFormat simpleDateFormater = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
     
 	public Adress adress ;
 	public CauseDeathInformation causeDeathInformation ;
@@ -103,20 +104,14 @@ public class XMLDataToJavaObject {
     				break ;
     				default :
     		}
-    		
-//    		System.out.println("("+i+") "+organisationList.item(i).getNodeName()) ;
-//    		System.out.println(elementOrg.getAttribute("value")) ;
     	}
     	
 
     	
 //    	System.out.println("\n********************* conditionList **********************") ;
     	for(int i=0; i<conditionList.getLength(); i++) {
-    		Node node = conditionList.item(i);
-    		Element condElem = (Element) node ;
-
-//    		System.out.println("("+i+") "+node.getNodeName()) ;
-//    		System.out.println(condElem.getAttribute("value"));
+    		Node condNnode = conditionList.item(i);
+    		Element condElem = (Element) condNnode ;
     	}
     	
     	
@@ -130,32 +125,56 @@ public class XMLDataToJavaObject {
     		}
     	}
         
+//    	System.out.println("\n********************* encounterList **********************") ;
+		String status = null;
+		String cretime = null ;
+		String modtime = null;
+    	String encounterID=null;
+    	String providerID=null;
+    	String facilityID="0001";
+    	Date validitytime=null;
     	
-//    	encounter = new Encounter();
-//    	encounter.setPatientID(identifiant) ;
-//    	encounter.setProviderID("0001") ;
-//		encounter.setEncounterID("004") ;
-//		encounter.setFacilityID("002");
-//		Date validitytime2 = new Date();
-//		encounter.setValiditytime(validitytime2);
-//    	
-//    	for(int i=0; i<encounterList.getLength(); i++) {
-//    		Node node = (Node) encounterList.item(i) ;
-//    		Element encountElem = (Element) node ;
-//    		
-//    		if(node.getNodeType()== Node.ELEMENT_NODE) {
-//    			
-//    			switch(i) {
-//    				case 6:
-//    					encounter.setCreatetime(simpleDateFormter.parse(encountElem.getAttribute("value"))) ;
-//    				break;
-//    				case 7:
-//    					encounter.setModifytime(simpleDateFormter.parse(encountElem.getAttribute("value"))) ;	
-//    				break ;
-//    				default:
-//    			}
-//    		}
-//    	}
+    	for(int i=0; i<encounterList.getLength(); i++) {
+    		Node encounterNode = (Node) encounterList.item(i) ;
+    		Element encountElem = (Element) encounterNode ;
+    		
+    		if(encounterNode.getNodeType()== Node.ELEMENT_NODE) {
+    			
+    			switch(i) {
+    			case 0:
+    				status = encountElem.getAttribute("value");
+    				break;
+    				case 28:
+    					cretime = encountElem.getAttribute("value");
+    				break;
+    				case 29:
+    					modtime = encountElem.getAttribute("value");
+    				break ;
+    				case 43:
+    					providerID=encountElem.getAttribute("value");
+    				case 78:
+    					encounterID=encountElem.getAttribute("value");
+    				default:
+    			}
+    		}
+    		
+//    		System.out.println("("+i+") "+encounterNode.getNodeName()) ;
+//    		System.out.println(encountElem.getAttribute("value")) ;
+    	}
+    	
+    	encounter = new Encounter();
+    	encounter.setPatientID(identifiant) ;
+    	encounter.setProviderID(providerID) ;
+		encounter.setEncounterID(encounterID) ;
+		encounter.setFacilityID("002");
+		Date createtime=simpleDateFormater.parse(cretime) ;
+		encounter.setCreatetime(createtime) ;
+		Date modifytime=simpleDateFormater.parse(modtime);
+		encounter.setModifytime(modifytime) ;	
+		validitytime = new Date();
+		encounter.setValiditytime(validitytime);
+    	
+    	
     	
     	String medicAdminisIdentifier = null;
     	String medicAdminisStatus = null;
@@ -180,22 +199,21 @@ public class XMLDataToJavaObject {
     			break;
     		case 13:
     			
-    			startDateAdminis = simpleDateFormter.parse(medicationAdministratorElem.getAttribute("value"));
+    			startDateAdminis = simpleDateFormater.parse(medicationAdministratorElem.getAttribute("value"));
     			break ;
     		case 14:
-    			endDateAdminis = simpleDateFormter.parse(medicationAdministratorElem.getAttribute("value"));
+    			endDateAdminis = simpleDateFormater.parse(medicationAdministratorElem.getAttribute("value"));
     			default :
     		}
     	}
     	
 //		****************** Fournir les données du fichier   **********************
+//        SimpleDateFormat simpleDateFormater = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+        Date birthDate2 = simpleDateFormater.parse(birthDate);
 
-    	GregorianCalendar calendar = new GregorianCalendar(2017, Calendar.JANUARY , 25);
-    	
-    	Date validitytime = calendar.getTime();
-    	Date createtime = calendar.getTime();
-    	Date modifytime = calendar.getTime();
-    	Date deathDate = calendar.getTime() ;
+    	GregorianCalendar calendar = new GregorianCalendar();
+    	calendar.setTime(birthDate2) ;
+    	Date deathDate = calendar.getTime() ; // Table patient
     	
     	int birthDay = calendar.get(Calendar.DAY_OF_MONTH) ;
     	int birthMonth = calendar.get(Calendar.MONTH) ;
@@ -220,21 +238,21 @@ public class XMLDataToJavaObject {
 		patient.setDeathIndicator(false);
 		patient.setDeathInformation(deathInformation);
 		patient.setEthnicID("005");
-		patient.setGenderCode("M");
+		patient.setGenderCode(gender);
 		patient.setIdentifierSource(identifiant);
 		patient.setModifytime(modifytime);
 		patient.setModifytimePatient(modifytime);
-		patient.setName("Daouda");
+		patient.setName(family);
 		patient.setPatientGroup(null);
-		patient.setPatientID("001");
-		patient.setSexeCode("M") ;
+		patient.setPatientID(identifiant);
+		patient.setSexeCode(gender) ;
 		patient.setValiditytime(validitytime);
 		patient.setValiditytimePatient(validitytime);
 		
 	}
 	
-	public static void main(String[] args) throws XPathExpressionException, ParserConfigurationException, SAXException, IOException, ParseException {
-		XMLDataToJavaObject xmlLoad = new XMLDataToJavaObject() ;
-	}
+//	public static void main(String[] args) throws XPathExpressionException, ParserConfigurationException, SAXException, IOException, ParseException {
+//		XMLDataToJavaObject xmlLoad = new XMLDataToJavaObject() ;
+//	}
 
 }

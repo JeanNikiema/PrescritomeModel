@@ -16,9 +16,6 @@ public class Encounter {
 	private Date Createtime;
 	private Date Modifytime;
 
-
-
-
 	/**
 	 * @param encounterID
 	 * @param providerID
