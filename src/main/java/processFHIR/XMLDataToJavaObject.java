@@ -232,8 +232,8 @@ public class XMLDataToJavaObject {
     				default :
     		}
     		
-    		System.out.println("("+i+") "+observationNode.getNodeName()) ;
-    		System.out.println(elementObservation.getAttribute("value")) ;
+//    		System.out.println("("+i+") "+observationNode.getNodeName()) ;
+//    		System.out.println(elementObservation.getAttribute("value")) ;
     	}
     	observation = new Observation(
     			 observationID, 
@@ -330,8 +330,8 @@ public class XMLDataToJavaObject {
 		
 	}
 	
-	public static void main(String[] args) throws XPathExpressionException, ParserConfigurationException, SAXException, IOException, ParseException {
-		XMLDataToJavaObject xmlLoad = new XMLDataToJavaObject() ;
-	}
+//	public static void main(String[] args) throws XPathExpressionException, ParserConfigurationException, SAXException, IOException, ParseException {
+//		XMLDataToJavaObject xmlLoad = new XMLDataToJavaObject() ;
+//	}
 
 }
