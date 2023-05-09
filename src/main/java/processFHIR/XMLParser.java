@@ -22,6 +22,7 @@ import org.xml.sax.SAXException;
 public class XMLParser {
 	public NodeList patientList ;
 	public NodeList organisationList ;
+	public NodeList observationList ;
 	public NodeList conditionList ;
 	public NodeList locationList ;
 	public NodeList encounterList ;
@@ -50,6 +51,9 @@ public class XMLParser {
     	String organisationXPATH = "//Organization/descendant::*";
     	organisationList = (NodeList) xPath.compile(organisationXPATH).evaluate(xmlDocument, XPathConstants.NODESET);
   	
+    	String observationXPATH = "//Observation/descendant::*";
+    	observationList = (NodeList) xPath.compile(observationXPATH).evaluate(xmlDocument, XPathConstants.NODESET);
+    	
     	String conditionXPATH = "//Condition/descendant::*" ;
     	conditionList = (NodeList) xPath.compile(conditionXPATH).evaluate(xmlDocument, XPathConstants.NODESET);
     	

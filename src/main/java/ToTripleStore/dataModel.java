@@ -22,6 +22,7 @@ import org.eclipse.rdf4j.rio.UnsupportedRDFormatException;
 import org.xml.sax.SAXException;
 
 import prescriptomeCore.Encounter;
+import prescriptomeCore.Observation;
 import prescriptomeCore.Patient;
 import processFHIR.XMLDataToJavaObject;
 
@@ -594,8 +595,9 @@ public class dataModel {
 //
 //		//10
 //		builder=fromClassToRDF.ProcedureClass(prescriptomeCore.Procedure proc,  builder);
-//		//11
-//		builder=fromClassToRDF.ObservationClass( prescriptomeCore.Observation obs, builder);
+		//11
+		Observation observation = xlmData.observation;
+		builder=fromClassToRDF.ObservationClass( observation, builder);
 //		
 //		builder=fromClassToRDF.DiagnosisClass( prescriptomeCore.Diagnosis diag,  builder);
 //		

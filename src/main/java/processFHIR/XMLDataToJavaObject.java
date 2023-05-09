@@ -8,11 +8,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
-import java.util.TimeZone;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPathExpressionException;
 
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.util.Values;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -22,6 +23,7 @@ import prescriptomeCore.Adress;
 import prescriptomeCore.CauseDeathInformation;
 import prescriptomeCore.DeathInformation;
 import prescriptomeCore.Encounter;
+import prescriptomeCore.Observation;
 import prescriptomeCore.Patient;
 
 public class XMLDataToJavaObject {
@@ -32,6 +34,7 @@ public class XMLDataToJavaObject {
 	public DeathInformation deathInformation ;
 	public Patient patient ;
 	public Encounter encounter ;
+	public Observation observation;
 	public prescriptomeCore.Prescription medication ;
 
 	public XMLDataToJavaObject () throws XPathExpressionException, ParserConfigurationException, SAXException, IOException, ParseException {
@@ -40,6 +43,7 @@ public class XMLDataToJavaObject {
 		
 		NodeList patientList = parser.patientList ;
 		NodeList organisationList = parser.organisationList ;
+		NodeList observationList = parser.observationList ;
 		NodeList conditionList = parser.conditionList ;
 		NodeList locationList = parser.locationList ;
 		NodeList encounterList = parser.encounterList ;
@@ -106,7 +110,7 @@ public class XMLDataToJavaObject {
     		}
     	}
     	
-
+    	
     	
 //    	System.out.println("\n********************* conditionList **********************") ;
     	for(int i=0; i<conditionList.getLength(); i++) {
@@ -157,9 +161,6 @@ public class XMLDataToJavaObject {
     				default:
     			}
     		}
-    		
-//    		System.out.println("("+i+") "+encounterNode.getNodeName()) ;
-//    		System.out.println(encountElem.getAttribute("value")) ;
     	}
     	
     	encounter = new Encounter();
@@ -174,6 +175,84 @@ public class XMLDataToJavaObject {
 		validitytime = new Date();
 		encounter.setValiditytime(validitytime);
     	
+		
+		// Observation
+    	String observationID = null;
+    	Date reportDate = null;
+//    	prescriptomeCore.Encounter encounter;
+    	IRI typeCode = null;
+		IRI originaleTypeCode = null;
+		IRI informationSourceTypeCode = null; 
+		
+		String results = "result1";
+		IRI resultsSNOMED = Values.iri("http://terminology.hl7.org/CodeSystem/v2-0203", "resultsS");
+		int resultsInt = 0;
+		IRI resultUNITsource = Values.iri("http://terminology.hl7.org/CodeSystem/v2-0203", "resultUNITsource");
+		IRI resultUnitUCUM = Values.iri("http://terminology.hl7.org/CodeSystem/v2-0203", "resultUnitUCUM");
+		Date startDate = new Date();
+		Date endDate = new Date();
+		Date labValiditytime = new Date();
+		Date labCreatetime = new Date();
+		Date labModifytime = new Date();
+    	for(int i=0; i<observationList.getLength(); i++) {
+    		Node observationNode = (Node) observationList.item(i) ;
+    		Element elementObservation = (Element) observationNode ;
+    		
+    		switch (i) {
+    			case 10:
+    				observationID = elementObservation.getAttribute("value") ;
+    				break ;
+    			case 20:
+    				reportDate = simpleDateFormater.parse(elementObservation.getAttribute("value"));
+    				break;
+    			case 6:
+    				String ex = elementObservation.getAttribute("value");
+    				typeCode = Values.iri(ex, "observation");
+    				originaleTypeCode = Values.iri(elementObservation.getAttribute("value"));
+    				informationSourceTypeCode = Values.iri(elementObservation.getAttribute("value"));
+    				break;
+//    			case  :
+//    				results = elementObservation.getAttribute("value") ;
+//    				break;
+//    			case  :
+//    				results = elementObservation.getAttribute("value") ;
+//    				break;
+//    			case  :
+//    				results = elementObservation.getAttribute("value") ;
+//    				break;
+//    			case  :
+//    				results = elementObservation.getAttribute("value") ;
+//    				break;
+//    			case  :
+//    				results = elementObservation.getAttribute("value") ;
+//    				break;
+//    			case  :
+//    				results = elementObservation.getAttribute("value") ;
+//    				break;
+    				default :
+    		}
+    		
+    		System.out.println("("+i+") "+observationNode.getNodeName()) ;
+    		System.out.println(elementObservation.getAttribute("value")) ;
+    	}
+    	observation = new Observation(
+    			 observationID, 
+    			 reportDate, 
+    			 encounter, 
+    			 typeCode,
+    			 originaleTypeCode, 
+    			 informationSourceTypeCode, 
+    			 results, 
+    			 resultsSNOMED, 
+    			 resultsInt,
+    			 resultUNITsource, 
+    			 resultUnitUCUM, 
+    			 startDate, 
+    			 endDate, 
+    			 labValiditytime, 
+    			 labCreatetime,
+    			 labModifytime
+    		);
     	
     	
     	String medicAdminisIdentifier = null;
@@ -251,8 +330,8 @@ public class XMLDataToJavaObject {
 		
 	}
 	
-//	public static void main(String[] args) throws XPathExpressionException, ParserConfigurationException, SAXException, IOException, ParseException {
-//		XMLDataToJavaObject xmlLoad = new XMLDataToJavaObject() ;
-//	}
+	public static void main(String[] args) throws XPathExpressionException, ParserConfigurationException, SAXException, IOException, ParseException {
+		XMLDataToJavaObject xmlLoad = new XMLDataToJavaObject() ;
+	}
 
 }
