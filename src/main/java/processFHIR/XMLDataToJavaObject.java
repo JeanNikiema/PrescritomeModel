@@ -167,7 +167,7 @@ public class XMLDataToJavaObject {
     	encounter.setPatientID(identifiant) ;
     	encounter.setProviderID(providerID) ;
 		encounter.setEncounterID(encounterID) ;
-		encounter.setFacilityID("002");
+		encounter.setFacilityID(facilityID);
 		Date createtime=simpleDateFormater.parse(cretime) ;
 		encounter.setCreatetime(createtime) ;
 		Date modifytime=simpleDateFormater.parse(modtime);
@@ -185,10 +185,11 @@ public class XMLDataToJavaObject {
 		IRI informationSourceTypeCode = null; 
 		
 		String results = "result1";
-		IRI resultsSNOMED = Values.iri("http://terminology.hl7.org/CodeSystem/v2-0203", "resultsS");
+		String ex = "http://umontreal.ca";
+		IRI resultsSNOMED = Values.iri(ex, "resultsSNOMED");
 		int resultsInt = 0;
-		IRI resultUNITsource = Values.iri("http://terminology.hl7.org/CodeSystem/v2-0203", "resultUNITsource");
-		IRI resultUnitUCUM = Values.iri("http://terminology.hl7.org/CodeSystem/v2-0203", "resultUnitUCUM");
+		IRI resultUNITsource = Values.iri(ex, "resultUNITsource");
+		IRI resultUnitUCUM = Values.iri(ex, "resultUnitUCUM");
 		Date startDate = new Date();
 		Date endDate = new Date();
 		Date labValiditytime = new Date();
@@ -206,7 +207,6 @@ public class XMLDataToJavaObject {
     				reportDate = simpleDateFormater.parse(elementObservation.getAttribute("value"));
     				break;
     			case 6:
-    				String ex = elementObservation.getAttribute("value");
     				typeCode = Values.iri(ex, "observation");
     				originaleTypeCode = Values.iri(elementObservation.getAttribute("value"));
     				informationSourceTypeCode = Values.iri(elementObservation.getAttribute("value"));
@@ -327,11 +327,10 @@ public class XMLDataToJavaObject {
 		patient.setSexeCode(gender) ;
 		patient.setValiditytime(validitytime);
 		patient.setValiditytimePatient(validitytime);
-		
 	}
 	
-//	public static void main(String[] args) throws XPathExpressionException, ParserConfigurationException, SAXException, IOException, ParseException {
-//		XMLDataToJavaObject xmlLoad = new XMLDataToJavaObject() ;
-//	}
+	public static void main(String[] args) throws XPathExpressionException, ParserConfigurationException, SAXException, IOException, ParseException {
+		XMLDataToJavaObject xmlLoad = new XMLDataToJavaObject() ;
+	}
 
 }

@@ -57,7 +57,7 @@ public class dataModel {
 	 * @return
 	 */
 	public ModelBuilder PropertyHasAdress(ModelBuilder builder){
-		builder.subject(HasAdress)
+		builder.subject( "CDMHPresc:has_adress")
 		.add(RDF.TYPE, RDF.PROPERTY)
 		.add(RDFS.LABEL, Values.literal("has adress","en"))
 		.add(RDFS.LABEL, Values.literal("a pour adresse","fr"));
@@ -217,14 +217,14 @@ public class dataModel {
 
 	//1
 	private String Person = "CDMHPresc:100000000";
-	private Literal PersonNameEN =  Values.literal("Person","en");
-	private Literal PersonNameFR =  Values.literal("Personne","fr");
+//	private Literal PersonNameEN =  Values.literal("Person","en");
+//	private Literal PersonNameFR =  Values.literal("Personne","fr");
 
 	public ModelBuilder PersonClass(ModelBuilder builder){
 		builder.subject(Person)
 		.add(RDF.TYPE, RDFS.CLASS)
-		.add(RDFS.LABEL, PersonNameFR)
-		.add(RDFS.LABEL, PersonNameEN);
+		.add(RDFS.LABEL, Values.literal("Personne","fr"))
+		.add(RDFS.LABEL, Values.literal("Person","en"));
 		return builder;
 	}
 
@@ -262,6 +262,7 @@ public class dataModel {
 		.add(RDFS.LABEL, PatientNameEN);
 		return builder;
 	}
+	
 	//4
 	private String PatientGroup = "CDMHPresc:400000000";
 	private Literal PatientGroupNameEN =  Values.literal("Patient Group","en");
@@ -277,15 +278,15 @@ public class dataModel {
 
 	//5
 	private String Facility = "CDMHPresc:500000000";
-	private Literal FacilityNameEN =  Values.literal("Facility","en");
-	private Literal FacilityNameFR =  Values.literal("Structure de soins","fr");
+//	private Literal FacilityNameEN =  Values.literal("Facility","en");
+//	private Literal FacilityNameFR =  Values.literal("Structure de soins","fr");
 
 	public ModelBuilder FacilityClass(ModelBuilder builder){
 		builder.subject(Facility)
 		.add(RDF.TYPE, RDFS.CLASS)
 		.add(HasAdress, Adress)
-		.add(RDFS.LABEL, FacilityNameFR)
-		.add(RDFS.LABEL, FacilityNameEN);
+		.add(RDFS.LABEL, Values.literal("Facility","en"))
+		.add(RDFS.LABEL, Values.literal("Structure de soins","fr"));
 		return builder;
 	}
 
