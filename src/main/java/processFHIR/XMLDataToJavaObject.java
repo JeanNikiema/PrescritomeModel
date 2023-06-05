@@ -7,7 +7,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashSet;
 import java.util.Locale;
+import java.util.Set;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPathExpressionException;
@@ -25,6 +27,8 @@ import prescriptomeCore.DeathInformation;
 import prescriptomeCore.Encounter;
 import prescriptomeCore.Observation;
 import prescriptomeCore.Patient;
+import prescriptomeCore.Prescription;
+import prescriptomeCore.Stay;
 
 public class XMLDataToJavaObject {
     SimpleDateFormat simpleDateFormater = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
@@ -36,6 +40,8 @@ public class XMLDataToJavaObject {
 	public Encounter encounter ;
 	public Observation observation;
 	public prescriptomeCore.Prescription medication ;
+	public prescriptomeCore.Prescription prescription ;
+	
 
 	public XMLDataToJavaObject () throws XPathExpressionException, ParserConfigurationException, SAXException, IOException, ParseException {
 		File file = new File("output/bundle7_1_1.xml");
@@ -50,8 +56,9 @@ public class XMLDataToJavaObject {
 		NodeList medicationList = parser.medicationList ;
 		NodeList medicationAdministratorList = parser.medicationAdministratorList ;
 		
+//		======================= Patient ==================================
 		String family = null ;
-    	String identifiant = null;
+    	String patientID = null;
     	String rue = null ;
     	String city = null  ;
     	String country = null ;
@@ -69,7 +76,7 @@ public class XMLDataToJavaObject {
     		case 6:
     			family = patientNode.getTextContent() ;
     		  case 11:
-    			  identifiant = patientNode.getTextContent() ;
+    			  patientID = patientNode.getTextContent() ;
     		    break;
     		  case 15:
     			  rue = patientNode.getTextContent() ;
@@ -96,7 +103,7 @@ public class XMLDataToJavaObject {
     		}
     	}
 		
-//    	System.out.println("\n********************* organisationList **********************") ;
+//    	============================= organisationList ====================") ;
     	String name = null ;
     	for(int i=0; i<organisationList.getLength(); i++) {
     		Node node = (Node) organisationList.item(i) ;
@@ -161,10 +168,13 @@ public class XMLDataToJavaObject {
     				default:
     			}
     		}
+    		
+//    		System.out.println("("+i+") "+encounterNode.getNodeName()) ;
+//    		System.out.println(encountElem.getAttribute("value")) ;
     	}
     	
     	encounter = new Encounter();
-    	encounter.setPatientID(identifiant) ;
+    	encounter.setPatientID(patientID) ;
     	encounter.setProviderID(providerID) ;
 		encounter.setEncounterID(encounterID) ;
 		encounter.setFacilityID(facilityID);
@@ -255,17 +265,16 @@ public class XMLDataToJavaObject {
     		);
     	
     	
+//    	System.out.println("\n********************* medicationAdministratorList **********************") ;	
     	String medicAdminisIdentifier = null;
     	String medicAdminisStatus = null;
     	String medicAdminisSubject = null; // le patient ayant reçu la prescription
     	Date startDateAdminis = null ;
     	Date endDateAdminis = null ;
-    	
-//    	System.out.println("\n********************* medicationAdministratorList **********************") ;
+
     	for(int i=0; i<medicationAdministratorList.getLength(); i++) {
     		Node medicationAdministratorNode = medicationAdministratorList.item(i) ;
     		Element medicationAdministratorElem = (Element) medicationAdministratorNode ;
-    		
     		switch(i) {
     		case 4:
     			medicAdminisIdentifier = medicationAdministratorElem.getAttribute("value") ;
@@ -284,14 +293,37 @@ public class XMLDataToJavaObject {
     			endDateAdminis = simpleDateFormater.parse(medicationAdministratorElem.getAttribute("value"));
     			default :
     		}
+    		
+//    		System.out.println("("+i+") "+medicationAdministratorNode.getNodeName()) ;
+//    		System.out.println(medicationAdministratorElem.getAttribute("value")) ;
     	}
+    	String ex2 = "http://umontreal.ca" ;
+    	IRI drugIDDataSource = Values.iri(ex2, "drugIDDataSource") ;
+    	IRI drugIDOCRx  = Values.iri(ex2, "drugIDOCRx");
+    	
+    	Stay stay = new Stay(startDateAdminis, endDate, encounterID,  providerID,  patientID,  facilityID,  validitytime,
+    			 createtime,  modifytime);
+    	
+    	Stay stayExposure  =  stay;
+    	Set<IRI> drugIDTherapeuticIndication = new HashSet<IRI>();
+    	drugIDTherapeuticIndication.add(Values.iri(ex2, "http://umontreal.ca")) ;
+    	IRI routeOfAdministrationSource  = Values.iri(ex2, "routeOfAdministrationSource");
+    	IRI routeOfAdministrationOCRx  = Values.iri(ex2, "routeOfAdministrationOCRx") ;
+    	IRI encounterUnitOfPresentation  = Values.iri(ex2, "encounterUnitOfPresentation") ;
+    	
+    	
+    	prescription = new Prescription(
+    			encounterID, providerID, medicAdminisSubject, facilityID,  validitytime,
+    			startDateAdminis,  endDateAdminis,  drugIDDataSource,  drugIDOCRx,  stayExposure,
+    			drugIDTherapeuticIndication,  routeOfAdministrationSource, routeOfAdministrationOCRx,
+    			 encounterUnitOfPresentation);
+
     	
 //		****************** Fournir les données du fichier   **********************
-//        SimpleDateFormat simpleDateFormater = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
         Date birthDate2 = simpleDateFormater.parse(birthDate);
 
     	GregorianCalendar calendar = new GregorianCalendar();
-    	calendar.setTime(birthDate2) ;
+    	calendar.setTime(simpleDateFormater.parse(birthDate)) ;
     	Date deathDate = calendar.getTime() ; // Table patient
     	
     	int birthDay = calendar.get(Calendar.DAY_OF_MONTH) ;
@@ -299,7 +331,7 @@ public class XMLDataToJavaObject {
     	int birthYear = calendar.get(Calendar.YEAR) ;
     	
     	
-    	adress = new Adress(identifiant, rue, city, "", country, postalCode, country, validitytime, true, createtime, modifytime);
+    	adress = new Adress("000AD1", rue, city, "", country, postalCode, country, validitytime, true, createtime, modifytime);
     	causeDeathInformation = new CauseDeathInformation(createtime, modifytime, "Paludisme" ) ;
     	deathInformation = new DeathInformation(createtime, modifytime, deathDate);
 		
@@ -312,25 +344,25 @@ public class XMLDataToJavaObject {
 		patient.setCauseDeathInformation(causeDeathInformation) ;
 		patient.setCreatetime(createtime) ;
 		patient.setCreatetimePatient(createtime) ;
-		patient.setDataBaseIdentifier(identifiant) ;
+		patient.setDataBaseIdentifier(patientID) ;
 		patient.setDeathIndicator(false) ;
 		patient.setDeathIndicator(false);
 		patient.setDeathInformation(deathInformation);
 		patient.setEthnicID("005");
 		patient.setGenderCode(gender);
-		patient.setIdentifierSource(identifiant);
+		patient.setIdentifierSource(patientID);
 		patient.setModifytime(modifytime);
 		patient.setModifytimePatient(modifytime);
 		patient.setName(family);
 		patient.setPatientGroup(null);
-		patient.setPatientID(identifiant);
+		patient.setPatientID(patientID);
 		patient.setSexeCode(gender) ;
 		patient.setValiditytime(validitytime);
 		patient.setValiditytimePatient(validitytime);
 	}
 	
-	public static void main(String[] args) throws XPathExpressionException, ParserConfigurationException, SAXException, IOException, ParseException {
-		XMLDataToJavaObject xmlLoad = new XMLDataToJavaObject() ;
-	}
+//	public static void main(String[] args) throws XPathExpressionException, ParserConfigurationException, SAXException, IOException, ParseException {
+//		XMLDataToJavaObject xmlLoad = new XMLDataToJavaObject() ;
+//	}
 
 }

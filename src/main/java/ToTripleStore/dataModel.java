@@ -19,12 +19,14 @@ import org.eclipse.rdf4j.rio.RDFFormat;
 import org.eclipse.rdf4j.rio.RDFHandlerException;
 import org.eclipse.rdf4j.rio.Rio;
 import org.eclipse.rdf4j.rio.UnsupportedRDFormatException;
+import org.hl7.fhir.r4.model.Bundle;
 import org.xml.sax.SAXException;
 
 import prescriptomeCore.Encounter;
 import prescriptomeCore.Observation;
 import prescriptomeCore.Patient;
-import processFHIR.XMLDataToJavaObject;
+import prescriptomeCore.Prescription;
+import processFHIR.GetRessource;
 
 
 
@@ -562,11 +564,15 @@ public class dataModel {
 	public ModelBuilder ClassBuilt(ModelBuilder builder) throws XPathExpressionException, ParserConfigurationException, SAXException, IOException, ParseException {
 		FromClassToRDF fromClassToRDF = new FromClassToRDF() ;
 		
-		XMLDataToJavaObject xlmData = new XMLDataToJavaObject() ;
-
+		GetRessource getResource = new GetRessource() ;
+		Bundle bundle = getResource.getFile("output/bundle7_1_1.xml");
+		
+		Encounter encounter = getResource.getEncounterFromResourceFile(bundle) ;
+		builder=fromClassToRDF.EncounterClass(encounter,  builder);
+		
 		//1
 		// PersonClass
-		Patient patient = xlmData.patient ;
+		Patient patient = getResource.getPatientFromResourceFile(bundle) ;
 		builder=fromClassToRDF.PersonClass(patient, builder);
 
 //		//2
@@ -591,13 +597,12 @@ public class dataModel {
 //		builder=fromClassToRDF.CauseOfDeathClass(prescriptomeCore.CauseDeathInformation cause,  builder);
 //
 		//9
-		Encounter encounter = xlmData.encounter ;
-		builder=fromClassToRDF.EncounterClass(encounter,  builder);
+		
 //
 //		//10
 //		builder=fromClassToRDF.ProcedureClass(prescriptomeCore.Procedure proc,  builder);
 		//11
-		Observation observation = xlmData.observation;
+		Observation observation = getResource.getObservationFromResource(bundle);
 		builder=fromClassToRDF.ObservationClass( observation, builder);
 //		
 //		builder=fromClassToRDF.DiagnosisClass( prescriptomeCore.Diagnosis diag,  builder);
@@ -607,7 +612,8 @@ public class dataModel {
 //		
 //		builder=fromClassToRDF.DispenseClass(prescriptomeCore.Dispense disp,   builder);
 //		
-//		builder=fromClassToRDF.PrescriptionClass(prescriptomeCore.Prescription drugPrescription,   builder);
+		Prescription prescription = getResource.getMedicationAdministFromResource(bundle);
+		builder=fromClassToRDF.PrescriptionClass(prescription,   builder);
 //		
 //		builder=fromClassToRDF.DrugAdministrationClass( DrugAdministration DrugAdmin,   builder);
 //		

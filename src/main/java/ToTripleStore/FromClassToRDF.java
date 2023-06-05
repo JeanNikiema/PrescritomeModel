@@ -131,7 +131,7 @@ public class FromClassToRDF {
 	private String HasDrugIDDataSource= "CDMHPresc:has_drug_id_source";
 	private String HasDrugIDOCRx= "CDMHPresc:has_drug_id_ocrx";
 	private String HasStayExposure= "CDMHPresc:has_stay_exposure";
-	private String HasDrugIDTherapeuticIndication= "CDMHPresc:has_therapeutic_indication=";
+	private String HasDrugIDTherapeuticIndication= "CDMHPresc:has_therapeutic_indication";
 	private String HasrouteOfAdministrationSource= "CDMHPresc:has_route_Of_administration_source";
 	private String HasrouteOfAdministrationOCRx= "CDMHPresc:has_route_Of_administration_ocrx";
 	private String HasEncounterUnitOfPresentation= "CDMHPresc:has_encounter_unit_of_presentation";
@@ -601,7 +601,6 @@ public class FromClassToRDF {
 	private String Observation = "CDMHPresc:1100000000";
 
 	public ModelBuilder ObservationClass(prescriptomeCore.Observation obs, ModelBuilder builder){
-
 		String observationID =obs.getObservationID();
 		Date reportDate =obs.getReportDate();
 		prescriptomeCore.Encounter encounter =obs.getEncounter();
@@ -641,9 +640,7 @@ public class FromClassToRDF {
 
 	//12
 	private String Diagnosis = "CDMHPresc:1200000000";
-
 	public ModelBuilder DiagnosisClass(prescriptomeCore.Diagnosis diag, ModelBuilder builder){
-
 		String diagnosisID = diag.getDiagnosisID();
 		IRI originalDiagnosisCode = diag.getOriginalDiagnosisCode();
 		IRI diagnosisCode = diag.getDiagnosisCode();
@@ -775,8 +772,6 @@ public class FromClassToRDF {
 			.add(HasModifytime, modifytime);
 		}
 
-
-
 		builder.subject("CDMHPresc:"+providerID )
 		.add(RDF.TYPE, Provider)
 		.add(HasEncounter, "CDMHPresc:"+encounterID )
@@ -793,11 +788,10 @@ public class FromClassToRDF {
 
 		return builder;
 	}
+	
 	//15
 	private String Dispense = "CDMHPresc:1500000000";
-
 	public ModelBuilder DispenseClass(prescriptomeCore.Dispense disp, ModelBuilder builder){
-
 		String encounterID =disp.getEncounterID();
 		String providerID = disp.getProviderID();
 		String patientID = disp.getPatientID();
@@ -840,8 +834,6 @@ public class FromClassToRDF {
 			.add(HasModifytime, modifytime);
 		}
 
-
-
 		builder.subject("CDMHPresc:"+providerID )
 		.add(RDF.TYPE, Provider)
 		.add(HasEncounter, "CDMHPresc:"+encounterID )
@@ -855,17 +847,13 @@ public class FromClassToRDF {
 		.add(HasValiditytime, validitytime)
 		.add(HasCreatetime, createtime)
 		.add(HasModifytime, modifytime);
-
-
-
+		
 		return builder;
 	}
 
 	//16
 	private String Prescription = "CDMHPresc:1600000000";
-
 	public ModelBuilder PrescriptionClass(Prescription drugPrescription, ModelBuilder builder){
-
 		String encounterID =drugPrescription.getEncounterID();
 		String providerID = drugPrescription.getProviderID();
 		String patientID = drugPrescription.getPatientID();
@@ -907,7 +895,7 @@ public class FromClassToRDF {
 		.add(HasCreatetime, createtime)
 		.add(HasModifytime, modifytime);
 
-		builder.subject("CDMHPresc:"+patientID )
+		builder.subject("CDMHPresc:"+patientID)
 		.add(RDF.TYPE, Patient)
 		.add(HasEncounter, "CDMHPresc:"+encounterID )
 		.add(HasValiditytime, validitytime)
@@ -915,6 +903,7 @@ public class FromClassToRDF {
 		.add(HasModifytime, modifytime);
 		return builder;
 	}
+	
 	//17
 	private String DrugAdministration = "CDMHPresc:1700000000";
 

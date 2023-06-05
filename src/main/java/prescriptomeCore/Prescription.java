@@ -20,7 +20,6 @@ public class Prescription extends DrugEncounter {
 		super(encounterID, providerID, patientID, facilityID, validitytime, createtime, modifytime, drugIDDataSource,
 				drugIDOCRx, stayExposure, drugIDTherapeuticIndication, routeOfAdministrationSource, routeOfAdministrationOCRx,
 				encounterUnitOfPresentation);
-		// TODO Auto-generated constructor stub
 	}
 	
 	// statut of the prescription if it is a refill
