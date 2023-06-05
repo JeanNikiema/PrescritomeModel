@@ -6,26 +6,26 @@ import org.eclipse.rdf4j.model.IRI;
 import org.eclipse.rdf4j.model.util.Values;
 /**
  * @author Jean Nikiema
- * 
+ *
  */
 public class CauseDeathInformation {
 
-	private Date Createtime;
-	private Date Modifytime;
-	private IRI CauseOfDeathICD;
+	private Date createtime;
+	private Date modifytime;
+	private IRI causeOfDeathICD;
 
-	public CauseDeathInformation( Date Createtime,
-			Date Modifytime,
-			String Cause ){
+	public CauseDeathInformation( Date createtime, Date modifytime, String cause ){
 		String ex = "http://prescriptomeDataModel.ca/";
-		IRI causeICD = Values.iri(ex,Cause);
+		IRI causeICD = Values.iri(ex,cause);
 		this.setCauseOfDeathICD(causeICD);
-		this.setCreatetime(Createtime);
-		this.setModifytime(Modifytime);
+		this.setCreatetime(createtime);
+		this.setModifytime(modifytime);
 	}
+
 
 	private java.lang.Object __equalsCalc = null;
 
+	@Override
 	public synchronized boolean equals(java.lang.Object obj) {
 		if (!(obj instanceof CauseDeathInformation)) return false;
 		CauseDeathInformation other = (CauseDeathInformation) obj;
@@ -35,46 +35,58 @@ public class CauseDeathInformation {
 		}
 		__equalsCalc = obj;
 		boolean _equals;
-		_equals = true && 
+		_equals = true &&
 
-				((this.CauseOfDeathICD==null && other.getCauseOfDeathICD()==null) || 
-						(this.CauseOfDeathICD!=null &&
-						this.CauseOfDeathICD.equals(other.getCauseOfDeathICD())))  &&
+				((this.causeOfDeathICD==null && other.getCauseOfDeathICD()==null) ||
+						(this.causeOfDeathICD!=null &&
+						this.causeOfDeathICD.equals(other.getCauseOfDeathICD())))  &&
 
 
-				((this.Createtime==null && other.getCreatetime()==null) || 
-						(this.Createtime!=null &&
-						this.Createtime.equals(other.getCreatetime())))  &&
+				((this.createtime==null && other.getCreatetime()==null) ||
+						(this.createtime!=null &&
+						this.createtime.equals(other.getCreatetime())))  &&
 
-				((this.Modifytime==null && other.getModifytime()==null) || 
-						(this.Modifytime!=null &&
-						this.Modifytime.equals(other.getModifytime())));
+				((this.modifytime==null && other.getModifytime()==null) ||
+						(this.modifytime!=null &&
+						this.modifytime.equals(other.getModifytime())));
 
 		__equalsCalc = null;
 		return _equals;
 	}
+	
+	
 	public Date getCreatetime() {
-		return Createtime;
+		return createtime;
 	}
+	
+	
 	public void setCreatetime(Date createtime) {
-		Createtime = createtime;
+		this.createtime = createtime;
 	}
+	
+	
 	public Date getModifytime() {
-		return Modifytime;
+		return modifytime;
 	}
+	
+	
 	public void setModifytime(Date modifytime) {
-		Modifytime = modifytime;
+		this.modifytime = modifytime;
 	}
 
+	
 	public IRI getCauseOfDeathICD() {
-		return CauseOfDeathICD;
+		return causeOfDeathICD;
 	}
+	
 
 	public void setCauseOfDeathICD(IRI causeOfDeathICD) {
-		CauseOfDeathICD = causeOfDeathICD;
+		this.causeOfDeathICD = causeOfDeathICD;
 	}
 
+	
 	private boolean __hashCodeCalc = false;
+	@Override
 	public synchronized int hashCode() {
 		if (__hashCodeCalc) {
 			return 0;

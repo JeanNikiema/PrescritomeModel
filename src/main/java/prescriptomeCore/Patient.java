@@ -2,9 +2,8 @@ package prescriptomeCore;
 
 import java.util.Date;
 /**
- * A human being as patient 
+ * A human being as patient
  * @author Jean Nikiema
-
  */
 public class Patient extends Person{
 	private DeathInformation deathInformation;
@@ -14,15 +13,17 @@ public class Patient extends Person{
 	private Date ValiditytimePatient;
 	private Date CreatetimePatient;
 	private Date ModifytimePatient;
+	
 	public Patient( String PatientID, Date ModifytimePatient,Date CreatetimePatient, Date ValiditytimePatient, DeathInformation deathInformation, CauseDeathInformation cause,  PatientGroup Group, int BirthMonth, int BirthYear, int BirthDay, String identifierSource, String DataBaseIdentifier,
 			String genderCode, String EthnicID, String SexeCode, String Name, Date Validitytime, boolean DeathIndicator,
 			Date Createtime, Date Modifytime,Adress adress) {
+		
 		super(BirthMonth, BirthYear, BirthDay, identifierSource, DataBaseIdentifier, genderCode, EthnicID, SexeCode, Name,
 				Validitytime, DeathIndicator, Createtime, Modifytime,adress);
-		// TODO Auto-generated constructor stub
+		
 		this.setPatientID(PatientID);
 		this.setDeathInformation(deathInformation);
-		this.setCauseDeathInformation(cause); 
+		this.setCauseDeathInformation(cause);
 		this.setPatientGroup(Group);
 		this.setValiditytimePatient(ValiditytimePatient);
 		this.setCreatetimePatient(CreatetimePatient);
@@ -52,13 +53,16 @@ public class Patient extends Person{
 	 * @param createtimePatient
 	 * @param modifytimePatient
 	 */
+	
 	public Patient(int BirthMonth, int BirthYear, int BirthDay, String identifierSource, String DataBaseIdentifier,
 			String genderCode, String EthnicID, String SexeCode, String Name, Date Validitytime, boolean DeathIndicator,
 			Date Createtime, Date Modifytime, DeathInformation deathInformation,
 			CauseDeathInformation causeDeathInformation, prescriptomeCore.PatientGroup patientGroup, String patientID,
 			Date validitytimePatient, Date createtimePatient, Date modifytimePatient,Adress adress) {
+		
 		super(BirthMonth, BirthYear, BirthDay, identifierSource, DataBaseIdentifier, genderCode, EthnicID, SexeCode,
-				Name, Validitytime, DeathIndicator, Createtime, Modifytime,adress);
+				Name, Validitytime, DeathIndicator, Createtime, Modifytime, adress);
+		
 		this.deathInformation = deathInformation;
 		this.causeDeathInformation = causeDeathInformation;
 		PatientGroup = patientGroup;
@@ -66,21 +70,34 @@ public class Patient extends Person{
 		ValiditytimePatient = validitytimePatient;
 		CreatetimePatient = createtimePatient;
 		ModifytimePatient = modifytimePatient;
-		
+
+	}
+
+	
+	/**
+	 * 
+	 */
+	public Patient() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 
 	public DeathInformation getDeathInformation() {
 		return deathInformation;
 	}
+	
+	
 	public void setDeathInformation(DeathInformation deathInformation) {
 		this.deathInformation = deathInformation;
 	}
 
-
+	
 	public PatientGroup getPatientGroup() {
 		return PatientGroup;
 	}
+	
+	
 	public void setPatientGroup(PatientGroup patientGroup) {
 		PatientGroup = patientGroup;
 	}
@@ -97,6 +114,7 @@ public class Patient extends Person{
 
 	private java.lang.Object __equalsCalc = null;
 
+	@Override
 	public synchronized boolean equals(java.lang.Object obj) {
 		if (!(obj instanceof Patient)) return false;
 		Patient other = (Patient) obj;
@@ -106,22 +124,22 @@ public class Patient extends Person{
 		}
 		__equalsCalc = obj;
 		boolean _equals;
-		_equals = true && 
+		_equals = true &&
 
-				((this.getPatientID()==null && other.getPatientID()==null) || 
+				((this.getPatientID()==null && other.getPatientID()==null) ||
 						(this.getPatientID()!=null &&
 						this.getPatientID().equals(other.getPatientID())))  &&
 
-				((this.getDeathInformation()==null && other.getDeathInformation()==null) || 
+				((this.getDeathInformation()==null && other.getDeathInformation()==null) ||
 						(this.getDeathInformation()!=null &&
 						this.getDeathInformation().equals(other.getDeathInformation())))  &&
 
 
-				((this.getCauseDeathInformation()==null && other.getCauseDeathInformation()==null) || 
+				((this.getCauseDeathInformation()==null && other.getCauseDeathInformation()==null) ||
 						(this.getCauseDeathInformation()!=null &&
 						this.getCauseDeathInformation().equals(other.getCauseDeathInformation())))  &&
 
-				((this.getPatientGroup()==null && other.getPatientGroup()==null) || 
+				((this.getPatientGroup()==null && other.getPatientGroup()==null) ||
 						(this.getPatientGroup()!=null &&
 						this.getPatientGroup().equals(other.getPatientGroup())))  &&
 
@@ -133,43 +151,43 @@ public class Patient extends Person{
 
 
 
-				((this.getIdentifierSource()==null && other.getIdentifierSource()==null) || 
+				((this.getIdentifierSource()==null && other.getIdentifierSource()==null) ||
 						(this.getIdentifierSource()!=null &&
 						this.getIdentifierSource().equals(other.getIdentifierSource())))  &&
 
-				((this.getDataBaseIdentifier()==null && other.getDataBaseIdentifier()==null) || 
+				((this.getDataBaseIdentifier()==null && other.getDataBaseIdentifier()==null) ||
 						(this.getDataBaseIdentifier()!=null &&
 						this.getDataBaseIdentifier().equals(other.getDataBaseIdentifier())))  &&
 
-				((this.getGenderCode()==null && other.getGenderCode()==null) || 
+				((this.getGenderCode()==null && other.getGenderCode()==null) ||
 						(this.getGenderCode()!=null &&
 						this.getGenderCode().equals(other.getGenderCode())))  &&
 
-				((this.getEthnicID()==null && other.getEthnicID()==null) || 
+				((this.getEthnicID()==null && other.getEthnicID()==null) ||
 						(this.getEthnicID()!=null &&
 						this.getEthnicID().equals(other.getEthnicID())))  &&
 
-				((this.getSexeCode()==null && other.getSexeCode()==null) || 
+				((this.getSexeCode()==null && other.getSexeCode()==null) ||
 						(this.getSexeCode()!=null &&
 						this.getSexeCode().equals(other.getSexeCode())))  &&
 
-				((this.getName()==null && other.getName()==null) || 
+				((this.getName()==null && other.getName()==null) ||
 						(this.getName()!=null &&
 						this.getName().equals(other.getName())))  &&
 
-				((this.getValiditytime()==null && other.getValiditytime()==null) || 
+				((this.getValiditytime()==null && other.getValiditytime()==null) ||
 						(this.getValiditytime()!=null &&
 						this.getValiditytime().equals(other.getValiditytime())))  &&
 
-				((this.getValiditytimePatient()==null && other.getValiditytimePatient()==null) || 
+				((this.getValiditytimePatient()==null && other.getValiditytimePatient()==null) ||
 						(this.getValiditytimePatient()!=null &&
 						this.getValiditytimePatient().equals(other.getValiditytimePatient())))  &&
 
-				((this.getCreatetimePatient()==null && other.getCreatetimePatient()==null) || 
+				((this.getCreatetimePatient()==null && other.getCreatetimePatient()==null) ||
 						(this.getCreatetimePatient()!=null &&
 						this.getCreatetimePatient().equals(other.getCreatetimePatient())))  &&
 
-				((this.getModifytimePatient()==null && other.getModifytimePatient()==null) || 
+				((this.getModifytimePatient()==null && other.getModifytimePatient()==null) ||
 						(this.getModifytimePatient()!=null &&
 						this.getModifytimePatient().equals(other.getModifytimePatient())))  &&
 
@@ -177,11 +195,11 @@ public class Patient extends Person{
 
 				this.isDeathIndicator() ==other.isDeathIndicator()  &&
 
-				((this.getCreatetime()==null && other.getCreatetime()==null) || 
+				((this.getCreatetime()==null && other.getCreatetime()==null) ||
 						(this.getCreatetime()!=null &&
 						this.getCreatetime().equals(other.getCreatetime())))  &&
 
-				((this.getModifytime()==null && other.getModifytime()==null) || 
+				((this.getModifytime()==null && other.getModifytime()==null) ||
 						(this.getModifytime()!=null &&
 						this.getModifytime().equals(other.getModifytime())));
 
@@ -192,6 +210,7 @@ public class Patient extends Person{
 
 
 	private boolean __hashCodeCalc = false;
+	@Override
 	public synchronized int hashCode() {
 		if (__hashCodeCalc) {
 			return 0;
@@ -306,9 +325,4 @@ public class Patient extends Person{
 	public void setPatientID(String patientID) {
 		PatientID = patientID;
 	}
-
-
-
-
-
 }

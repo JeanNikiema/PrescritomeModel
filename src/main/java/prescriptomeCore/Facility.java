@@ -3,7 +3,7 @@ package prescriptomeCore;
 import java.util.Date;
 /**
  * @author Jean Nikiema
- * 
+ *
  */
 public class Facility {
 
@@ -36,6 +36,7 @@ public class Facility {
 
 	private java.lang.Object __equalsCalc = null;
 
+	@Override
 	public synchronized boolean equals(java.lang.Object obj) {
 		if (!(obj instanceof Facility)) return false;
 		Facility other = (Facility) obj;
@@ -45,31 +46,31 @@ public class Facility {
 		}
 		__equalsCalc = obj;
 		boolean _equals;
-		_equals = true && 
+		_equals = true &&
 
 
 
-				((this.FacilityID==null && other.getFacilityID()==null) || 
+				((this.FacilityID==null && other.getFacilityID()==null) ||
 						(this.FacilityID!=null &&
 						this.FacilityID.equals(other.getFacilityID())))  &&
 
-				((this.name==null && other.getName()==null) || 
+				((this.name==null && other.getName()==null) ||
 						(this.name!=null &&
 						this.name.equals(other.getName())))  &&
 
-				((this.ValiditytimeFacility==null && other.getValiditytimeFacility()==null) || 
+				((this.ValiditytimeFacility==null && other.getValiditytimeFacility()==null) ||
 						(this.ValiditytimeFacility!=null &&
 						this.ValiditytimeFacility.equals(other.getValiditytimeFacility())))  &&
 
-				((this.CreatetimeFacility==null && other.getCreatetimeFacility()==null) || 
+				((this.CreatetimeFacility==null && other.getCreatetimeFacility()==null) ||
 						(this.CreatetimeFacility!=null &&
 						this.CreatetimeFacility.equals(other.getCreatetimeFacility())))  &&
 
-				((this.FacilityAdress==null && other.getFacilityAdress()==null) || 
+				((this.FacilityAdress==null && other.getFacilityAdress()==null) ||
 						(this.FacilityAdress!=null &&
 						this.FacilityAdress.equals(other.getFacilityAdress())))  &&
 
-				((this.ModifytimeFacility==null && other.getModifytimeFacility()==null) || 
+				((this.ModifytimeFacility==null && other.getModifytimeFacility()==null) ||
 						(this.ModifytimeFacility!=null &&
 						this.ModifytimeFacility.equals(other.getModifytimeFacility())));
 
@@ -78,6 +79,7 @@ public class Facility {
 	}
 
 	private boolean __hashCodeCalc = false;
+	@Override
 	public synchronized int hashCode() {
 		if (__hashCodeCalc) {
 			return 0;

@@ -2,27 +2,31 @@ package prescriptomeCore;
 
 import java.util.Date;
 
-import org.eclipse.rdf4j.model.IRI;
-
 /**
  * @author Jean Nikiema
- * 
+ *
  */
 public class DeathInformation {
-	private Date Createtime;
-	private Date Modifytime;
-	private Date DeathDate ;
+	private Date createtime;
+	private Date modifytime;
+	private Date deathDate ;
 
 
 
 	public DeathInformation(Date createtime, Date modifytime, Date deathDate) {
-		this.Createtime = createtime;
-		this.Modifytime = modifytime;
-		this.DeathDate = deathDate;
+		this.createtime = createtime;
+		this.modifytime = modifytime;
+		this.deathDate = deathDate;
 	}
+	
+	public DeathInformation() {
+		super() ;
+	}
+	
 
 	private java.lang.Object __equalsCalc = null;
 
+	@Override
 	public synchronized boolean equals(java.lang.Object obj) {
 		if (!(obj instanceof DeathInformation)) return false;
 		DeathInformation other = (DeathInformation) obj;
@@ -32,48 +36,46 @@ public class DeathInformation {
 		}
 		__equalsCalc = obj;
 		boolean _equals;
-		_equals = true && 
+		_equals = true &&
 
-				((this.DeathDate==null && other.getDeathDate()==null) || 
-						(this.DeathDate!=null &&
-						this.DeathDate.equals(other.getDeathDate())))  &&
+				((this.deathDate==null && other.getDeathDate()==null) ||
+						(this.deathDate!=null &&
+						this.deathDate.equals(other.getDeathDate())))  &&
 
 
-				((this.Createtime==null && other.getCreatetime()==null) || 
-						(this.Createtime!=null &&
-						this.Createtime.equals(other.getCreatetime())))  &&
+				((this.createtime==null && other.getCreatetime()==null) ||
+						(this.createtime!=null &&
+						this.createtime.equals(other.getCreatetime())))  &&
 
-				((this.Modifytime==null && other.getModifytime()==null) || 
-						(this.Modifytime!=null &&
-						this.Modifytime.equals(other.getModifytime())));
+				((this.modifytime==null && other.getModifytime()==null) ||
+						(this.modifytime!=null &&
+						this.modifytime.equals(other.getModifytime())));
 
 		__equalsCalc = null;
 		return _equals;
 	}
 
 	public Date getCreatetime() {
-		return Createtime;
+		return createtime;
 	}
 	public void setCreatetime(Date createtime) {
-		Createtime = createtime;
+		this.createtime = createtime;
 	}
 	public Date getModifytime() {
-		return Modifytime;
+		return modifytime;
 	}
 	public void setModifytime(Date modifytime) {
-		Modifytime = modifytime;
+		this.modifytime = modifytime;
 	}
 	public Date getDeathDate() {
-		return DeathDate;
+		return deathDate;
 	}
 	public void setDeathDate(Date deathDate) {
-		DeathDate = deathDate;
-	}
-	public DeathInformation() {
-
+		this.deathDate = deathDate;
 	}
 
 	private boolean __hashCodeCalc = false;
+	@Override
 	public synchronized int hashCode() {
 		if (__hashCodeCalc) {
 			return 0;

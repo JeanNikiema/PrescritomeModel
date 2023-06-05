@@ -6,7 +6,7 @@ import java.util.Set;
 import org.eclipse.rdf4j.model.IRI;
 /**
  * @author Jean Nikiema
- * 
+ *
  */
 public class DrugAdministration extends DrugEncounter{
 
@@ -20,6 +20,8 @@ public class DrugAdministration extends DrugEncounter{
 				encounterUnitOfPresentation);
 		// TODO Auto-generated constructor stub
 	}
+	
+
 
 	/**
 	 * @param encounterID
@@ -130,6 +132,7 @@ public class DrugAdministration extends DrugEncounter{
 
 	private java.lang.Object __equalsCalc = null;
 
+	@Override
 	public synchronized boolean equals(java.lang.Object obj) {
 		if (!(obj instanceof DrugAdministration)) return false;
 		DrugAdministration other = (DrugAdministration) obj;
@@ -139,92 +142,92 @@ public class DrugAdministration extends DrugEncounter{
 		}
 		__equalsCalc = obj;
 		boolean _equals;
-		_equals = true && 
-				((this.getStayExposure()==null && other.getStayExposure()==null) || 
+		_equals = true &&
+				((this.getStayExposure()==null && other.getStayExposure()==null) ||
 						(this.getStayExposure()!=null &&
 						this.getStayExposure().equals(other.getStayExposure())))  &&
 
 
-				((this.getStopReasonSource()==null && other.getStopReasonSource()==null) || 
+				((this.getStopReasonSource()==null && other.getStopReasonSource()==null) ||
 						(this.getStopReasonSource()!=null &&
 						this.getStopReasonSource().equals(other.getStopReasonSource())))  &&
 
-				((this.getStopReason()==null && other.getStopReason()==null) || 
+				((this.getStopReason()==null && other.getStopReason()==null) ||
 						(this.getStopReason()!=null &&
 						this.getStopReason().equals(other.getStopReason())))  &&
 
 				(this.Stop==other.Stop)  &&
 
-				((this.getStartDate()==null && other.getStartDate()==null) || 
+				((this.getStartDate()==null && other.getStartDate()==null) ||
 						(this.getStartDate()!=null &&
 						this.getStartDate().equals(other.getStartDate())))  &&
 
-				((this.getEndDate()==null && other.getEndDate()==null) || 
+				((this.getEndDate()==null && other.getEndDate()==null) ||
 						(this.getEndDate()!=null &&
 						this.getEndDate().equals(other.getEndDate())))  &&
 
-				((this.getAdministrationInstructions()==null && other.getAdministrationInstructions()==null) || 
+				((this.getAdministrationInstructions()==null && other.getAdministrationInstructions()==null) ||
 						(this.getAdministrationInstructions()!=null &&
 						this.getAdministrationInstructions().equals(other.getAdministrationInstructions())))  &&
 
 
-				((this.getPrescription()==null && other.getPrescription()==null) || 
+				((this.getPrescription()==null && other.getPrescription()==null) ||
 						(this.getPrescription()!=null &&
 						this.getPrescription().equals(other.getPrescription())))  &&
 
 				(this.getAdministeredDose()==other.getAdministeredDose())  &&
 
 
-				((this.getRouteOfAdministrationSource()==null && other.getRouteOfAdministrationSource()==null) || 
+				((this.getRouteOfAdministrationSource()==null && other.getRouteOfAdministrationSource()==null) ||
 						(this.getRouteOfAdministrationSource()!=null &&
 						this.getRouteOfAdministrationSource().equals(other.getRouteOfAdministrationSource())))  &&
 
-				((this.getRouteOfAdministrationOCRx()==null && other.getRouteOfAdministrationOCRx()==null) || 
+				((this.getRouteOfAdministrationOCRx()==null && other.getRouteOfAdministrationOCRx()==null) ||
 						(this.getRouteOfAdministrationOCRx()!=null &&
 						this.getRouteOfAdministrationOCRx().equals(other.getRouteOfAdministrationOCRx())))  &&
 
-				((this.getEncounterUnitOfPresentation()==null && other.getEncounterUnitOfPresentation()==null) || 
+				((this.getEncounterUnitOfPresentation()==null && other.getEncounterUnitOfPresentation()==null) ||
 						(this.getEncounterUnitOfPresentation()!=null &&
 						this.getEncounterUnitOfPresentation().equals(other.getEncounterUnitOfPresentation())))  &&
 
 
-				((this.getDrugIDDataSource()==null && other.getDrugIDDataSource()==null) || 
+				((this.getDrugIDDataSource()==null && other.getDrugIDDataSource()==null) ||
 						(this.getDrugIDDataSource()!=null &&
 						this.getDrugIDDataSource().equals(other.getDrugIDDataSource())))  &&
 
-				((this.getDrugIDOCRx()==null && other.getDrugIDOCRx()==null) || 
+				((this.getDrugIDOCRx()==null && other.getDrugIDOCRx()==null) ||
 						(this.getDrugIDOCRx()!=null &&
 						this.getDrugIDOCRx().equals(other.getDrugIDOCRx())))  &&
 
-				((this.getDrugIDTherapeuticIndication()==null && other.getDrugIDTherapeuticIndication()==null) || 
+				((this.getDrugIDTherapeuticIndication()==null && other.getDrugIDTherapeuticIndication()==null) ||
 						(this.getDrugIDTherapeuticIndication()!=null &&
 						this.getDrugIDTherapeuticIndication().equals(other.getDrugIDTherapeuticIndication())))  &&
 
-				((this.getFacilityID()==null && other.getFacilityID()==null) || 
+				((this.getFacilityID()==null && other.getFacilityID()==null) ||
 						(this.getFacilityID()!=null &&
 						this.getFacilityID().equals(other.getFacilityID())))  &&
 
-				((this.getEncounterID()==null && other.getEncounterID()==null) || 
+				((this.getEncounterID()==null && other.getEncounterID()==null) ||
 						(this.getEncounterID()!=null &&
 						this.getEncounterID().equals(other.getEncounterID())))  &&
 
-				((this.getProviderID()==null && other.getProviderID()==null) || 
+				((this.getProviderID()==null && other.getProviderID()==null) ||
 						(this.getProviderID()!=null &&
 						this.getProviderID().equals(other.getProviderID())))  &&
 
-				((this.getPatientID()==null && other.getPatientID()==null) || 
+				((this.getPatientID()==null && other.getPatientID()==null) ||
 						(this.getPatientID()!=null &&
 						this.getPatientID().equals(other.getPatientID())))  &&
 
-				((this.getValiditytime()==null && other.getValiditytime()==null) || 
+				((this.getValiditytime()==null && other.getValiditytime()==null) ||
 						(this.getValiditytime()!=null &&
 						this.getValiditytime().equals(other.getValiditytime())))  &&
 
-				((this.getModifytime()==null && other.getModifytime()==null) || 
+				((this.getModifytime()==null && other.getModifytime()==null) ||
 						(this.getModifytime()!=null &&
 						this.getModifytime().equals(other.getModifytime())))  &&
 
-				((this.getCreatetime()==null && other.getCreatetime()==null) || 
+				((this.getCreatetime()==null && other.getCreatetime()==null) ||
 						(this.getCreatetime()!=null &&
 						this.getCreatetime().equals(other.getCreatetime())));
 
@@ -234,6 +237,7 @@ public class DrugAdministration extends DrugEncounter{
 
 	private boolean __hashCodeCalc = false;
 
+	@Override
 	public synchronized int hashCode() {
 		if (__hashCodeCalc) {
 			return 0;

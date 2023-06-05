@@ -3,7 +3,7 @@ package prescriptomeCore;
 import java.util.Date;
 /**
  * @author Jean Nikiema
- * 
+ *
  */
 public class Device {
 
@@ -88,9 +88,23 @@ public class Device {
 		this.Modifytime = modifytime;
 	}
 
+	
+	
+
+	/**
+	 * 
+	 */
+	public Device() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 
 	private java.lang.Object __equalsCalc = null;
 
+	@Override
 	public synchronized boolean equals(java.lang.Object obj) {
 		if (!(obj instanceof Device)) return false;
 		Device other = (Device) obj;
@@ -100,28 +114,28 @@ public class Device {
 		}
 		__equalsCalc = obj;
 		boolean _equals;
-		_equals = true && 
+		_equals = true &&
 
 
 
-				((this.DeviceID==null && other.getDeviceID()==null) || 
+				((this.DeviceID==null && other.getDeviceID()==null) ||
 						(this.DeviceID!=null &&
 						this.DeviceID.equals(other.getDeviceID())))  &&
 
-				((this.DeviceCode==null && other.getDeviceCode()==null) || 
+				((this.DeviceCode==null && other.getDeviceCode()==null) ||
 						(this.DeviceCode!=null &&
 						this.DeviceCode.equals(other.getDeviceCode())))  &&
 
 
-				((this.Validitytime==null && other.getValiditytime()==null) || 
+				((this.Validitytime==null && other.getValiditytime()==null) ||
 						(this.Validitytime!=null &&
 						this.Validitytime.equals(other.getValiditytime())))  &&
 
-				((this.Modifytime==null && other.getModifytime()==null) || 
+				((this.Modifytime==null && other.getModifytime()==null) ||
 						(this.Modifytime!=null &&
 						this.Modifytime.equals(other.getModifytime())))  &&
 
-				((this.Createtime==null && other.getCreatetime()==null) || 
+				((this.Createtime==null && other.getCreatetime()==null) ||
 						(this.Createtime!=null &&
 						this.Createtime.equals(other.getCreatetime())));
 
@@ -131,6 +145,7 @@ public class Device {
 
 	private boolean __hashCodeCalc = false;
 
+	@Override
 	public synchronized int hashCode() {
 		if (__hashCodeCalc) {
 			return 0;

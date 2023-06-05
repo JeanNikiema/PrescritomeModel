@@ -1,10 +1,11 @@
 package prescriptomeCore;
 
 import java.util.Date;
+
 import org.eclipse.rdf4j.model.IRI;
 /**
  * @author Jean Nikiema
- * 
+ *
  */
 public class Observation {
 
@@ -263,6 +264,7 @@ public class Observation {
 
 	private java.lang.Object __equalsCalc = null;
 
+	@Override
 	public synchronized boolean equals(java.lang.Object obj) {
 		if (!(obj instanceof Observation)) return false;
 		Observation other = (Observation) obj;
@@ -272,70 +274,70 @@ public class Observation {
 		}
 		__equalsCalc = obj;
 		boolean _equals;
-		_equals = true && 
+		_equals = true &&
 
 
 
-				((this.ObservationID==null && other.getObservationID()==null) || 
+				((this.ObservationID==null && other.getObservationID()==null) ||
 						(this.ObservationID!=null &&
 						this.ObservationID.equals(other.getObservationID())))  &&
 
-				((this.reportDate==null && other.getReportDate()==null) || 
+				((this.reportDate==null && other.getReportDate()==null) ||
 						(this.reportDate!=null &&
 						this.reportDate.equals(other.getReportDate())))  &&
 
-				((this.Encounter==null && other.getEncounter()==null) || 
+				((this.Encounter==null && other.getEncounter()==null) ||
 						(this.Encounter!=null &&
 						this.Encounter.equals(other.getEncounter())))  &&
 
-				((this.typeCode==null && other.getTypeCode()==null) || 
+				((this.typeCode==null && other.getTypeCode()==null) ||
 						(this.typeCode!=null &&
 						this.typeCode.equals(other.getTypeCode())))  &&
 
-				((this.originaleTypeCode==null && other.getOriginaleTypeCode()==null) || 
+				((this.originaleTypeCode==null && other.getOriginaleTypeCode()==null) ||
 						(this.originaleTypeCode!=null &&
 						this.originaleTypeCode.equals(other.getOriginaleTypeCode())))  &&
 
-				((this.informationSourceTypeCode==null && other.getInformationSourceTypeCode()==null) || 
+				((this.informationSourceTypeCode==null && other.getInformationSourceTypeCode()==null) ||
 						(this.informationSourceTypeCode!=null &&
 						this.informationSourceTypeCode.equals(other.getInformationSourceTypeCode())))  &&
 
-				((this.getResults()==null && other.getResults()==null) || 
+				((this.getResults()==null && other.getResults()==null) ||
 						(this.getResults()!=null &&
 						this.getResults().equals(other.getResults())))  &&
 
-				((this.resultsSNOMED==null && other.getResultsSNOMED()==null) || 
+				((this.resultsSNOMED==null && other.getResultsSNOMED()==null) ||
 						(this.resultsSNOMED!=null &&
 						this.resultsSNOMED.equals(other.getResultsSNOMED())))  &&
 
-				((this.startDate==null && other.getStartDate()==null) || 
+				((this.startDate==null && other.getStartDate()==null) ||
 						(this.startDate!=null &&
 						this.startDate.equals(other.getStartDate())))  &&
 
 				(this.resultsInt==other.getResultsInt())  &&
 
-				((this.resultUNITsource==null && other.getResultUNITsource()==null) || 
+				((this.resultUNITsource==null && other.getResultUNITsource()==null) ||
 						(this.resultUNITsource!=null &&
 						this.resultUNITsource.equals(other.getResultUNITsource())))  &&
 
-				((this.resultUnitUCUM==null && other.getResultUnitUCUM()==null) || 
+				((this.resultUnitUCUM==null && other.getResultUnitUCUM()==null) ||
 						(this.resultUnitUCUM!=null &&
 						this.resultUnitUCUM.equals(other.getResultUnitUCUM())))  &&
 
-				((this.endDate==null && other.getEndDate()==null) || 
+				((this.endDate==null && other.getEndDate()==null) ||
 						(this.endDate!=null &&
 						this.endDate.equals(other.getEndDate())))  &&
 
 
-				((this.Validitytime==null && other.getValiditytime()==null) || 
+				((this.Validitytime==null && other.getValiditytime()==null) ||
 						(this.Validitytime!=null &&
 						this.Validitytime.equals(other.getValiditytime())))  &&
 
-				((this.Modifytime==null && other.getModifytime()==null) || 
+				((this.Modifytime==null && other.getModifytime()==null) ||
 						(this.Modifytime!=null &&
 						this.Modifytime.equals(other.getModifytime())))  &&
 
-				((this.Createtime==null && other.getCreatetime()==null) || 
+				((this.Createtime==null && other.getCreatetime()==null) ||
 						(this.Createtime!=null &&
 						this.Createtime.equals(other.getCreatetime())));
 
@@ -345,6 +347,7 @@ public class Observation {
 
 	private boolean __hashCodeCalc = false;
 
+	@Override
 	public synchronized int hashCode() {
 		if (__hashCodeCalc) {
 			return 0;

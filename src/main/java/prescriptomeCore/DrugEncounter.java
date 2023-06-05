@@ -6,7 +6,7 @@ import java.util.Set;
 import org.eclipse.rdf4j.model.IRI;
 /**
  * @author Jean Nikiema
- * 
+ *
  */
 public class DrugEncounter extends Encounter{
 
@@ -111,9 +111,9 @@ public class DrugEncounter extends Encounter{
 	 */
 	public DrugEncounter(String encounterID, String providerID, String patientID, String facilityID, Date validitytime,
 			Date createtime, Date modifytime,
-			//Date validitytimeDrugEncounter, 
+			//Date validitytimeDrugEncounter,
 			//Date createtimeDrugEncounter,
-			//Date modifytimeDrugEncounter, 
+			//Date modifytimeDrugEncounter,
 			IRI drugIDDataSource, IRI drugIDOCRx, Stay stayExposure,
 			Set<IRI> drugIDTherapeuticIndication, IRI routeOfAdministrationSource, IRI routeOfAdministrationOCRx,
 			IRI encounterUnitOfPresentation) {
@@ -129,6 +129,11 @@ public class DrugEncounter extends Encounter{
 		this.setRouteOfAdministrationOCRx(routeOfAdministrationOCRx);
 		this.setEncounterUnitOfPresentation(encounterUnitOfPresentation);
 	}
+	
+	
+	
+	
+	
 	public IRI getRouteOfAdministrationSource() {
 		return routeOfAdministrationSource;
 	}
@@ -161,6 +166,7 @@ public class DrugEncounter extends Encounter{
 	}
 	private java.lang.Object __equalsCalc = null;
 
+	@Override
 	public synchronized boolean equals(java.lang.Object obj) {
 		if (!(obj instanceof DrugEncounter)) return false;
 		DrugEncounter other = (DrugEncounter) obj;
@@ -170,74 +176,74 @@ public class DrugEncounter extends Encounter{
 		}
 		__equalsCalc = obj;
 		boolean _equals;
-		_equals = true && 
-				((this.getStayExposure()==null && other.getStayExposure()==null) || 
+		_equals = true &&
+				((this.getStayExposure()==null && other.getStayExposure()==null) ||
 						(this.getStayExposure()!=null &&
 						this.getStayExposure().equals(other.getStayExposure())))  &&
 
 
-				((this.getRouteOfAdministrationSource()==null && other.getRouteOfAdministrationSource()==null) || 
+				((this.getRouteOfAdministrationSource()==null && other.getRouteOfAdministrationSource()==null) ||
 						(this.getRouteOfAdministrationSource()!=null &&
 						this.getRouteOfAdministrationSource().equals(other.getRouteOfAdministrationSource())))  &&
 
-				((this.getRouteOfAdministrationOCRx()==null && other.getRouteOfAdministrationOCRx()==null) || 
+				((this.getRouteOfAdministrationOCRx()==null && other.getRouteOfAdministrationOCRx()==null) ||
 						(this.getRouteOfAdministrationOCRx()!=null &&
 						this.getRouteOfAdministrationOCRx().equals(other.getRouteOfAdministrationOCRx())))  &&
 
-				((this.getEncounterUnitOfPresentation()==null && other.getEncounterUnitOfPresentation()==null) || 
+				((this.getEncounterUnitOfPresentation()==null && other.getEncounterUnitOfPresentation()==null) ||
 						(this.getEncounterUnitOfPresentation()!=null &&
 						this.getEncounterUnitOfPresentation().equals(other.getEncounterUnitOfPresentation())))  &&
 
 
-				//				((this.getValiditytimeDrugEncounter()==null && other.getValiditytimeDrugEncounter()==null) || 
+				//				((this.getValiditytimeDrugEncounter()==null && other.getValiditytimeDrugEncounter()==null) ||
 				//						(this.getValiditytimeDrugEncounter()!=null &&
 				//						this.getValiditytimeDrugEncounter().equals(other.getValiditytimeDrugEncounter())))  &&
 				//
-				//				((this.getCreatetimeDrugEncounter()==null && other.getCreatetimeDrugEncounter()==null) || 
+				//				((this.getCreatetimeDrugEncounter()==null && other.getCreatetimeDrugEncounter()==null) ||
 				//						(this.getCreatetimeDrugEncounter()!=null &&
 				//						this.getCreatetimeDrugEncounter().equals(other.getCreatetimeDrugEncounter())))  &&
 				//
-				//				((this.getModifytimeDrugEncounter()==null && other.getModifytimeDrugEncounter()==null) || 
+				//				((this.getModifytimeDrugEncounter()==null && other.getModifytimeDrugEncounter()==null) ||
 				//						(this.getModifytimeDrugEncounter()!=null &&
 				//						this.getModifytimeDrugEncounter().equals(other.getModifytimeDrugEncounter())))  &&
 
-				((this.getDrugIDDataSource()==null && other.getDrugIDDataSource()==null) || 
+				((this.getDrugIDDataSource()==null && other.getDrugIDDataSource()==null) ||
 						(this.getDrugIDDataSource()!=null &&
 						this.getDrugIDDataSource().equals(other.getDrugIDDataSource())))  &&
 
-				((this.getDrugIDOCRx()==null && other.getDrugIDOCRx()==null) || 
+				((this.getDrugIDOCRx()==null && other.getDrugIDOCRx()==null) ||
 						(this.getDrugIDOCRx()!=null &&
 						this.getDrugIDOCRx().equals(other.getDrugIDOCRx())))  &&
 
-				((this.getDrugIDTherapeuticIndication()==null && other.getDrugIDTherapeuticIndication()==null) || 
+				((this.getDrugIDTherapeuticIndication()==null && other.getDrugIDTherapeuticIndication()==null) ||
 						(this.getDrugIDTherapeuticIndication()!=null &&
 						this.getDrugIDTherapeuticIndication().equals(other.getDrugIDTherapeuticIndication())))  &&
 
-				((this.getFacilityID()==null && other.getFacilityID()==null) || 
+				((this.getFacilityID()==null && other.getFacilityID()==null) ||
 						(this.getFacilityID()!=null &&
 						this.getFacilityID().equals(other.getFacilityID())))  &&
 
-				((this.getEncounterID()==null && other.getEncounterID()==null) || 
+				((this.getEncounterID()==null && other.getEncounterID()==null) ||
 						(this.getEncounterID()!=null &&
 						this.getEncounterID().equals(other.getEncounterID())))  &&
 
-				((this.getProviderID()==null && other.getProviderID()==null) || 
+				((this.getProviderID()==null && other.getProviderID()==null) ||
 						(this.getProviderID()!=null &&
 						this.getProviderID().equals(other.getProviderID())))  &&
 
-				((this.getPatientID()==null && other.getPatientID()==null) || 
+				((this.getPatientID()==null && other.getPatientID()==null) ||
 						(this.getPatientID()!=null &&
 						this.getPatientID().equals(other.getPatientID())))  &&
 
-				((this.getValiditytime()==null && other.getValiditytime()==null) || 
+				((this.getValiditytime()==null && other.getValiditytime()==null) ||
 						(this.getValiditytime()!=null &&
 						this.getValiditytime().equals(other.getValiditytime())))  &&
 
-				((this.getModifytime()==null && other.getModifytime()==null) || 
+				((this.getModifytime()==null && other.getModifytime()==null) ||
 						(this.getModifytime()!=null &&
 						this.getModifytime().equals(other.getModifytime())))  &&
 
-				((this.getCreatetime()==null && other.getCreatetime()==null) || 
+				((this.getCreatetime()==null && other.getCreatetime()==null) ||
 						(this.getCreatetime()!=null &&
 						this.getCreatetime().equals(other.getCreatetime())));
 
@@ -247,6 +253,7 @@ public class DrugEncounter extends Encounter{
 
 	private boolean __hashCodeCalc = false;
 
+	@Override
 	public synchronized int hashCode() {
 		if (__hashCodeCalc) {
 			return 0;

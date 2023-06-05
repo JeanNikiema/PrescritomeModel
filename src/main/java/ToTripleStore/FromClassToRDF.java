@@ -5,19 +5,16 @@ import java.util.Set;
 
 import org.eclipse.rdf4j.model.BNode;
 import org.eclipse.rdf4j.model.IRI;
-import org.eclipse.rdf4j.model.Literal;
 import org.eclipse.rdf4j.model.util.ModelBuilder;
 import org.eclipse.rdf4j.model.util.Values;
 import org.eclipse.rdf4j.model.vocabulary.RDF;
 import org.eclipse.rdf4j.model.vocabulary.RDFS;
-import org.threeten.bp.LocalDate;
 
 import prescriptomeCore.Adress;
 import prescriptomeCore.CauseDeathInformation;
 import prescriptomeCore.DeathInformation;
 import prescriptomeCore.Device;
 import prescriptomeCore.DrugAdministration;
-import prescriptomeCore.Encounter;
 import prescriptomeCore.Facility;
 import prescriptomeCore.PatientGroup;
 import prescriptomeCore.Prescription;
@@ -25,9 +22,7 @@ import prescriptomeCore.Stay;
 
 public class FromClassToRDF {
 
-
-
-	// eleven properties building 
+	// eleven properties building
 	//1
 	private String  HasGroup = "CDMHPresc:has_group";
 
@@ -73,8 +68,8 @@ public class FromClassToRDF {
 
 
 	private String HasBirthMonth= "CDMHPresc:has_birth_month";
-	private String HasBirthYear= "CDMHPresc:has_birth_year";	
-	private String HasBirthDay= "CDMHPresc:has_birth_day";	
+	private String HasBirthYear= "CDMHPresc:has_birth_year";
+	private String HasBirthDay= "CDMHPresc:has_birth_day";
 	private String HasgenderCode= "CDMHPresc:has_gender_code";
 	private String HasEthnicID= "CDMHPresc:has_ethnic_id";
 	private String HasSexeCode= "CDMHPresc:has_sexe_code";
@@ -90,7 +85,7 @@ public class FromClassToRDF {
 	private String HasCity= "CDMHPresc:has_city";
 	private String HasState= "CDMHPresc:has_state";
 	private String HasZipCode= "CDMHPresc:has_zip_code";
-	private String HasCountry= "CDMHPresc:has_country";		
+	private String HasCountry= "CDMHPresc:has_country";
 	private String HasValidity= "CDMHPresc:has_validity";
 
 	private String HasProviderRole= "CDMHPresc:has_provider_role";
@@ -136,7 +131,7 @@ public class FromClassToRDF {
 	private String HasDrugIDDataSource= "CDMHPresc:has_drug_id_source";
 	private String HasDrugIDOCRx= "CDMHPresc:has_drug_id_ocrx";
 	private String HasStayExposure= "CDMHPresc:has_stay_exposure";
-	private String HasDrugIDTherapeuticIndication= "CDMHPresc:has_therapeutic_indication=";
+	private String HasDrugIDTherapeuticIndication= "CDMHPresc:has_therapeutic_indication";
 	private String HasrouteOfAdministrationSource= "CDMHPresc:has_route_Of_administration_source";
 	private String HasrouteOfAdministrationOCRx= "CDMHPresc:has_route_Of_administration_ocrx";
 	private String HasEncounterUnitOfPresentation= "CDMHPresc:has_encounter_unit_of_presentation";
@@ -144,7 +139,7 @@ public class FromClassToRDF {
 	private String HasDispenseDate= "CDMHPresc:dispense_date";
 	private String HasDaySupply= "CDMHPresc:has_day_supply";
 	private String HasPrescription= "CDMHPresc:has_drug_prescription";
-	
+
 	private String HasadministrationInstructions  = "CDMHPresc:has_administration_instructions";
 	private String HasadministeredDose = "CDMHPresc:has_administered_dose";
 	private String HasStop = "CDMHPresc:has_stop";
@@ -153,32 +148,9 @@ public class FromClassToRDF {
 	private String HasDeviceCode="CDMHPresc:has_stop_reason";
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	//1
 	private String Person = "CDMHPresc:100000000";
-
-
-	public ModelBuilder PersonClass(prescriptomeCore.Person pers,ModelBuilder builder){
+	public ModelBuilder PersonClass(prescriptomeCore.Person pers, ModelBuilder builder){
 
 		int BirthMonth=pers.getBirthMonth();
 		int BirthYear=pers.getBirthYear();
@@ -235,11 +207,11 @@ public class FromClassToRDF {
 		.add(HasValiditytime, ValiditytimeAd)
 		.add(HasCreatetime, CreatetimeAd)
 		.add(HasModifytime, ModifytimeAd)
-		.add(HasValidity, Validity);	
+		.add(HasValidity, Validity);
 
 		builder.subject("CDMHPresc:"+identifierSource)
 		.add(RDF.TYPE, Person)
-		.add(RDFS.SUBCLASSOF, DataBaseIdentifier);		
+		.add(RDFS.SUBCLASSOF, DataBaseIdentifier);
 		return builder;
 	}
 
@@ -254,7 +226,7 @@ public class FromClassToRDF {
 		String ProviderRole= prov.getProviderRole();
 		String ProviderID= prov.getProviderID();
 		Facility ProviderFacility= prov.getProviderFacility();
-		int BirthMonth= prov.getBirthMonth();
+		int BirthMonth = prov.getBirthMonth();
 		int BirthYear= prov.getBirthYear();
 		int BirthDay= prov.getBirthDay();
 		String identifierSource= prov.getIdentifierSource();
@@ -333,52 +305,44 @@ public class FromClassToRDF {
 		.add(HasValiditytime, ValiditytimeAd)
 		.add(HasCreatetime, CreatetimeAd)
 		.add(HasModifytime, ModifytimeAd)
-		.add(HasValidity, Validity);	
+		.add(HasValidity, Validity);
 
 		builder.subject("CDMHPresc:"+identifierSource)
 		.add(RDF.TYPE, Person)
-		.add(RDFS.SUBCLASSOF, DataBaseIdentifier);	
-
+		.add(RDFS.SUBCLASSOF, DataBaseIdentifier);
 
 		return builder;
 	}
 
-
-
-
-
 	//3
 	private String Patient = "CDMHPresc:300000000";
-
-	public ModelBuilder PatientClass(prescriptomeCore.Patient patient,ModelBuilder builder){
-
+	public ModelBuilder PatientClass(prescriptomeCore.Patient patient, ModelBuilder builder){
 		String PatientID =patient.getPatientID();
 		Date ModifytimePatient =patient.getModifytimePatient();
-		Date CreatetimePatient =patient.getCreatetimePatient(); 
-		Date ValiditytimePatient =patient.getValiditytimePatient(); 
+		Date CreatetimePatient =patient.getCreatetimePatient();
+		Date ValiditytimePatient =patient.getValiditytimePatient();
 
-		DeathInformation deathInformation =patient.getDeathInformation(); 
+		DeathInformation deathInformation =patient.getDeathInformation();
 		builder = DeathInformationClass(deathInformation, builder);
-		CauseDeathInformation cause =patient.getCauseDeathInformation();  
+		CauseDeathInformation cause =patient.getCauseDeathInformation();
 		builder = CauseOfDeathClass(cause, builder);
-		PatientGroup Group =patient.getPatientGroup(); 
+		PatientGroup Group =patient.getPatientGroup();
 		builder = PatientGroupClass(Group, builder);
 
-		int BirthMonth =patient.getBirthMonth(); 
-		int BirthYear =patient.getBirthYear(); 
-		int BirthDay =patient.getBirthDay(); 
-		String identifierSource =patient.getIdentifierSource(); 
+		int BirthMonth =patient.getBirthMonth();
+		int BirthYear =patient.getBirthYear();
+		int BirthDay =patient.getBirthDay();
+		String identifierSource =patient.getIdentifierSource();
 		String DataBaseIdentifier =patient.getDataBaseIdentifier();
-		String genderCode =patient.getGenderCode(); 
-		String EthnicID =patient.getEthnicID(); 
-		String SexeCode =patient.getSexeCode(); 
-		String Name =patient.getName(); 
-		Date Validitytime =patient.getValiditytime(); 
+		String genderCode =patient.getGenderCode();
+		String EthnicID =patient.getEthnicID();
+		String SexeCode =patient.getSexeCode();
+		String Name =patient.getName();
+		Date Validitytime =patient.getValiditytime();
 		boolean DeathIndicator =patient.isDeathIndicator();
-		Date Createtime =patient.getCreatetime(); 
+		Date Createtime =patient.getCreatetime();
 		Date Modifytime =patient.getModifytime();
 		Adress adress =patient.getAdress();
-
 
 		builder.subject("CDMHPresc:"+PatientID)
 		.add(RDF.TYPE, Patient)
@@ -395,12 +359,10 @@ public class FromClassToRDF {
 		.add(HasValiditytimePatient, ValiditytimePatient)
 		.add(HasCreatetimePatient, CreatetimePatient)
 		.add(HasModifytimePatient, ModifytimePatient)
-
 		.add(HasdeathInformation, deathInformation)
 		.add(HascauseDeathInformation, cause)
 		.add(HasPatientGroup, Group)
 		.add(HasModifytimePatient, ModifytimePatient)
-
 		.add(Hasadress, adress)
 		.add(Hasadress, adress.getAdressID())
 		.add(HasDeathIndicator, DeathIndicator);
@@ -444,22 +406,17 @@ public class FromClassToRDF {
 		.add(HasValiditytime, ValiditytimeAd)
 		.add(HasCreatetime, CreatetimeAd)
 		.add(HasModifytime, ModifytimeAd)
-		.add(HasValidity, Validity);	
+		.add(HasValidity, Validity);
 
 		builder.subject("CDMHPresc:"+identifierSource)
 		.add(RDF.TYPE, Person)
-		.add(RDFS.SUBCLASSOF, DataBaseIdentifier);	
+		.add(RDFS.SUBCLASSOF, DataBaseIdentifier);
 		return builder;
 	}
 
 
-
-
-
-
 	//4
 	private String PatientGroup = "CDMHPresc:400000000";
-
 	public ModelBuilder PatientGroupClass(PatientGroup group, ModelBuilder builder){
 		String DatabaseSource =group.getDatabaseSource();
 		String GroupID=group.getGroupID();
@@ -470,7 +427,7 @@ public class FromClassToRDF {
 		.add(HasDatabaseSource, DatabaseSource)
 		.add(HasGroupID, GroupID)
 		.add(HasCreatetime, Createtime)
-		.add(HasModifytime, Modifytime);		
+		.add(HasModifytime, Modifytime);
 		return builder;
 	}
 	//5
@@ -479,7 +436,7 @@ public class FromClassToRDF {
 	public ModelBuilder FacilityClass(Facility fac, ModelBuilder builder){
 
 		String facilityID = fac.getFacilityID();
-		String name =fac.getName(); 
+		String name =fac.getName();
 		Date validitytimeFacility=fac.getValiditytimeFacility();
 		Date createtimeFacility=fac.getCreatetimeFacility();
 		Date modifytimeFacility = fac.getModifytimeFacility();
@@ -493,7 +450,7 @@ public class FromClassToRDF {
 		.add(HasName, name)
 		.add(HasValiditytime, validitytimeFacility)
 		.add(HasCreatetime, createtimeFacility)
-		.add(HasModifytime, modifytimeFacility);		
+		.add(HasModifytime, modifytimeFacility);
 		return builder;
 	}
 
@@ -524,7 +481,7 @@ public class FromClassToRDF {
 		.add(HasValiditytime, ValiditytimeAd)
 		.add(HasCreatetime, CreatetimeAd)
 		.add(HasModifytime, ModifytimeAd)
-		.add(HasValidity, Validity);	
+		.add(HasValidity, Validity);
 		return builder;
 	}
 
@@ -540,7 +497,7 @@ public class FromClassToRDF {
 		.add(RDF.TYPE, DeathInformation)
 		.add(HasDeathDate, deathDate)
 		.add(HasCreatetime, createtime)
-		.add(HasModifytime, modifytime);		
+		.add(HasModifytime, modifytime);
 		return builder;
 	}
 
@@ -556,7 +513,7 @@ public class FromClassToRDF {
 		.add(RDF.TYPE, CauseOfDeath)
 		.add(CauseOfDeathICD, Cause)
 		.add(HasCreatetime, createtime)
-		.add(HasModifytime, modifytime);		
+		.add(HasModifytime, modifytime);
 		return builder;
 	}
 
@@ -565,11 +522,10 @@ public class FromClassToRDF {
 	private String Encounter = "CDMHPresc:900000000";
 
 	public ModelBuilder EncounterClass(prescriptomeCore.Encounter encou, ModelBuilder builder){
-
 		String encounterID = encou.getEncounterID();
 		String providerID = encou.getProviderID();
 		String patientID= encou.getPatientID();
-		String facilityID = encou.getFacilityID(); 
+		String facilityID = encou.getFacilityID();
 		Date validitytime = encou.getValiditytime();
 		Date createtime = encou.getCreatetime();
 		Date modifytime = encou.getModifytime();
@@ -583,14 +539,14 @@ public class FromClassToRDF {
 		.add(HasModifytime, modifytime);
 
 		builder.subject("CDMHPresc:"+providerID )
-		.add(RDF.TYPE, Provider)		
+		.add(RDF.TYPE, Provider)
 		.add(HasEncounter, "CDMHPresc:"+encounterID )
 		.add(HasValiditytime, validitytime)
 		.add(HasCreatetime, createtime)
 		.add(HasModifytime, modifytime);
 
 		builder.subject("CDMHPresc:"+patientID )
-		.add(RDF.TYPE, Patient)		
+		.add(RDF.TYPE, Patient)
 		.add(HasEncounter, "CDMHPresc:"+encounterID )
 		.add(HasValiditytime, validitytime)
 		.add(HasCreatetime, createtime)
@@ -606,13 +562,13 @@ public class FromClassToRDF {
 	public ModelBuilder ProcedureClass( prescriptomeCore.Procedure proc, ModelBuilder builder){
 
 		String procedureID = proc.getProcedureID();
-		prescriptomeCore.Encounter encounter = proc.getEncounter(); 
+		prescriptomeCore.Encounter encounter = proc.getEncounter();
 		builder = EncounterClass(encounter, builder);
 		IRI typeCode = proc.getTypeCode();
 		IRI originaleTypeCode=proc.getOriginaleTypeCode();
-		Date procedureDate=proc.getProcedureDate(); 
+		Date procedureDate=proc.getProcedureDate();
 		int quantity =proc.getQuantity();
-		IRI informationSourceTypeCode =proc.getInformationSourceTypeCode(); 
+		IRI informationSourceTypeCode =proc.getInformationSourceTypeCode();
 		int priorityCode = proc.getPriorityCode();
 		Date validitytime =proc.getValiditytime();
 		Date createtime = proc.getCreatetime();
@@ -624,7 +580,7 @@ public class FromClassToRDF {
 
 
 		builder.subject( "CDMHPresc:"+ procedureID )
-		.add(RDF.TYPE, Procedure)	
+		.add(RDF.TYPE, Procedure)
 		.add(HasEncounter, encounter)
 		.add(HasTypeCode, typeCode)
 		.add(HasTypeCode, originaleTypeCode)
@@ -634,10 +590,10 @@ public class FromClassToRDF {
 		.add(HasPriorityCode, priorityCode)
 		.add(HasStartDate, startDate)
 		.add(HasEndDate, endDate)
-		.add(HasDevice, Device)		
+		.add(HasDevice, Device)
 		.add(HasValiditytime, validitytime)
 		.add(HasCreatetime, createtime)
-		.add(HasModifytime, modifytime);		
+		.add(HasModifytime, modifytime);
 		return builder;
 	}
 
@@ -645,13 +601,12 @@ public class FromClassToRDF {
 	private String Observation = "CDMHPresc:1100000000";
 
 	public ModelBuilder ObservationClass(prescriptomeCore.Observation obs, ModelBuilder builder){
-
 		String observationID =obs.getObservationID();
 		Date reportDate =obs.getReportDate();
-		prescriptomeCore.Encounter encounter =obs.getEncounter(); 
+		prescriptomeCore.Encounter encounter =obs.getEncounter();
 		IRI typeCode = obs.getTypeCode();
 		IRI originaleTypeCode = obs.getOriginaleTypeCode();
-		IRI informationSourceTypeCode=obs.getInformationSourceTypeCode();  
+		IRI informationSourceTypeCode=obs.getInformationSourceTypeCode();
 		String results = obs.getResults();
 		IRI resultsSNOMED = obs.getResultsSNOMED();
 		int resultsInt =obs.getResultsInt();
@@ -679,38 +634,34 @@ public class FromClassToRDF {
 		.add(HasEndDate, endDate)
 		.add(HasValiditytime, validitytime)
 		.add(HasCreatetime, createtime)
-		.add(HasModifytime, modifytime);			
+		.add(HasModifytime, modifytime);
 		return builder;
 	}
 
 	//12
 	private String Diagnosis = "CDMHPresc:1200000000";
-
 	public ModelBuilder DiagnosisClass(prescriptomeCore.Diagnosis diag, ModelBuilder builder){
-
-		String diagnosisID = diag.getDiagnosisID(); 
+		String diagnosisID = diag.getDiagnosisID();
 		IRI originalDiagnosisCode = diag.getOriginalDiagnosisCode();
-		IRI diagnosisCode = diag.getDiagnosisCode(); 
+		IRI diagnosisCode = diag.getDiagnosisCode();
 		String encounterID = diag.getEncounterID();
-		String providerID = diag.getProviderID(); 
+		String providerID = diag.getProviderID();
 		String patientID = diag.getPatientID();
 		Date reportedDate =diag.getReportedDate();
 		int priorityAtDischarge = diag.getPriorityAtDischarge();
 		boolean presentAtEncounter =diag.isPresentAtEncounter();
 		Date validitytime =diag.getValiditytime();
-		Date createtime =diag.getCreatetime(); 
+		Date createtime =diag.getCreatetime();
 		Date modifytime = diag.getModifytime();
 
 
 		builder.subject(  "CDMHPresc:"+ diagnosisID)
 		.add(RDF.TYPE,Diagnosis)
-
 		.add(HasReportDate, reportedDate)
 		.add(HasOriginalDiagnosisCode, originalDiagnosisCode)
 		.add(HasdiagnosisCode, diagnosisCode)
 		.add(HaspriorityAtDischarge, priorityAtDischarge)
 		.add(HaspresentAtEncounter, presentAtEncounter)
-
 		.add(HasValiditytime, validitytime)
 		.add(HasCreatetime, createtime)
 		.add(HasModifytime, modifytime);
@@ -725,21 +676,18 @@ public class FromClassToRDF {
 		.add(HasModifytime, modifytime);
 
 		builder.subject("CDMHPresc:"+providerID )
-		.add(RDF.TYPE, Provider)		
+		.add(RDF.TYPE, Provider)
 		.add(HasEncounter, "CDMHPresc:"+encounterID )
 		.add(HasValiditytime, validitytime)
 		.add(HasCreatetime, createtime)
 		.add(HasModifytime, modifytime);
 
 		builder.subject("CDMHPresc:"+patientID )
-		.add(RDF.TYPE, Patient)		
+		.add(RDF.TYPE, Patient)
 		.add(HasEncounter, "CDMHPresc:"+encounterID )
 		.add(HasValiditytime, validitytime)
 		.add(HasCreatetime, createtime)
 		.add(HasModifytime, modifytime);
-
-
-
 
 		return builder;
 	}
@@ -761,29 +709,28 @@ public class FromClassToRDF {
 
 		builder.subject( "CDMHPresc:"+encounterID  )
 		.add(RDF.TYPE, Stay)
-
 		.add(HasStartDate, startDate)
 		.add(HasEndDate, endDate)
 		.add(HasFacility, facilityID)
-
 		.add(HasValiditytime, validitytime)
 		.add(HasCreatetime, createtime)
-		.add(HasModifytime, modifytime);	
+		.add(HasModifytime, modifytime);
 
 
 		builder.subject("CDMHPresc:"+providerID )
-		.add(RDF.TYPE, Provider)		
+		.add(RDF.TYPE, Provider)
 		.add(HasEncounter, "CDMHPresc:"+encounterID )
 		.add(HasValiditytime, validitytime)
 		.add(HasCreatetime, createtime)
 		.add(HasModifytime, modifytime);
 
 		builder.subject("CDMHPresc:"+patientID )
-		.add(RDF.TYPE, Patient)		
+		.add(RDF.TYPE, Patient)
 		.add(HasEncounter, "CDMHPresc:"+encounterID )
 		.add(HasValiditytime, validitytime)
 		.add(HasCreatetime, createtime)
 		.add(HasModifytime, modifytime);
+
 		return builder;
 	}
 
@@ -794,7 +741,7 @@ public class FromClassToRDF {
 
 	public ModelBuilder DrugEncounterClass(prescriptomeCore.DrugEncounter drugEncount, ModelBuilder builder){
 
-		String encounterID=drugEncount.getEncounterID(); 
+		String encounterID=drugEncount.getEncounterID();
 		String providerID = drugEncount.getProviderID();
 		String patientID =drugEncount.getPatientID();
 		String facilityID = drugEncount.getFacilityID();
@@ -812,7 +759,6 @@ public class FromClassToRDF {
 		for (IRI drugIDTherapeuticIndication:drugIDTherapeuticIndications ) {
 			builder.subject( "CDMHPresc:"+encounterID  )
 			.add(RDF.TYPE, DrugEncounter)
-
 			.add(HasDrugIDDataSource, drugIDDataSource)
 			.add(HasDrugIDOCRx, drugIDOCRx)
 			.add(PartOf, stayExposure)
@@ -820,25 +766,21 @@ public class FromClassToRDF {
 			.add(HasrouteOfAdministrationSource, routeOfAdministrationSource)
 			.add(HasrouteOfAdministrationOCRx, routeOfAdministrationOCRx)
 			.add(HasEncounterUnitOfPresentation, encounterUnitOfPresentation)
-
 			.add(HasFacility, facilityID)
-
 			.add(HasValiditytime, validitytime)
 			.add(HasCreatetime, createtime)
-			.add(HasModifytime, modifytime);	
+			.add(HasModifytime, modifytime);
 		}
 
-
-
 		builder.subject("CDMHPresc:"+providerID )
-		.add(RDF.TYPE, Provider)		
+		.add(RDF.TYPE, Provider)
 		.add(HasEncounter, "CDMHPresc:"+encounterID )
 		.add(HasValiditytime, validitytime)
 		.add(HasCreatetime, createtime)
 		.add(HasModifytime, modifytime);
 
 		builder.subject("CDMHPresc:"+patientID )
-		.add(RDF.TYPE, Patient)		
+		.add(RDF.TYPE, Patient)
 		.add(HasEncounter, "CDMHPresc:"+encounterID )
 		.add(HasValiditytime, validitytime)
 		.add(HasCreatetime, createtime)
@@ -846,11 +788,10 @@ public class FromClassToRDF {
 
 		return builder;
 	}
+	
 	//15
 	private String Dispense = "CDMHPresc:1500000000";
-
 	public ModelBuilder DispenseClass(prescriptomeCore.Dispense disp, ModelBuilder builder){
-
 		String encounterID =disp.getEncounterID();
 		String providerID = disp.getProviderID();
 		String patientID = disp.getPatientID();
@@ -875,7 +816,6 @@ public class FromClassToRDF {
 		for (IRI drugIDTherapeuticIndication:drugIDTherapeuticIndications ) {
 			builder.subject( "CDMHPresc:"+encounterID  )
 			.add(RDF.TYPE, Dispense)
-
 			.add(HasDrugIDDataSource, drugIDDataSource)
 			.add(HasDrugIDOCRx, drugIDOCRx)
 			.add(HasStayExposure, stayExposure)
@@ -891,38 +831,33 @@ public class FromClassToRDF {
 			.add(HasQuantity,quantity)
 			.add(HasValiditytime, validitytime)
 			.add(HasCreatetime, createtime)
-			.add(HasModifytime, modifytime);	
+			.add(HasModifytime, modifytime);
 		}
 
-
-
 		builder.subject("CDMHPresc:"+providerID )
-		.add(RDF.TYPE, Provider)		
+		.add(RDF.TYPE, Provider)
 		.add(HasEncounter, "CDMHPresc:"+encounterID )
 		.add(HasValiditytime, validitytime)
 		.add(HasCreatetime, createtime)
 		.add(HasModifytime, modifytime);
 
 		builder.subject("CDMHPresc:"+patientID )
-		.add(RDF.TYPE, Patient)		
+		.add(RDF.TYPE, Patient)
 		.add(HasEncounter, "CDMHPresc:"+encounterID )
 		.add(HasValiditytime, validitytime)
 		.add(HasCreatetime, createtime)
 		.add(HasModifytime, modifytime);
-
-
-
+		
 		return builder;
 	}
+
 	//16
 	private String Prescription = "CDMHPresc:1600000000";
-	
 	public ModelBuilder PrescriptionClass(Prescription drugPrescription, ModelBuilder builder){
-		
 		String encounterID =drugPrescription.getEncounterID();
 		String providerID = drugPrescription.getProviderID();
 		String patientID = drugPrescription.getPatientID();
-		String facilityID = drugPrescription.getFacilityID(); 
+		String facilityID = drugPrescription.getFacilityID();
 		Date validitytime = drugPrescription.getValiditytime();
 		Date createtime = drugPrescription.getCreatetime();
 		Date modifytime = drugPrescription.getModifytime();
@@ -933,11 +868,10 @@ public class FromClassToRDF {
 		IRI routeOfAdministrationSource = drugPrescription.getRouteOfAdministrationSource();
 		IRI routeOfAdministrationOCRx = drugPrescription.getRouteOfAdministrationOCRx();
 		IRI encounterUnitOfPresentation = drugPrescription.getEncounterUnitOfPresentation();
-		
+
 		for (IRI drugIDTherapeuticIndication:drugIDTherapeuticIndications ) {
 			builder.subject( "CDMHPresc:"+encounterID  )
 			.add(RDF.TYPE, Prescription)
-
 			.add(HasDrugIDDataSource, drugIDDataSource)
 			.add(HasDrugIDOCRx, drugIDOCRx)
 			.add(HasStayExposure, stayExposure)
@@ -945,34 +879,34 @@ public class FromClassToRDF {
 			.add(HasrouteOfAdministrationSource, routeOfAdministrationSource)
 			.add(HasrouteOfAdministrationOCRx, routeOfAdministrationOCRx)
 			.add(HasEncounterUnitOfPresentation, encounterUnitOfPresentation)
-
 			.add(HasFacility, facilityID)
 			.add(HasPrescription, drugPrescription)
 			.add(HasValiditytime, validitytime)
 			.add(HasCreatetime, createtime)
-			.add(HasModifytime, modifytime);	
+			.add(HasModifytime, modifytime);
 		}
 
 
 
 		builder.subject("CDMHPresc:"+providerID )
-		.add(RDF.TYPE, Provider)		
+		.add(RDF.TYPE, Provider)
 		.add(HasEncounter, "CDMHPresc:"+encounterID )
 		.add(HasValiditytime, validitytime)
 		.add(HasCreatetime, createtime)
 		.add(HasModifytime, modifytime);
 
-		builder.subject("CDMHPresc:"+patientID )
-		.add(RDF.TYPE, Patient)		
+		builder.subject("CDMHPresc:"+patientID)
+		.add(RDF.TYPE, Patient)
 		.add(HasEncounter, "CDMHPresc:"+encounterID )
 		.add(HasValiditytime, validitytime)
 		.add(HasCreatetime, createtime)
-		.add(HasModifytime, modifytime);	
+		.add(HasModifytime, modifytime);
 		return builder;
 	}
+	
 	//17
 	private String DrugAdministration = "CDMHPresc:1700000000";
-	
+
 	public ModelBuilder DrugAdministrationClass(DrugAdministration DrugAdmin, ModelBuilder builder){
 		String encounterID = DrugAdmin.getEncounterID();
 		String providerID = DrugAdmin.getProviderID();
@@ -984,24 +918,23 @@ public class FromClassToRDF {
 		IRI drugIDDataSource = DrugAdmin.getDrugIDDataSource();
 		IRI drugIDOCRx = DrugAdmin.getDrugIDOCRx();
 		Stay stayExposure = DrugAdmin.getStayExposure();
-		Set<IRI> drugIDTherapeuticIndications = DrugAdmin.getDrugIDTherapeuticIndication(); 
+		Set<IRI> drugIDTherapeuticIndications = DrugAdmin.getDrugIDTherapeuticIndication();
 		IRI routeOfAdministrationSource = DrugAdmin.getRouteOfAdministrationSource();
 		IRI routeOfAdministrationOCRx = DrugAdmin.getRouteOfAdministrationOCRx();
 		IRI encounterUnitOfPresentation = DrugAdmin.getEncounterUnitOfPresentation();
-		
+
 		Date startDate  = DrugAdmin.getStartDate();
 		Date endDate = DrugAdmin.getEndDate();
 		String administrationInstructions  = DrugAdmin.getAdministrationInstructions();
 		int administeredDose  = DrugAdmin.getAdministeredDose();
-		prescriptomeCore.Prescription prescription  = DrugAdmin.getPrescription(); 
+		prescriptomeCore.Prescription prescription  = DrugAdmin.getPrescription();
 		boolean Stop  = DrugAdmin.isStop();
 		IRI stopReasonSource  = DrugAdmin.getStopReason();
 		IRI stopReason =   DrugAdmin.getStopReason();
-		
+
 		for (IRI drugIDTherapeuticIndication:drugIDTherapeuticIndications ) {
 			builder.subject( "CDMHPresc:"+encounterID  )
 			.add(RDF.TYPE, DrugAdministration)
-
 			.add(HasDrugIDDataSource, drugIDDataSource)
 			.add(HasDrugIDOCRx, drugIDOCRx)
 			.add(HasStayExposure, stayExposure)
@@ -1011,56 +944,52 @@ public class FromClassToRDF {
 			.add(HasEncounterUnitOfPresentation, encounterUnitOfPresentation)
 			.add(HasStartDate, startDate)
 			.add(HasEndDate, endDate)
-			
 			.add(HasPrescription, prescription)
 			.add(HasadministrationInstructions, administrationInstructions)
 			.add(HasadministeredDose, administeredDose)
 			.add(HasStop, Stop)
 			.add(HasstopReasonSource, stopReasonSource)
 			.add(HasstopReason, stopReason)
-			
+
 
 			.add(HasFacility, facilityID)
 			.add(HasValiditytime, validitytime)
 			.add(HasCreatetime, createtime)
-			.add(HasModifytime, modifytime);	
+			.add(HasModifytime, modifytime);
 		}
 
-
-
 		builder.subject("CDMHPresc:"+providerID )
-		.add(RDF.TYPE, Provider)		
+		.add(RDF.TYPE, Provider)
 		.add(HasEncounter, "CDMHPresc:"+encounterID )
 		.add(HasValiditytime, validitytime)
 		.add(HasCreatetime, createtime)
 		.add(HasModifytime, modifytime);
 
 		builder.subject("CDMHPresc:"+patientID )
-		.add(RDF.TYPE, Patient)		
+		.add(RDF.TYPE, Patient)
 		.add(HasEncounter, "CDMHPresc:"+encounterID )
 		.add(HasValiditytime, validitytime)
 		.add(HasCreatetime, createtime)
-		.add(HasModifytime, modifytime);		
+		.add(HasModifytime, modifytime);
 		return builder;
 	}
 
 	//18
 	private String Device = "CDMHPresc:1800000000";
-	
+
 	public ModelBuilder DeviceClass(Device device, ModelBuilder builder){
-		 String DeviceID = device.getDeviceID();
-		 String DeviceCode = device.getDeviceCode();
-		 Date validitytime = device.getValiditytime();
-		 Date createtime = device.getCreatetime();
-		 Date modifytime = device.getModifytime();
-		builder.subject("CDMHPresc:"+DeviceID )
-		.add(HasDeviceCode, DeviceCode)
-		.add(HasValiditytime, validitytime)
-		.add(HasCreatetime, createtime)
-		.add(HasModifytime, modifytime);	
+//		 String DeviceID = device.getDeviceID();
+//		 String DeviceCode = device.getDeviceCode();
+//		 Date validitytime = device.getValiditytime();
+//		 Date createtime = device.getCreatetime();
+//		 Date modifytime = device.getModifytime();
+		builder.subject("CDMHPresc:"+device.getDeviceID() )
+		.add(HasDeviceCode, device.getDeviceCode())
+		.add(HasValiditytime, device.getValiditytime())
+		.add(HasCreatetime, device.getCreatetime())
+		.add(HasModifytime, device.getModifytime());
+
 		return builder;
 	}
-
-
 
 }

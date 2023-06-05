@@ -3,7 +3,7 @@ package prescriptomeCore;
 import java.util.Date;
 /**
  * @author Jean Nikiema
- * 
+ *
  */
 public class Stay extends Encounter {
 //	private Date ValiditytimeStay;
@@ -25,9 +25,9 @@ public class Stay extends Encounter {
 	 */
 	public Stay(
 			//Date ValiditytimeStay,
-			//Date CreatetimeStay, 
-			//Date ModifytimeStay, 
-			Date StartDate, 
+			//Date CreatetimeStay,
+			//Date ModifytimeStay,
+			Date StartDate,
 			Date endDate,String encounterID, String providerID, String patientID, String facilityID, Date validitytime,
 			Date createtime, Date modifytime) {
 		super(encounterID, providerID, patientID, facilityID, validitytime, createtime, modifytime);
@@ -41,6 +41,7 @@ public class Stay extends Encounter {
 
 	private java.lang.Object __equalsCalc = null;
 
+	@Override
 	public synchronized boolean equals(java.lang.Object obj) {
 		if (!(obj instanceof Stay)) return false;
 		Stay other = (Stay) obj;
@@ -50,51 +51,51 @@ public class Stay extends Encounter {
 		}
 		__equalsCalc = obj;
 		boolean _equals;
-		_equals = true && 
-				((this.StartDate==null && other.getStartDate()==null) || 
+		_equals = true &&
+				((this.StartDate==null && other.getStartDate()==null) ||
 						(this.StartDate!=null &&
 						this.StartDate.equals(other.getStartDate())))  &&
-				((this.endDate==null && other.getEndDate()==null) || 
+				((this.endDate==null && other.getEndDate()==null) ||
 						(this.endDate!=null &&
 						this.endDate.equals(other.getEndDate())))  &&
 
-				((this.getFacilityID()==null && other.getFacilityID()==null) || 
+				((this.getFacilityID()==null && other.getFacilityID()==null) ||
 						(this.getFacilityID()!=null &&
 						this.getFacilityID().equals(other.getFacilityID())))  &&
 
-				((this.getEncounterID()==null && other.getEncounterID()==null) || 
+				((this.getEncounterID()==null && other.getEncounterID()==null) ||
 						(this.getEncounterID()!=null &&
 						this.getEncounterID().equals(other.getEncounterID())))  &&
 
-				((this.getEncounterID()==null && other.getProviderID()==null) || 
+				((this.getEncounterID()==null && other.getProviderID()==null) ||
 						(this.getEncounterID()!=null &&
 						this.getEncounterID().equals(other.getProviderID())))  &&
 
-				((this.getPatientID()==null && other.getPatientID()==null) || 
+				((this.getPatientID()==null && other.getPatientID()==null) ||
 						(this.getPatientID()!=null &&
 						this.getPatientID().equals(other.getPatientID())))  &&
 
-				((this.getValiditytime()==null && other.getValiditytime()==null) || 
+				((this.getValiditytime()==null && other.getValiditytime()==null) ||
 						(this.getValiditytime()!=null &&
 						this.getValiditytime().equals(other.getValiditytime())))  &&
 
-				((this.getModifytime()==null && other.getModifytime()==null) || 
+				((this.getModifytime()==null && other.getModifytime()==null) ||
 						(this.getModifytime()!=null &&
 						this.getModifytime().equals(other.getModifytime())))  &&
 
-				((this.getCreatetime()==null && other.getCreatetime()==null) || 
+				((this.getCreatetime()==null && other.getCreatetime()==null) ||
 						(this.getCreatetime()!=null &&
 						this.getCreatetime().equals(other.getCreatetime())))  //&&
 
-//				((this.getValiditytimeStay()==null && other.getValiditytimeStay()==null) || 
+//				((this.getValiditytimeStay()==null && other.getValiditytimeStay()==null) ||
 //						(this.getValiditytimeStay()!=null &&
 //						this.getValiditytimeStay().equals(other.getValiditytimeStay())))  &&
 //
-//				((this.getModifytimeStay()==null && other.getModifytimeStay()==null) || 
+//				((this.getModifytimeStay()==null && other.getModifytimeStay()==null) ||
 //						(this.getModifytimeStay()!=null &&
 //						this.getModifytimeStay().equals(other.getModifytimeStay())))  &&
 //
-//			((this.getCreatetimeStay()==null && other.getCreatetimeStay()==null) || 
+//			((this.getCreatetimeStay()==null && other.getCreatetimeStay()==null) ||
 //						(this.getCreatetimeStay()!=null &&
 //						this.getCreatetimeStay().equals(other.getCreatetimeStay())));
 
@@ -105,6 +106,7 @@ public class Stay extends Encounter {
 	}
 
 	private boolean __hashCodeCalc = false;
+	@Override
 	public synchronized int hashCode() {
 		if (__hashCodeCalc) {
 			return 0;
