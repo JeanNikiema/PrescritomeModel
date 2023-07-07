@@ -552,10 +552,10 @@ public class FromClassToRDF {
 		.add(HasCreatetime, createtime)
 		.add(HasModifytime, modifytime);
 
-
-
 		return builder;
 	}
+	
+	
 	//10
 	private String Procedure = "CDMHPresc:1000000000";
 
