@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -32,23 +33,32 @@ import org.hl7.fhir.r4.model.Observation.ObservationStatus;
 import org.hl7.fhir.r4.model.Organization;
 import org.hl7.fhir.r4.model.Patient;
 import org.hl7.fhir.r4.model.ResourceType;
+import org.hl7.fhir.r4.model.Type;
 
 import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.parser.IParser;
 import prescriptomeCore.CauseDeathInformation;
 import prescriptomeCore.DeathInformation;
-import prescriptomeCore.Prescription;
 import prescriptomeCore.Stay;
 
 public class GetRessource {
+	
+	ArrayList<prescriptomeCore.Prescription> listPrescriptions ;
+	//		Liste des admissions
+	ArrayList<prescriptomeCore.Encounter> listEncounters ;
+	// Liste des patients
+	ArrayList<prescriptomeCore.Patient> listPatients ;
+	ArrayList<prescriptomeCore.Observation> listObservations ;
+	
+	
 	public Bundle getFile(String fileName) throws FileNotFoundException {
 		FhirContext ctxR4 = FhirContext.forR4();
-//		String fileName ="output/bundle7_1_1.xml";
 		InputStream inputStream = new FileInputStream(fileName);
 		IParser parser = ctxR4.newXmlParser().setPrettyPrint(true);
 		Bundle bundle = parser.parseResource(Bundle.class, inputStream);
 		return bundle ;
 	}
+
 	
 	public void getOrganizationFromResource(Bundle bundle) {
 		ResourceType organization = bundle.getEntry().get(0).getResource().getResourceType().Organization;
@@ -56,55 +66,44 @@ public class GetRessource {
 			if( bundle.getEntry().get(i).getResource().getResourceType().equals(organization)) {
 				Organization org = (Organization) bundle.getEntry().get(i).getResource();
 				
-				String orgIdentifier = org.getIdentifier().get(0).getValue();
-				String orgType = org.getType().get(0).getCoding().get(0).getDisplay();
+				String orgIdentifier = org.getIdentifierFirstRep().getValue();
+				String orgType = org.getTypeFirstRep().getCodingFirstRep().getDisplay();
 				String orgName = org.getName();
 			}
 		}
 	}
+	
 
 	public void getConditionFromResource(Bundle bundle) {
 		ResourceType condition = bundle.getEntry().get(0).getResource().getResourceType().Condition;
 		
 		for(int i =0; i<bundle.getEntry().size(); i++) {
 			if( bundle.getEntry().get(i).getResource().getResourceType().equals(condition)) {
-				System.out.println("\n************** Condition **************************") ;
 				Condition cond = (Condition) bundle.getEntry().get(i).getResource();
 				
-				String condIdentifier = cond.getIdentifier().get(0).getValue();
+				String condIdentifier = cond.getIdentifierFirstRep().getValue();
 				String condPatient = cond.getSubject().getReference();
 				Date recordDate = cond.getRecordedDate();
-				
-				System.out.println(condIdentifier);
-				System.out.println(condPatient);
-				System.out.println(recordDate);
 			}
 		}
 	}
+	
 	
 	public void getLocationFromResource(Bundle bundle) {
 		ResourceType location = bundle.getEntry().get(0).getResource().getResourceType().Location;
 		
 		for(int i =0; i<bundle.getEntry().size(); i++) {
 			if( bundle.getEntry().get(i).getResource().getResourceType().equals(location)) {
-				System.out.println("\n************** Location **************************") ;
 				Location loc = (Location) bundle.getEntry().get(i).getResource();
 				
-				String locIdentifier = loc.getIdentifier().get(0).getValue();
+				String locIdentifier = loc.getIdentifierFirstRep().getValue();
 				String locName = loc.getName();
-				String locType = loc.getType().get(0).getCoding().get(0).getDisplay();
-				String locPhysicalType = loc.getPhysicalType().getCoding().get(0).getDisplay();
+				String locType = loc.getTypeFirstRep().getCodingFirstRep().getDisplay();
+				String locPhysicalType = loc.getPhysicalType().getCodingFirstRep().getDisplay();
 				String orgRef = loc.getManagingOrganization().getReference();
-				
-				System.out.println(locIdentifier);
-				System.out.println(locName);
-				System.out.println(locType);
-				System.out.println(locPhysicalType);
-				System.out.println(orgRef);
 			}
 		}
 	}
-	
 	
 	
 	public void getMedicationFromResource(Bundle bundle) {
@@ -114,60 +113,16 @@ public class GetRessource {
 			if( bundle.getEntry().get(i).getResource().getResourceType().equals(medication)) {
 				Medication med = (Medication) bundle.getEntry().get(i).getResource();
 				NarrativeStatus medStatus = med.getText().getStatus();
-				
-				System.out.println(medStatus);
 			}
 		}
 	}
 
-	public prescriptomeCore.Observation getObservationFromResource(Bundle bundle) {
-		ResourceType observation = bundle.getEntry().get(0).getResource().getResourceType().Observation ;
-		prescriptomeCore.Observation obs = null ;
-		
-		for(int i =0; i<bundle.getEntry().size(); i++) {
-			if( bundle.getEntry().get(i).getResource().getResourceType().equals(observation)) {
-				Observation ob = (Observation) bundle.getEntry().get(i).getResource();
-				
-				List<CanonicalType> profile=ob.getMeta().getProfile();
-				String identifierSys = ob.getIdentifierFirstRep().getSystem();
-				String identifierVal = ob.getIdentifierFirstRep().getValue();
-				String codingSys = ob.getIdentifierFirstRep().getType().getCodingFirstRep().getSystem();
-				String codingCode = ob.getIdentifierFirstRep().getType().getCodingFirstRep().getCode();
-				String codingDisplay = ob.getIdentifierFirstRep().getType().getCodingFirstRep().getDisplay();
-				String assignerRef = ob.getIdentifierFirstRep().getAssigner().getReference();
-				String partOf = ob.getPartOfFirstRep().getReference();
-				ObservationStatus status = ob.getStatus();
-				String obCode = ob.getCode().getText();
-				String obSubject = ob.getSubject().getReference();
-				Date effectiveDateTime = ob.getEffectiveDateTimeType().getValue();
-				BigDecimal valueQuantity = ob.getValueQuantity().getValue();
-				String valueQuantityUnit = ob.getValueQuantity().getUnit();
-				
-				IRI typeCode = Values.iri(identifierSys, "observation");
-				IRI originaleTypeCode = Values.iri(identifierSys, "observation");
-				IRI informationSourceTypeCode = Values.iri(identifierSys, "observation");
-				
-				String results = "result1";
-				String ex = "http://umontreal.ca";
-				IRI resultsSNOMED = Values.iri(ex, "resultsSNOMED");
-				int resultsInt = 0;
-				IRI resultUNITsource = Values.iri(ex, "resultUNITsource");
-				IRI resultUnitUCUM = Values.iri(ex, "resultUnitUCUM");
-				
-				prescriptomeCore.Encounter encount = new prescriptomeCore.Encounter();
-				
-				obs = new prescriptomeCore.Observation(identifierVal, createtime, encount, typeCode, originaleTypeCode, informationSourceTypeCode, results, resultsSNOMED, resultsInt, resultUNITsource, resultUnitUCUM, effectiveDateTime, createtime, validitytime, createtime, modifytime);
-			}
-		}
-		
-		return obs;
-	}
+	
 	
 	Date validitytime;
 	Boolean validity =true;
 	Date createtime;
 	Date modifytime;
-	String encIdentifier;
 	
 	public prescriptomeCore.Encounter getEncounterFromResourceFile(Bundle bundle){
 		ResourceType encounter = bundle.getEntry().get(0).getResource().getResourceType().Encounter;
@@ -196,24 +151,31 @@ public class GetRessource {
 				String encHospitalizationDisplay = enc.getHospitalization().getDischargeDisposition().getCodingFirstRep().getDisplay() ;
 				
 				Patient pat = (Patient) bundle.getEntry().get(0).getResource();
-				String identifier = pat.getIdentifierFirstRep().getValue();
+				String patientID = pat.getIdentifierFirstRep().getValue();
 				
-				prescriptEnc.setPatientID(identifier) ;
-				prescriptEnc.setProviderID(encLocationRef) ;
+				prescriptEnc.setPatientID(patientID) ;
+				prescriptEnc.setProviderID(encServiceProvider) ;
 				prescriptEnc.setEncounterID(encIdentifier) ;
-				prescriptEnc.setFacilityID("0001FACIL");
+				prescriptEnc.setFacilityID(encServiceProvider);
 				prescriptEnc.setCreatetime(createtime) ;
 				prescriptEnc.setModifytime(modifytime) ;	
 				validitytime = new Date();
 				prescriptEnc.setValiditytime(validitytime);
+
+				//		Liste des admissions
+				listEncounters = new ArrayList<prescriptomeCore.Encounter>();
+				listEncounters.add(prescriptEnc);
 			}
 		}
 		return prescriptEnc ;
 	}
 	
+	
 	public prescriptomeCore.Patient getPatientFromResourceFile(Bundle bundle){
 		prescriptomeCore.Patient prescripPatient = new prescriptomeCore.Patient();
 		ResourceType fhirPatient = bundle.getEntry().get(0).getResource().getResourceType().Patient ;
+		
+		listPatients = new ArrayList<prescriptomeCore.Patient>();
 		
 		for(int i =0; i<bundle.getEntry().size(); i++) {
 			if( bundle.getEntry().get(i).getResource().getResourceType().equals(fhirPatient)) {
@@ -225,6 +187,8 @@ public class GetRessource {
 				Date birthDate = pat.getBirthDate();
 				Boolean deceded = pat.getDeceasedBooleanType().getValue();
 				String address = (String) pat.getAddressFirstRep().getLine().get(0).toString();
+				Type streetName= pat.getAddressFirstRep().getLine().get(0).getExtension().get(1).getValue();
+				Type houseNumber= pat.getAddressFirstRep().getLine().get(0).getExtension().get(1).getValue();
 				String city = pat.getAddressFirstRep().getCity();
 				String country = pat.getAddressFirstRep().getCountry();
 				String postalCode = pat.getAddressFirstRep().getPostalCode();
@@ -252,11 +216,11 @@ public class GetRessource {
 		    	int birthMonth = calendar.get(Calendar.MONTH) ;
 		    	int birthYear = calendar.get(Calendar.YEAR) ;
 		    	
-		    	prescriptomeCore.Adress adress = new prescriptomeCore.Adress("000AD1", address, city,"", country, postalCode, country, validitytime, true, createtime, modifytime);
+		    	prescriptomeCore.Adress adress = new prescriptomeCore.Adress(postalCode, address, city,"", country, postalCode, country, validitytime, true, createtime, modifytime);
 		    	
 		    	if (deceded) {
-					DateTimeType Diceaseddate =  pat.getDeceasedDateTimeType();
-					deathInformation = new DeathInformation(createtime, modifytime, Diceaseddate.getValue());
+					DateTimeType diceaseddate =  pat.getDeceasedDateTimeType();
+					deathInformation = new DeathInformation(createtime, modifytime, diceaseddate.getValue());
 					causeDeathInformation = new CauseDeathInformation(createtime, modifytime, "Unknow");
 				}
 	
@@ -268,8 +232,7 @@ public class GetRessource {
 				prescripPatient.setCreatetime(createtime) ;
 				prescripPatient.setCreatetimePatient(createtime) ;
 				prescripPatient.setDataBaseIdentifier(identifier) ;
-				prescripPatient.setDeathIndicator(false) ;
-				prescripPatient.setDeathIndicator(false);
+				prescripPatient.setDeathIndicator(deceded) ;
 				prescripPatient.setDeathInformation(deathInformation);
 				prescripPatient.setEthnicID(EthnicID);
 				prescripPatient.setGenderCode(genderCode);
@@ -282,10 +245,60 @@ public class GetRessource {
 				prescripPatient.setSexeCode(SexeCode) ;
 				prescripPatient.setValiditytime(validitytime);
 				prescripPatient.setValiditytimePatient(validitytime);
+				
+				listPatients.add(prescripPatient);
+			}
+		}
+		return prescripPatient ;
+	}
+	
+	
+	public prescriptomeCore.Observation getObservationFromResource(Bundle bundle) {
+		ResourceType observation = bundle.getEntry().get(0).getResource().getResourceType().Observation ;
+		prescriptomeCore.Observation obs = null ;
+		
+		for(int i =0; i<bundle.getEntry().size(); i++) {
+			if( bundle.getEntry().get(i).getResource().getResourceType().equals(observation)) {
+				Observation ob = (Observation) bundle.getEntry().get(i).getResource();
+				
+				List<CanonicalType> profile=ob.getMeta().getProfile();
+				String identifierSys = ob.getIdentifierFirstRep().getSystem();
+				String observationID = ob.getIdentifierFirstRep().getValue();
+				String codingSys = ob.getIdentifierFirstRep().getType().getCodingFirstRep().getSystem();
+				String codingCode = ob.getIdentifierFirstRep().getType().getCodingFirstRep().getCode();
+				String codingDisplay = ob.getIdentifierFirstRep().getType().getCodingFirstRep().getDisplay();
+				String assignerRef = ob.getIdentifierFirstRep().getAssigner().getReference();
+				String partOf = ob.getPartOfFirstRep().getReference();
+				ObservationStatus status = ob.getStatus();
+				String obCode = ob.getCode().getText();
+				String patientID = ob.getSubject().getReference();
+				Date effectiveDateTime = ob.getEffectiveDateTimeType().getValue();
+				BigDecimal valueQuantity = ob.getValueQuantity().getValue();
+				String valueQuantityUnit = ob.getValueQuantity().getUnit();
+				
+				IRI typeCode = Values.iri(identifierSys, "observation");
+				IRI originaleTypeCode = Values.iri(identifierSys, "observation");
+				IRI informationSourceTypeCode = Values.iri(identifierSys, "observation");
+				
+				String results = "result1";
+				String ex = "http://umontreal.ca";
+				IRI resultsSNOMED = Values.iri(ex, "resultsSNOMED");
+				int resultsInt = 0;
+				IRI resultUNITsource = Values.iri(ex, "resultUNITsource");
+				IRI resultUnitUCUM = Values.iri(ex, "resultUnitUCUM");
+				
+				prescriptomeCore.Encounter encount= listEncounters.get(0);
+				
+				obs = new prescriptomeCore.Observation(observationID, createtime, encount, typeCode, 
+						originaleTypeCode, informationSourceTypeCode, results, resultsSNOMED, 
+						resultsInt, resultUNITsource, resultUnitUCUM, effectiveDateTime, 
+						createtime, validitytime, createtime, modifytime);
+				
+						//	listObservations.add(obs);
 			}
 		}
 		
-		return prescripPatient ;
+		return obs;
 	}
 	
 	
@@ -293,8 +306,10 @@ public class GetRessource {
 		prescriptomeCore.Prescription prescription = null ;
 		ResourceType medicationAdministration = bundle.getEntry().get(0).getResource().getResourceType().MedicationAdministration;
 		
-		for(int i =0; i<bundle.getEntry().size(); i++) {
-					
+		//		Liste des prescriptions de médicaments
+		listPrescriptions = new ArrayList<prescriptomeCore.Prescription>();
+		
+		for(int i =0; i<bundle.getEntry().size(); i++) {	
 			if( bundle.getEntry().get(i).getResource().getResourceType().equals(medicationAdministration)) {
 				MedicationAdministration medAdminis = (MedicationAdministration) bundle.getEntry().get(i).getResource();
 				
@@ -307,17 +322,19 @@ public class GetRessource {
 				String context=medAdminis.getContext().getReference();
 				Date effectivePeriodStart = medAdminis.getEffectivePeriod().getStart();
 				Date effectivePeriodEnd = medAdminis.getEffectivePeriod().getEnd();
-				
 				String ex2 = "http://umontreal.ca" ;
 		    	IRI drugIDDataSource = Values.iri(ex2, "drugIDDataSource") ;
 		    	IRI drugIDOCRx  = Values.iri(ex2, "drugIDOCRx");
-		    	
 		    	Patient pat = (Patient) bundle.getEntry().get(0).getResource();
 				String patientID = pat.getIdentifierFirstRep().getValue();
-		    	
-		    	Stay stay = new Stay(effectivePeriodStart, effectivePeriodEnd, context,  "PROV001",  patientID,  "FACIL001",  validitytime,
+				
+				prescriptomeCore.Encounter encounter = listEncounters.get(0);
+				String encounterID = encounter.getEncounterID();
+				String providerID = encounter.getProviderID();
+				String fcilityID = encounter.getFacilityID();
+				
+		    	Stay stay = new Stay(effectivePeriodStart, effectivePeriodEnd, context,  providerID,  patientID,  "FACIL001",  validitytime,
 		    			 createtime,  modifytime);
-		    	
 		    	Stay stayExposure  =  stay;
 		    	Set<IRI> drugIDTherapeuticIndication = new HashSet<IRI>();
 		    	drugIDTherapeuticIndication.add(Values.iri(ex2, "http://umontreal.ca")) ;
@@ -326,27 +343,30 @@ public class GetRessource {
 		    	IRI encounterUnitOfPresentation  = Values.iri(ex2, "encounterUnitOfPresentation") ;
 				
 		    	prescription = new prescriptomeCore.Prescription(
-		    			encIdentifier, "PROV001", subject, "FACIL001",  validitytime,
+		    			encounterID, providerID, subject, fcilityID,  validitytime,
 		    			effectivePeriodStart,  effectivePeriodEnd,  drugIDDataSource,  drugIDOCRx,  stayExposure,
 		    			drugIDTherapeuticIndication,  routeOfAdministrationSource, routeOfAdministrationOCRx,
-		    			 encounterUnitOfPresentation);
+		    			 encounterUnitOfPresentation
+		    	);
+		    	// Ajout de la prescription à la liste des prescriptions
+		    	listPrescriptions.add(prescription);
 			}
 		}
 		return prescription ;
 	}
 
 	
-//	public static void main(String[] args) throws FileNotFoundException {
-//		GetRessource readRes = new GetRessource();
-//		Bundle bundle = readRes.getFile("output/bundle7_1_1.xml");
-//		
-//		readRes.getPatientFromResourceFile(bundle) ;
-//		readRes.getOrganizationFromResource(bundle);
-//		readRes.getConditionFromResource(bundle);
-//		readRes.getLocationFromResource(bundle);
-//		readRes.getEncounterFromResourceFile(bundle);
-//		readRes.getMedicationFromResource(bundle);
-//		readRes.getMedicationAdministFromResource(bundle);
-//		readRes.getObservationFromResource(bundle);
-//	}
+	public static void main(String[] args) throws FileNotFoundException {
+		GetRessource readRes = new GetRessource();
+		Bundle bundle = readRes.getFile("output/bundle7_1_1.xml");
+
+		readRes.getPatientFromResourceFile(bundle);
+		readRes.getOrganizationFromResource(bundle);
+		readRes.getConditionFromResource(bundle);
+		readRes.getLocationFromResource(bundle);
+		readRes.getEncounterFromResourceFile(bundle);
+		readRes.getMedicationFromResource(bundle);
+		readRes.getMedicationAdministFromResource(bundle);
+		readRes.getObservationFromResource(bundle);
+	}
 }
