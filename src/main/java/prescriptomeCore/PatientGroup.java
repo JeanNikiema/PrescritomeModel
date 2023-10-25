@@ -12,12 +12,12 @@ public class PatientGroup {
 	private Date Modifytime;
 
 	public PatientGroup(String DatabaseSource,
-			String GroupID,
-			Date Createtime,
-			Date Modifytime) {
-		this.setDatabaseSource(DatabaseSource);
-		this.setGroupID(GroupID);
-		this.setCreatetime(Createtime);
+		String GroupID,
+		Date Createtime,
+		Date Modifytime) {
+		this.setDatabaseSource(DatabaseSource); // exple mimic
+		this.setGroupID(GroupID); // mimic-id
+		this.setCreatetime(Createtime); 
 		this.setModifytime(Modifytime);
 	}
 
