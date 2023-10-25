@@ -100,7 +100,7 @@ public class DiagnosisParsing {
 	}
 
 	/**
-	 * @param diagnosisID
+	 * @param	1 diagnosisID
 	 * @param FHIRdiagnosis
 	 * @return
 	 */
@@ -124,8 +124,21 @@ public class DiagnosisParsing {
 		Date validitytime = FHIRdiagnosis.getEffectivePeriod().getEnd();
 		Date createtime = FHIRdiagnosis.getEffectiveDateTimeType().getValue();
 		Date modifytime= FHIRdiagnosis.getEffectivePeriod().getStart();
-		Diagnosis diag = new Diagnosis(DiagnosisID, originalDiagnosisCode, null, encounterID, providerID, patientID, reportedDate,
-				priorityAtDischarge, presentAtEncounter, validitytime, createtime, modifytime);
+		Diagnosis diag = new Diagnosis(
+			DiagnosisID, 
+			originalDiagnosisCode, 
+			null, 
+			encounterID, 
+			providerID, 
+			patientID, 
+			reportedDate,
+			priorityAtDischarge, 
+			presentAtEncounter, 
+			validitytime, 
+			createtime, 
+			modifytime
+		);
+		
 		return diag;
 
 	}

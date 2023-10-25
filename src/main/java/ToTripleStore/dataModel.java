@@ -5,9 +5,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.xpath.XPathExpressionException;
+//import javax.xml.parsers.ParserConfigurationException;
+//import javax.xml.xpath.XPathExpressionException;
 
 import org.eclipse.rdf4j.model.Literal;
 import org.eclipse.rdf4j.model.Model;
@@ -20,11 +23,14 @@ import org.eclipse.rdf4j.rio.RDFHandlerException;
 import org.eclipse.rdf4j.rio.Rio;
 import org.eclipse.rdf4j.rio.UnsupportedRDFormatException;
 import org.hl7.fhir.r4.model.Bundle;
-import org.xml.sax.SAXException;
+//import org.xml.sax.SAXException;
 
 import prescriptomeCore.Encounter;
 import prescriptomeCore.Observation;
 import prescriptomeCore.Patient;
+import prescriptomeCore.Person;
+import prescriptomeCore.Adress;
+import prescriptomeCore.PatientGroup;
 import prescriptomeCore.Prescription;
 import processFHIR.GetRessource;
 
@@ -35,9 +41,6 @@ public class dataModel {
 	// eleven properties building
 	//1
 	private String  HasGroup = "CDMHPresc:has_group";
-//	private Literal HasGroupNameEN =  Values.literal("Has Group","en");
-//	private Literal HasGroupNameFR =  Values.literal("a pour group","fr");
-
 	/**
 	 * @param builder
 	 * @return
@@ -52,8 +55,6 @@ public class dataModel {
 
 	//2
 	private String  HasAdress = "CDMHPresc:has_adress";
-//	private Literal HasAdressNameEN =  Values.literal("has adress","en");
-//	private Literal HasAdressNameFR =  Values.literal("a pour adresse","fr");
 	/**
 	 * @param builder
 	 * @return
@@ -67,11 +68,7 @@ public class dataModel {
 	}
 
 	//3
-	//	private String  HasFacility = "CDMHPresc:fas_facility";
 	private String  HasFacility = "CDMHPresc:has_facility";
-//	private Literal HasFacilityNameEN =  Values.literal("has facility","en");
-//	private Literal HasFacilityNameFR =  Values.literal("a pour compagnie","fr");
-
 	/**
 	 * @param builder
 	 * @return
@@ -86,8 +83,6 @@ public class dataModel {
 
 	//4
 	private String  HasDeathInformation = "CDMHPresc:has_death_information";
-//	private Literal HasDeathInformationNameEN =  Values.literal("has adress","en");
-//	private Literal HasDeathInformationNameFR =  Values.literal("a pour information sur le décès","fr");
 	/**
 	 * @param builder
 	 * @return
@@ -102,8 +97,6 @@ public class dataModel {
 
 	//5
 	private String  CausedBy = "CDMHPresc:CausedBy";
-//	private Literal CausedByNameEN =  Values.literal("caused by","en");
-//	private Literal CausedByNameFR =  Values.literal("est causé par","fr");
 	/**
 	 * @param builder
 	 * @return
@@ -118,8 +111,6 @@ public class dataModel {
 
 	//6
 	private String  HasProcedure = "CDMHPresc:has_procedure";
-//	private Literal HasProcedureNameEN =  Values.literal("has procedure","en");
-//	private Literal HasProcedureNameFR =  Values.literal("a pour procedure","fr");
 	/**
 	 * @param builder
 	 * @return
@@ -134,8 +125,7 @@ public class dataModel {
 
 	//7
 	private String  HasObservation = "CDMHPresc:has_observation";
-//	private Literal HasObservationNameEN =  Values.literal("has observation","en");
-//	private Literal HasObservationNameFR =  Values.literal("a pour observation","fr");
+
 	/**
 	 * @param builder
 	 * @return
@@ -150,8 +140,6 @@ public class dataModel {
 
 	//8
 	private String  HasDiagnosis = "CDMHPresc:has_diagnosis";
-//	private Literal HasDiagnosisNameEN =  Values.literal("has diagnosis","en");
-//	private Literal HasDiagnosisNameFR =  Values.literal("a pour diagnostic","fr");
 	/**
 	 * @param builder
 	 * @return
@@ -166,9 +154,6 @@ public class dataModel {
 
 	//9
 	private String  HasEncounter = "CDMHPresc:has_encounter";
-//	private Literal HasEncounterNameEN =  Values.literal("has encounter","en");
-//	private Literal HasEncounterNameFR =  Values.literal("a pour contact médical","fr");
-
 	/**
 	 * @param builder
 	 * @return
@@ -183,8 +168,6 @@ public class dataModel {
 
 	//10
 	private String  PartOf = "CDMHPresc:part_of";
-//	private Literal PartOfNameEN =  Values.literal("Part Of","en");
-//	private Literal PartOfNameFR =  Values.literal("est partie de","fr");
 	/**
 	 * @param builder
 	 * @return
@@ -198,9 +181,7 @@ public class dataModel {
 	}
 
 	//11
-//	private String  HasDevice = "CDMHPresc:has_device";
-//	private Literal HasDeviceNameEN =  Values.literal("Has Device","en");
-//	private Literal HasDeviceNameFR =  Values.literal("A comme outils","fr");
+	//	private String  HasDevice = "CDMHPresc:has_device";
 	/**
 	 * @param builder
 	 * @return
@@ -219,9 +200,6 @@ public class dataModel {
 
 	//1
 	private String Person = "CDMHPresc:100000000";
-//	private Literal PersonNameEN =  Values.literal("Person","en");
-//	private Literal PersonNameFR =  Values.literal("Personne","fr");
-
 	public ModelBuilder PersonClass(ModelBuilder builder){
 		builder.subject(Person)
 		.add(RDF.TYPE, RDFS.CLASS)
@@ -280,8 +258,6 @@ public class dataModel {
 
 	//5
 	private String Facility = "CDMHPresc:500000000";
-//	private Literal FacilityNameEN =  Values.literal("Facility","en");
-//	private Literal FacilityNameFR =  Values.literal("Structure de soins","fr");
 
 	public ModelBuilder FacilityClass(ModelBuilder builder){
 		builder.subject(Facility)
@@ -561,36 +537,48 @@ public class dataModel {
 	}
 
 	
-	public ModelBuilder ClassBuilt(ModelBuilder builder) throws XPathExpressionException, ParserConfigurationException, SAXException, IOException, ParseException {
+	public ModelBuilder ClassBuilt(ModelBuilder builder) throws IOException, ParseException {
 		FromClassToRDF fromClassToRDF = new FromClassToRDF() ;
 		
 		GetRessource getResource = new GetRessource() ;
 		Bundle bundle = getResource.getFile("output/bundle7_1_1.xml");
 		
-		Encounter encounter = getResource.getEncounterFromResourceFile(bundle) ;
-		builder=fromClassToRDF.EncounterClass(encounter,  builder);
+		ArrayList<prescriptomeCore.Encounter> encounters = getResource.getEncounterFromResourceFile(bundle) ;
+		for(Encounter encounter : encounters) {
+			builder=fromClassToRDF.EncounterClass(encounter,  builder);
+		}
+		
 		
 		//1
 		// PersonClass
-		Patient patient = getResource.getPatientFromResourceFile(bundle) ;
-		builder=fromClassToRDF.PersonClass(patient, builder);
+		Person person = getResource.getPerson(bundle) ;
+		builder=fromClassToRDF.PersonClass(person, builder);
 
-//		//2
-//		prescriptomeCore.Provider provider = new prescriptomeCore.Provider() ;
-//		builder=fromClassToRDF.ProviderClass( prescriptomeCore.Provider provider,  builder);
-//		//3
-//		builder=fromClassToRDF.PatientClass( prescriptomeCore.Patient patient,  builder);
+		//2
+		prescriptomeCore.Provider provider = getResource.getProvider(bundle) ;
+		builder=fromClassToRDF.ProviderClass( provider,  builder);
+		
+		//3
+//		PatientClass
+		Patient patient = getResource.getPatientFromResourceFile(bundle) ;
+		builder=fromClassToRDF.PatientClass(patient, builder);
+		
+		//4
+		PatientGroup patGroup = getResource.getPatientGroup();
+		builder=fromClassToRDF.PatientGroupClass(patGroup,  builder);
 //
-//		//4
-//		builder=fromClassToRDF.PatientGroupClass( prescriptomeCore.PatientGroup patientGroup,  builder);
-//
-//		//5
-//		builder=fromClassToRDF.FacilityClass(prescriptomeCore.Facility fac,  builder);
-//
-//		//6
-//		builder=fromClassToRDF.AdressClass( prescriptomeCore.Adress adress,  builder);
-//
-//		//7
+		
+		//5
+		prescriptomeCore.Facility fac = getResource.getFacility(bundle);
+		builder=fromClassToRDF.FacilityClass(fac,  builder);
+
+		
+		//6
+		Adress adress  = getResource.getAdress(bundle);
+		builder=fromClassToRDF.AdressClass(adress,  builder);
+
+		
+		//7
 //		builder=fromClassToRDF.DeathInformationClass(prescriptomeCore.DeathInformation deahIn, builder);
 //
 //		//8
@@ -623,11 +611,9 @@ public class dataModel {
 		
 		return builder ;
 	}
-
-	
 	
 	// constructeur
-	public dataModel(String PrescriptomeModelVersion) throws XPathExpressionException, ParserConfigurationException, SAXException, IOException, RDFHandlerException, UnsupportedRDFormatException, URISyntaxException, ParseException {
+	public dataModel(String PrescriptomeModelVersion) throws IOException, RDFHandlerException, UnsupportedRDFormatException, URISyntaxException, ParseException {
 		String prefix = "http://prescriptomeDataModel.ca/";
 		ModelBuilder builder = new ModelBuilder();
 		builder.setNamespace("CDMHPresc",prefix).namedGraph(prefix+PrescriptomeModelVersion);
@@ -640,10 +626,10 @@ public class dataModel {
 		
 		Model model = builder.build();
 		Rio.write(model, new FileOutputStream("./Prescriptome.ttl"), "", RDFFormat.TURTLE);
-//		Rio.write(model, System.out, RDFFormat.TURTLE);
+		Rio.write(model, System.out, RDFFormat.TURTLE);
 	}
 	
-	public static void main(String[] args) throws XPathExpressionException, ParserConfigurationException, SAXException, IOException, URISyntaxException, ParseException {
+	public static void main(String[] args) throws IOException, URISyntaxException, ParseException {
 		try {
 			dataModel model = new dataModel("v1");
 		} catch (RDFHandlerException | UnsupportedRDFormatException | FileNotFoundException e) {

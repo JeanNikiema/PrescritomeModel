@@ -2,8 +2,6 @@ package ToTripleStore;
 
 import com.complexible.stardog.api.Connection;
 import com.complexible.stardog.api.ConnectionConfiguration;
-import com.complexible.stardog.api.admin.AdminConnection;
-import com.complexible.stardog.api.admin.AdminConnectionConfiguration;
 
 public class ConnectionStardogDataBase {
 
@@ -13,13 +11,12 @@ public class ConnectionStardogDataBase {
 	 * @param database
 	 */
 	public ConnectionStardogDataBase(String database){
-	
-	Connection aConn = ConnectionConfiguration
+		Connection aConn = ConnectionConfiguration
 			.to(database)                      // the name of the db to connect to
 			.server("http://localhost:5820")
 			.credentials("admin", "admin")        // credentials to use while connecting
 			.connect();
-	this.ConnectionStardog=aConn;
+		this.ConnectionStardog=aConn;
 	}
 	
 	public void createdatabase(String database) {
@@ -29,5 +26,5 @@ public class ConnectionStardogDataBase {
 	public Connection getConnection() {
 		return ConnectionStardog;
 
-}
+	}
 }

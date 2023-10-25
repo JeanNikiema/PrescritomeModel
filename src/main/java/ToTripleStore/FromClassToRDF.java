@@ -314,6 +314,7 @@ public class FromClassToRDF {
 		return builder;
 	}
 
+	
 	//3
 	private String Patient = "CDMHPresc:300000000";
 	public ModelBuilder PatientClass(prescriptomeCore.Patient patient, ModelBuilder builder){
@@ -430,9 +431,9 @@ public class FromClassToRDF {
 		.add(HasModifytime, Modifytime);
 		return builder;
 	}
+	
 	//5
 	private String Facility = "CDMHPresc:500000000";
-
 	public ModelBuilder FacilityClass(Facility fac, ModelBuilder builder){
 
 		String facilityID = fac.getFacilityID();

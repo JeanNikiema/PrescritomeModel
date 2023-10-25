@@ -117,10 +117,14 @@ public class PatientParsing {
 		Date ModifytimeDate = adress.getPeriod().getStart();
 		String AdressIDS = adress.getId();
 
-		Adress patientAdress = new Adress(AdressIDS,ligne1, ligne2, City, State, ZipCode, Country, ValiditytimeDate, ValidityDate, CreatetimeDate, ModifytimeDate);
+		Adress patientAdress = new Adress(
+				AdressIDS,ligne1, ligne2, City, State, ZipCode, Country, ValiditytimeDate, ValidityDate, 
+				CreatetimeDate, ModifytimeDate);
 		
-		prescriptomeCore.Patient patient = new  prescriptomeCore.Patient(PatientID, ModifytimePatient, CreatetimePatient, ValiditytimePatient,
-				deathInformation, cause, Group, BirthMonth, BirthYear, BirthDay, identifierSource, DataBaseIdentifier, genderCode,
+		prescriptomeCore.Patient patient = new  prescriptomeCore.Patient(
+				PatientID, ModifytimePatient, CreatetimePatient, ValiditytimePatient,
+				deathInformation, cause, Group, BirthMonth, BirthYear, BirthDay, identifierSource, 
+				DataBaseIdentifier, genderCode,
 				EthnicID, SexeCode, Name, Validitytime, DeathIndicator, CreatetimeDate, Modifytime,patientAdress);
 
 		patient.setPatientID(PatientID);
