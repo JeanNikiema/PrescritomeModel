@@ -1,0 +1,1418 @@
+<Bundle xmlns="http://hl7.org/fhir">
+   <type value="transaction"></type>
+   <entry>
+      <fullUrl value="urn:uuid:4bfa57a1-20d4-473c-9043-5355b9ce58b2"></fullUrl>
+      <resource>
+         <Patient xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-person/StructureDefinition/Patient"></profile>
+            </meta>
+            <text>
+               <status value="generated"></status>
+               <div xmlns="http://www.w3.org/1999/xhtml"> 
+                  <div class="hapiHeaderText">10007920 
+                     <b>PATIENT_10007920 </b> 
+                  </div> 
+                  <table class="hapiPropertyTable"> 
+                     <tbody> 
+                        <tr> 
+                           <td>Identifier</td> 
+                           <td>10007920</td> 
+                        </tr> 
+                        <tr> 
+                           <td>Address</td> 
+                           <td> 
+                              <span>Musterstrasse 1 </span> 
+                              <br></br> 
+                              <span>Berlin </span> 
+                              <span>DE </span> 
+                           </td> 
+                        </tr> 
+                        <tr> 
+                           <td>Date of birth</td> 
+                           <td> 
+                              <span>01 January 2080</span> 
+                           </td> 
+                        </tr> 
+                     </tbody> 
+                  </table> 
+               </div>
+            </text>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="MR"></code>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/patients"></system>
+               <value value="10007920"></value>
+            </identifier>
+            <name>
+               <use value="official"></use>
+               <family value="Patient_10007920">
+                  <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
+                     <valueString value="Patient_10007920"></valueString>
+                  </extension>
+               </family>
+               <given value="10007920"></given>
+            </name>
+            <gender value="male"></gender>
+            <birthDate value="2080-01-01">
+               <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                  <valueCode value="masked"></valueCode>
+               </extension>
+            </birthDate>
+            <deceasedBoolean value="false"></deceasedBoolean>
+            <address>
+               <type value="postal"></type>
+               <line value="Musterstrasse 1">
+                  <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
+                     <valueString value="Musterstrasse"></valueString>
+                  </extension>
+                  <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
+                     <valueString value="1"></valueString>
+                  </extension>
+               </line>
+               <city value="Berlin"></city>
+               <postalCode value="12043"></postalCode>
+               <country value="DE"></country>
+            </address>
+            <maritalStatus>
+               <coding>
+                  <system value="http://hl7.org/fhir/ValueSet/marital-status"></system>
+                  <code value="D"></code>
+                  <display value="Divorced"></display>
+               </coding>
+            </maritalStatus>
+         </Patient>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Patient"></url>
+         <ifNoneExist value="identifier=http://www.umontreal.ca/patients|10007920"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:2cd27265-a906-45af-ac9d-9a51f1ac6aae"></fullUrl>
+      <resource>
+         <Organization xmlns="http://hl7.org/fhir">
+            <identifier>
+               <system value="http://www.umontreal.ca"></system>
+               <value value="hospital"></value>
+            </identifier>
+            <type>
+               <coding>
+                  <system value="http://hl7.org/fhir/organization-type"></system>
+                  <code value="prov"></code>
+                  <display value="Healthcare Provider"></display>
+               </coding>
+            </type>
+            <name value="IMI-Mimic Hospital"></name>
+         </Organization>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Organization"></url>
+         <ifNoneExist value="identifier=http://www.umontreal.ca|hospital"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:7bfdb8b8-6ef1-48f6-a289-f7fd60afa2ee"></fullUrl>
+      <resource>
+         <Condition xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"></profile>
+            </meta>
+            <identifier>
+               <system value="http://www.imi-mimic.de/diags"></system>
+               <value value="null_12"></value>
+            </identifier>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <recordedDate>
+               <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                  <valueCode value="unknown"></valueCode>
+               </extension>
+            </recordedDate>
+         </Condition>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Condition"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/diags|null_12"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:e24ea0c5-9dc6-4af8-9de3-20e3e645403a"></fullUrl>
+      <resource>
+         <Condition xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"></profile>
+            </meta>
+            <identifier>
+               <system value="http://www.imi-mimic.de/diags"></system>
+               <value value="null_11"></value>
+            </identifier>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <recordedDate>
+               <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                  <valueCode value="unknown"></valueCode>
+               </extension>
+            </recordedDate>
+         </Condition>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Condition"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/diags|null_11"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:ec68fb70-e5b1-4103-a9ee-ba06c661aaa3"></fullUrl>
+      <resource>
+         <Condition xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"></profile>
+            </meta>
+            <identifier>
+               <system value="http://www.imi-mimic.de/diags"></system>
+               <value value="null_10"></value>
+            </identifier>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <recordedDate>
+               <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                  <valueCode value="unknown"></valueCode>
+               </extension>
+            </recordedDate>
+         </Condition>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Condition"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/diags|null_10"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:bb893cc8-27f9-42da-bfc7-73a1e3686ce5"></fullUrl>
+      <resource>
+         <Condition xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"></profile>
+            </meta>
+            <identifier>
+               <system value="http://www.imi-mimic.de/diags"></system>
+               <value value="null_9"></value>
+            </identifier>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <recordedDate>
+               <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                  <valueCode value="unknown"></valueCode>
+               </extension>
+            </recordedDate>
+         </Condition>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Condition"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/diags|null_9"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:53438828-ce50-472d-a7e1-34178df7d05a"></fullUrl>
+      <resource>
+         <Condition xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"></profile>
+            </meta>
+            <identifier>
+               <system value="http://www.imi-mimic.de/diags"></system>
+               <value value="null_8"></value>
+            </identifier>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <recordedDate>
+               <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                  <valueCode value="unknown"></valueCode>
+               </extension>
+            </recordedDate>
+         </Condition>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Condition"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/diags|null_8"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:1aa68b16-8649-4358-a75e-e856a924d98d"></fullUrl>
+      <resource>
+         <Condition xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"></profile>
+            </meta>
+            <identifier>
+               <system value="http://www.imi-mimic.de/diags"></system>
+               <value value="null_7"></value>
+            </identifier>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <recordedDate>
+               <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                  <valueCode value="unknown"></valueCode>
+               </extension>
+            </recordedDate>
+         </Condition>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Condition"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/diags|null_7"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:c619b5ef-025e-4091-8152-c56c2fdece3a"></fullUrl>
+      <resource>
+         <Condition xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"></profile>
+            </meta>
+            <identifier>
+               <system value="http://www.imi-mimic.de/diags"></system>
+               <value value="null_6"></value>
+            </identifier>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <recordedDate>
+               <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                  <valueCode value="unknown"></valueCode>
+               </extension>
+            </recordedDate>
+         </Condition>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Condition"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/diags|null_6"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:71d5dd14-5354-4094-ae4a-011dd6ab7532"></fullUrl>
+      <resource>
+         <Condition xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"></profile>
+            </meta>
+            <identifier>
+               <system value="http://www.imi-mimic.de/diags"></system>
+               <value value="null_5"></value>
+            </identifier>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <recordedDate>
+               <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                  <valueCode value="unknown"></valueCode>
+               </extension>
+            </recordedDate>
+         </Condition>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Condition"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/diags|null_5"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:44fc1217-5bdf-439e-a903-40b758311cec"></fullUrl>
+      <resource>
+         <Condition xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"></profile>
+            </meta>
+            <identifier>
+               <system value="http://www.imi-mimic.de/diags"></system>
+               <value value="null_4"></value>
+            </identifier>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <recordedDate>
+               <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                  <valueCode value="unknown"></valueCode>
+               </extension>
+            </recordedDate>
+         </Condition>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Condition"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/diags|null_4"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:a5789969-33ba-4922-af09-fadd20f22d7f"></fullUrl>
+      <resource>
+         <Condition xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"></profile>
+            </meta>
+            <identifier>
+               <system value="http://www.imi-mimic.de/diags"></system>
+               <value value="null_3"></value>
+            </identifier>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <recordedDate>
+               <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                  <valueCode value="unknown"></valueCode>
+               </extension>
+            </recordedDate>
+         </Condition>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Condition"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/diags|null_3"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:ec4fa149-83b1-4f40-ae4d-27d1541fc4a5"></fullUrl>
+      <resource>
+         <Condition xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"></profile>
+            </meta>
+            <identifier>
+               <system value="http://www.imi-mimic.de/diags"></system>
+               <value value="null_2"></value>
+            </identifier>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <recordedDate>
+               <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                  <valueCode value="unknown"></valueCode>
+               </extension>
+            </recordedDate>
+         </Condition>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Condition"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/diags|null_2"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:560bceea-0c90-42d2-ab87-55fb067e8afb"></fullUrl>
+      <resource>
+         <Condition xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"></profile>
+            </meta>
+            <identifier>
+               <system value="http://www.imi-mimic.de/diags"></system>
+               <value value="null_2"></value>
+            </identifier>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <recordedDate>
+               <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                  <valueCode value="unknown"></valueCode>
+               </extension>
+            </recordedDate>
+         </Condition>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Condition"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/diags|null_2"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:0ff65780-4e85-4e7c-be1a-840f485201c4"></fullUrl>
+      <resource>
+         <Condition xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"></profile>
+            </meta>
+            <identifier>
+               <system value="http://www.imi-mimic.de/diags"></system>
+               <value value="null_1"></value>
+            </identifier>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <recordedDate>
+               <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                  <valueCode value="unknown"></valueCode>
+               </extension>
+            </recordedDate>
+         </Condition>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Condition"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/diags|null_1"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:1e231f99-739f-4f5f-a116-5b6ee4ea33b7"></fullUrl>
+      <resource>
+         <Procedure xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-prozedur/StructureDefinition/Procedure"></profile>
+            </meta>
+            <identifier>
+               <system value="http://www.imi-mimic.de/procs"></system>
+               <value value="20423193_2"></value>
+            </identifier>
+            <status value="completed"></status>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <encounter>
+               <reference value="20423193"></reference>
+            </encounter>
+         </Procedure>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Procedure"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/procs|20423193_2"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:5d859875-a752-4c6e-8652-d75cf5bb4cdc"></fullUrl>
+      <resource>
+         <Procedure xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-prozedur/StructureDefinition/Procedure"></profile>
+            </meta>
+            <identifier>
+               <system value="http://www.imi-mimic.de/procs"></system>
+               <value value="20423193_1"></value>
+            </identifier>
+            <status value="completed"></status>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <encounter>
+               <reference value="20423193"></reference>
+            </encounter>
+         </Procedure>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Procedure"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/procs|20423193_1"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:4338d3a9-d48a-46dd-bfd8-6fd8722080b0"></fullUrl>
+      <resource>
+         <Location xmlns="http://hl7.org/fhir">
+            <identifier>
+               <system value="http://www.imi-mimic.de/location/Unknown"></system>
+               <value value="Unknown"></value>
+            </identifier>
+            <name value="Unknown"></name>
+            <type>
+               <coding>
+                  <system value="http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType"></system>
+                  <code value="_ServiceDeliveryLocationRoleType"></code>
+                  <display value="ServiceDeliveryLocationRoleType"></display>
+               </coding>
+            </type>
+            <physicalType>
+               <coding>
+                  <system value="http://terminology.hl7.org/CodeSystem/location-physical-type"></system>
+                  <code value="wa"></code>
+                  <display value="Ward"></display>
+               </coding>
+            </physicalType>
+            <managingOrganization>
+               <reference value="urn:uuid:36ad2032-0307-431e-be03-410e49e859e4"></reference>
+            </managingOrganization>
+         </Location>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Location"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/location/Unknown|Unknown"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:0e9ea81e-b5eb-4510-8d4d-f44ef5ac9dcb"></fullUrl>
+      <resource>
+         <Encounter xmlns="http://hl7.org/fhir">
+            <status value="finished"></status>
+            <class>
+               <system value="https://www.medizininformatik-initiative.de/fhir/core/CodeSystem/EncounterClassAdditionsDE"></system>
+               <code value="_ActEncounterCode"></code>
+               <display value="ActEncounterCode"></display>
+            </class>
+            <period>
+               <start value="2139-05-07T00:00:00+00:00"></start>
+            </period>
+            <location>
+               <location>
+                  <reference value="urn:uuid:4338d3a9-d48a-46dd-bfd8-6fd8722080b0"></reference>
+               </location>
+               <status value="completed"></status>
+               <physicalType>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/location-physical-type"></system>
+                     <code value="wa"></code>
+                     <display value="Ward"></display>
+                  </coding>
+               </physicalType>
+               <period>
+                  <start value="2139-05-07T00:00:00+00:00"></start>
+               </period>
+            </location>
+            <serviceProvider>
+               <reference value="urn:uuid:36ad2032-0307-431e-be03-410e49e859e4"></reference>
+            </serviceProvider>
+            <partOf>
+               <reference value="urn:uuid:d56f4cbd-5203-465c-a3c8-42bd91c2816c"></reference>
+            </partOf>
+         </Encounter>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Encounter"></url>
+         <ifNoneExist value="identifier=null|null"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:8b56abae-8248-4cc5-ba18-870deb675459"></fullUrl>
+      <resource>
+         <Location xmlns="http://hl7.org/fhir">
+            <identifier>
+               <system value="http://www.imi-mimic.de/location/Observation"></system>
+               <value value="Observation"></value>
+            </identifier>
+            <name value="Observation"></name>
+            <type>
+               <coding>
+                  <system value="http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType"></system>
+                  <code value="_ServiceDeliveryLocationRoleType"></code>
+                  <display value="ServiceDeliveryLocationRoleType"></display>
+               </coding>
+            </type>
+            <physicalType>
+               <coding>
+                  <system value="http://terminology.hl7.org/CodeSystem/location-physical-type"></system>
+                  <code value="wa"></code>
+                  <display value="Ward"></display>
+               </coding>
+            </physicalType>
+            <managingOrganization>
+               <reference value="urn:uuid:5b6005a5-f047-4c2b-90fd-2d2c92bc314c"></reference>
+            </managingOrganization>
+         </Location>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Location"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/location/Observation|Observation"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:6a8cba75-6836-4a85-8cee-109dd30ea370"></fullUrl>
+      <resource>
+         <Encounter xmlns="http://hl7.org/fhir">
+            <status value="finished"></status>
+            <class>
+               <system value="https://www.medizininformatik-initiative.de/fhir/core/CodeSystem/EncounterClassAdditionsDE"></system>
+               <code value="_ActEncounterCode"></code>
+               <display value="ActEncounterCode"></display>
+            </class>
+            <period>
+               <start value="2139-05-06T00:00:00+00:00"></start>
+               <end value="2139-05-07T00:00:00+00:00"></end>
+            </period>
+            <location>
+               <location>
+                  <reference value="urn:uuid:8b56abae-8248-4cc5-ba18-870deb675459"></reference>
+               </location>
+               <status value="completed"></status>
+               <physicalType>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/location-physical-type"></system>
+                     <code value="wa"></code>
+                     <display value="Ward"></display>
+                  </coding>
+               </physicalType>
+               <period>
+                  <start value="2139-05-06T00:00:00+00:00"></start>
+                  <end value="2139-05-07T00:00:00+00:00"></end>
+               </period>
+            </location>
+            <serviceProvider>
+               <reference value="urn:uuid:5b6005a5-f047-4c2b-90fd-2d2c92bc314c"></reference>
+            </serviceProvider>
+            <partOf>
+               <reference value="urn:uuid:d56f4cbd-5203-465c-a3c8-42bd91c2816c"></reference>
+            </partOf>
+         </Encounter>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Encounter"></url>
+         <ifNoneExist value="identifier=null|null"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:d56f4cbd-5203-465c-a3c8-42bd91c2816c"></fullUrl>
+      <resource>
+         <Encounter xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-fall/StructureDefinition/KontaktGesundheitseinrichtung"></profile>
+            </meta>
+            <identifier>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="VN"></code>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/encs"></system>
+               <value value="20423193"></value>
+            </identifier>
+            <status value="finished"></status>
+            <class>
+               <system value="https://www.umontreal.ca/fhir/core/ValueSet/EncounterClassDE"></system>
+               <code value="O"></code>
+               <display value="ambulant"></display>
+            </class>
+            <period>
+               <start value="2139-05-06T00:00:00+00:00"></start>
+               <end value="2139-05-07T00:00:00+00:00"></end>
+            </period>
+            <diagnosis>
+               <condition>
+                  <reference value="urn:uuid:7bfdb8b8-6ef1-48f6-a289-f7fd60afa2ee"></reference>
+               </condition>
+               <rank value="12"></rank>
+            </diagnosis>
+            <diagnosis>
+               <condition>
+                  <reference value="urn:uuid:e24ea0c5-9dc6-4af8-9de3-20e3e645403a"></reference>
+               </condition>
+               <rank value="11"></rank>
+            </diagnosis>
+            <diagnosis>
+               <condition>
+                  <reference value="urn:uuid:ec68fb70-e5b1-4103-a9ee-ba06c661aaa3"></reference>
+               </condition>
+               <rank value="10"></rank>
+            </diagnosis>
+            <diagnosis>
+               <condition>
+                  <reference value="urn:uuid:bb893cc8-27f9-42da-bfc7-73a1e3686ce5"></reference>
+               </condition>
+               <rank value="9"></rank>
+            </diagnosis>
+            <diagnosis>
+               <condition>
+                  <reference value="urn:uuid:53438828-ce50-472d-a7e1-34178df7d05a"></reference>
+               </condition>
+               <rank value="8"></rank>
+            </diagnosis>
+            <diagnosis>
+               <condition>
+                  <reference value="urn:uuid:1aa68b16-8649-4358-a75e-e856a924d98d"></reference>
+               </condition>
+               <rank value="7"></rank>
+            </diagnosis>
+            <diagnosis>
+               <condition>
+                  <reference value="urn:uuid:c619b5ef-025e-4091-8152-c56c2fdece3a"></reference>
+               </condition>
+               <rank value="6"></rank>
+            </diagnosis>
+            <diagnosis>
+               <condition>
+                  <reference value="urn:uuid:71d5dd14-5354-4094-ae4a-011dd6ab7532"></reference>
+               </condition>
+               <rank value="5"></rank>
+            </diagnosis>
+            <diagnosis>
+               <condition>
+                  <reference value="urn:uuid:44fc1217-5bdf-439e-a903-40b758311cec"></reference>
+               </condition>
+               <rank value="4"></rank>
+            </diagnosis>
+            <diagnosis>
+               <condition>
+                  <reference value="urn:uuid:a5789969-33ba-4922-af09-fadd20f22d7f"></reference>
+               </condition>
+               <rank value="3"></rank>
+            </diagnosis>
+            <diagnosis>
+               <condition>
+                  <reference value="urn:uuid:ec4fa149-83b1-4f40-ae4d-27d1541fc4a5"></reference>
+               </condition>
+               <rank value="2"></rank>
+            </diagnosis>
+            <diagnosis>
+               <condition>
+                  <reference value="urn:uuid:560bceea-0c90-42d2-ab87-55fb067e8afb"></reference>
+               </condition>
+               <rank value="2"></rank>
+            </diagnosis>
+            <diagnosis>
+               <condition>
+                  <reference value="urn:uuid:0ff65780-4e85-4e7c-be1a-840f485201c4"></reference>
+               </condition>
+               <rank value="1"></rank>
+            </diagnosis>
+            <diagnosis>
+               <condition>
+                  <reference value="urn:uuid:1e231f99-739f-4f5f-a116-5b6ee4ea33b7"></reference>
+               </condition>
+               <rank value="2"></rank>
+            </diagnosis>
+            <diagnosis>
+               <condition>
+                  <reference value="urn:uuid:5d859875-a752-4c6e-8652-d75cf5bb4cdc"></reference>
+               </condition>
+               <rank value="1"></rank>
+            </diagnosis>
+            <hospitalization>
+               <dischargeDisposition>
+                  <coding>
+                     <system value="https://www.umontreal.ca/fhir/core/modul-fall/CodeSystem/Entlassungsgrund"></system>
+                     <code value="039"></code>
+                     <display value="Behandlung aus sonstigen Gruenden beendet, keine Angabe"></display>
+                  </coding>
+               </dischargeDisposition>
+            </hospitalization>
+         </Encounter>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Encounter"></url>
+         <ifNoneExist value="identifier=http://www.umontreal.ca/encs|20423193"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:30884445-d919-4b34-888d-e45eda8d6aac"></fullUrl>
+      <resource>
+         <Medication xmlns="http://hl7.org/fhir">
+            <text>
+               <status value="generated"></status>
+            </text>
+         </Medication>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Medication"></url>
+         <ifNoneExist value="code=null"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <MedicationAdministration xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+            </meta>
+            <identifier>
+               <system value="http://umontreal.ca/prescriptions"></system>
+               <value value="20423193_0"></value>
+            </identifier>
+            <status value="completed"></status>
+            <medicationReference>
+               <reference value="urn:uuid:30884445-d919-4b34-888d-e45eda8d6aac"></reference>
+            </medicationReference>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <context>
+               <reference value="20423193"></reference>
+            </context>
+            <effectivePeriod>
+               <start value="2139-05-06T00:00:00+00:00"></start>
+               <end value="2139-05-07T00:00:00+00:00"></end>
+            </effectivePeriod>
+         </MedicationAdministration>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="MedicationAdministration"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <MedicationAdministration xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+            </meta>
+            <identifier>
+               <system value="http://umontreal.ca/prescriptions"></system>
+               <value value="20423193_1"></value>
+            </identifier>
+            <status value="completed"></status>
+            <medicationReference>
+               <reference value="urn:uuid:30884445-d919-4b34-888d-e45eda8d6aac"></reference>
+            </medicationReference>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <context>
+               <reference value="20423193"></reference>
+            </context>
+            <effectivePeriod>
+               <start value="2139-05-07T00:00:00+00:00"></start>
+               <end value="2139-05-07T00:00:00+00:00"></end>
+            </effectivePeriod>
+         </MedicationAdministration>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="MedicationAdministration"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <MedicationAdministration xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+            </meta>
+            <identifier>
+               <system value="http://umontreal.ca/prescriptions"></system>
+               <value value="20423193_2"></value>
+            </identifier>
+            <status value="completed"></status>
+            <medicationReference>
+               <reference value="urn:uuid:30884445-d919-4b34-888d-e45eda8d6aac"></reference>
+            </medicationReference>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <context>
+               <reference value="20423193"></reference>
+            </context>
+            <effectivePeriod>
+               <start value="2139-05-06T00:00:00+00:00"></start>
+               <end value="2139-05-07T00:00:00+00:00"></end>
+            </effectivePeriod>
+         </MedicationAdministration>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="MedicationAdministration"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <MedicationAdministration xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+            </meta>
+            <identifier>
+               <system value="http://umontreal.ca/prescriptions"></system>
+               <value value="20423193_3"></value>
+            </identifier>
+            <status value="completed"></status>
+            <medicationReference>
+               <reference value="urn:uuid:30884445-d919-4b34-888d-e45eda8d6aac"></reference>
+            </medicationReference>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <context>
+               <reference value="20423193"></reference>
+            </context>
+            <effectivePeriod>
+               <start value="2139-05-06T00:00:00+00:00"></start>
+               <end value="2139-05-07T00:00:00+00:00"></end>
+            </effectivePeriod>
+         </MedicationAdministration>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="MedicationAdministration"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <MedicationAdministration xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+            </meta>
+            <identifier>
+               <system value="http://umontreal.ca/prescriptions"></system>
+               <value value="20423193_4"></value>
+            </identifier>
+            <status value="completed"></status>
+            <medicationReference>
+               <reference value="urn:uuid:30884445-d919-4b34-888d-e45eda8d6aac"></reference>
+            </medicationReference>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <context>
+               <reference value="20423193"></reference>
+            </context>
+            <effectivePeriod>
+               <start value="2139-05-06T00:00:00+00:00"></start>
+               <end value="2139-05-08T00:00:00+00:00"></end>
+            </effectivePeriod>
+         </MedicationAdministration>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="MedicationAdministration"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <MedicationAdministration xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+            </meta>
+            <identifier>
+               <system value="http://umontreal.ca/prescriptions"></system>
+               <value value="20423193_5"></value>
+            </identifier>
+            <status value="completed"></status>
+            <medicationReference>
+               <reference value="urn:uuid:30884445-d919-4b34-888d-e45eda8d6aac"></reference>
+            </medicationReference>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <context>
+               <reference value="20423193"></reference>
+            </context>
+            <effectivePeriod>
+               <start value="2139-05-07T00:00:00+00:00"></start>
+               <end value="2139-05-07T00:00:00+00:00"></end>
+            </effectivePeriod>
+         </MedicationAdministration>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="MedicationAdministration"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <MedicationAdministration xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+            </meta>
+            <identifier>
+               <system value="http://umontreal.ca/prescriptions"></system>
+               <value value="20423193_6"></value>
+            </identifier>
+            <status value="completed"></status>
+            <medicationReference>
+               <reference value="urn:uuid:30884445-d919-4b34-888d-e45eda8d6aac"></reference>
+            </medicationReference>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <context>
+               <reference value="20423193"></reference>
+            </context>
+            <effectivePeriod>
+               <start value="2139-05-07T00:00:00+00:00"></start>
+               <end value="2139-05-07T00:00:00+00:00"></end>
+            </effectivePeriod>
+         </MedicationAdministration>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="MedicationAdministration"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <MedicationAdministration xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+            </meta>
+            <identifier>
+               <system value="http://umontreal.ca/prescriptions"></system>
+               <value value="20423193_7"></value>
+            </identifier>
+            <status value="completed"></status>
+            <medicationReference>
+               <reference value="urn:uuid:30884445-d919-4b34-888d-e45eda8d6aac"></reference>
+            </medicationReference>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <context>
+               <reference value="20423193"></reference>
+            </context>
+            <effectivePeriod>
+               <start value="2139-05-06T00:00:00+00:00"></start>
+               <end value="2139-05-07T00:00:00+00:00"></end>
+            </effectivePeriod>
+         </MedicationAdministration>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="MedicationAdministration"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <MedicationAdministration xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+            </meta>
+            <identifier>
+               <system value="http://umontreal.ca/prescriptions"></system>
+               <value value="20423193_8"></value>
+            </identifier>
+            <status value="completed"></status>
+            <medicationReference>
+               <reference value="urn:uuid:30884445-d919-4b34-888d-e45eda8d6aac"></reference>
+            </medicationReference>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <context>
+               <reference value="20423193"></reference>
+            </context>
+            <effectivePeriod>
+               <start value="2139-05-06T00:00:00+00:00"></start>
+               <end value="2139-05-07T00:00:00+00:00"></end>
+            </effectivePeriod>
+         </MedicationAdministration>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="MedicationAdministration"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <MedicationAdministration xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+            </meta>
+            <identifier>
+               <system value="http://umontreal.ca/prescriptions"></system>
+               <value value="20423193_9"></value>
+            </identifier>
+            <status value="completed"></status>
+            <medicationReference>
+               <reference value="urn:uuid:30884445-d919-4b34-888d-e45eda8d6aac"></reference>
+            </medicationReference>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <context>
+               <reference value="20423193"></reference>
+            </context>
+            <effectivePeriod>
+               <start value="2139-05-06T00:00:00+00:00"></start>
+               <end value="2139-05-07T00:00:00+00:00"></end>
+            </effectivePeriod>
+         </MedicationAdministration>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="MedicationAdministration"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <MedicationAdministration xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+            </meta>
+            <identifier>
+               <system value="http://umontreal.ca/prescriptions"></system>
+               <value value="20423193_10"></value>
+            </identifier>
+            <status value="completed"></status>
+            <medicationReference>
+               <reference value="urn:uuid:30884445-d919-4b34-888d-e45eda8d6aac"></reference>
+            </medicationReference>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <context>
+               <reference value="20423193"></reference>
+            </context>
+            <effectivePeriod>
+               <start value="2139-05-07T00:00:00+00:00"></start>
+               <end value="2139-05-07T00:00:00+00:00"></end>
+            </effectivePeriod>
+         </MedicationAdministration>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="MedicationAdministration"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <MedicationAdministration xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+            </meta>
+            <identifier>
+               <system value="http://umontreal.ca/prescriptions"></system>
+               <value value="20423193_11"></value>
+            </identifier>
+            <status value="completed"></status>
+            <medicationReference>
+               <reference value="urn:uuid:30884445-d919-4b34-888d-e45eda8d6aac"></reference>
+            </medicationReference>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <context>
+               <reference value="20423193"></reference>
+            </context>
+            <effectivePeriod>
+               <start value="2139-05-06T00:00:00+00:00"></start>
+               <end value="2139-05-07T00:00:00+00:00"></end>
+            </effectivePeriod>
+         </MedicationAdministration>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="MedicationAdministration"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <MedicationAdministration xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+            </meta>
+            <identifier>
+               <system value="http://umontreal.ca/prescriptions"></system>
+               <value value="20423193_12"></value>
+            </identifier>
+            <status value="completed"></status>
+            <medicationReference>
+               <reference value="urn:uuid:30884445-d919-4b34-888d-e45eda8d6aac"></reference>
+            </medicationReference>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <context>
+               <reference value="20423193"></reference>
+            </context>
+            <effectivePeriod>
+               <start value="2139-05-06T00:00:00+00:00"></start>
+               <end value="2139-05-07T00:00:00+00:00"></end>
+            </effectivePeriod>
+         </MedicationAdministration>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="MedicationAdministration"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <MedicationAdministration xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+            </meta>
+            <identifier>
+               <system value="http://umontreal.ca/prescriptions"></system>
+               <value value="20423193_13"></value>
+            </identifier>
+            <status value="completed"></status>
+            <medicationReference>
+               <reference value="urn:uuid:30884445-d919-4b34-888d-e45eda8d6aac"></reference>
+            </medicationReference>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <context>
+               <reference value="20423193"></reference>
+            </context>
+            <effectivePeriod>
+               <start value="2139-05-06T00:00:00+00:00"></start>
+               <end value="2139-05-07T00:00:00+00:00"></end>
+            </effectivePeriod>
+         </MedicationAdministration>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="MedicationAdministration"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <MedicationAdministration xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+            </meta>
+            <identifier>
+               <system value="http://umontreal.ca/prescriptions"></system>
+               <value value="20423193_14"></value>
+            </identifier>
+            <status value="completed"></status>
+            <medicationReference>
+               <reference value="urn:uuid:30884445-d919-4b34-888d-e45eda8d6aac"></reference>
+            </medicationReference>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <context>
+               <reference value="20423193"></reference>
+            </context>
+            <effectivePeriod>
+               <start value="2139-05-06T00:00:00+00:00"></start>
+               <end value="2139-05-07T00:00:00+00:00"></end>
+            </effectivePeriod>
+         </MedicationAdministration>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="MedicationAdministration"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <MedicationAdministration xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+            </meta>
+            <identifier>
+               <system value="http://umontreal.ca/prescriptions"></system>
+               <value value="20423193_15"></value>
+            </identifier>
+            <status value="completed"></status>
+            <medicationReference>
+               <reference value="urn:uuid:30884445-d919-4b34-888d-e45eda8d6aac"></reference>
+            </medicationReference>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <context>
+               <reference value="20423193"></reference>
+            </context>
+            <effectivePeriod>
+               <start value="2139-05-06T00:00:00+00:00"></start>
+               <end value="2139-05-08T00:00:00+00:00"></end>
+            </effectivePeriod>
+         </MedicationAdministration>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="MedicationAdministration"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <MedicationAdministration xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+            </meta>
+            <identifier>
+               <system value="http://umontreal.ca/prescriptions"></system>
+               <value value="20423193_16"></value>
+            </identifier>
+            <status value="completed"></status>
+            <medicationReference>
+               <reference value="urn:uuid:30884445-d919-4b34-888d-e45eda8d6aac"></reference>
+            </medicationReference>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <context>
+               <reference value="20423193"></reference>
+            </context>
+            <effectivePeriod>
+               <start value="2139-05-07T00:00:00+00:00"></start>
+               <end value="2139-05-07T00:00:00+00:00"></end>
+            </effectivePeriod>
+         </MedicationAdministration>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="MedicationAdministration"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <MedicationAdministration xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+            </meta>
+            <identifier>
+               <system value="http://umontreal.ca/prescriptions"></system>
+               <value value="20423193_17"></value>
+            </identifier>
+            <status value="completed"></status>
+            <medicationReference>
+               <reference value="urn:uuid:30884445-d919-4b34-888d-e45eda8d6aac"></reference>
+            </medicationReference>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <context>
+               <reference value="20423193"></reference>
+            </context>
+            <effectivePeriod>
+               <start value="2139-05-06T00:00:00+00:00"></start>
+               <end value="2139-05-07T00:00:00+00:00"></end>
+            </effectivePeriod>
+         </MedicationAdministration>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="MedicationAdministration"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <MedicationAdministration xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+            </meta>
+            <identifier>
+               <system value="http://umontreal.ca/prescriptions"></system>
+               <value value="20423193_18"></value>
+            </identifier>
+            <status value="completed"></status>
+            <medicationReference>
+               <reference value="urn:uuid:30884445-d919-4b34-888d-e45eda8d6aac"></reference>
+            </medicationReference>
+            <subject>
+               <reference value="10007920"></reference>
+            </subject>
+            <context>
+               <reference value="20423193"></reference>
+            </context>
+            <effectivePeriod>
+               <start value="2139-05-06T00:00:00+00:00"></start>
+               <end value="2139-05-07T00:00:00+00:00"></end>
+            </effectivePeriod>
+         </MedicationAdministration>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="MedicationAdministration"></url>
+      </request>
+   </entry>
+</Bundle>

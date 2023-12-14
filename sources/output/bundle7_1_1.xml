@@ -1,7 +1,7 @@
 <Bundle xmlns="http://hl7.org/fhir">
    <type value="transaction"></type>
    <entry>
-      <fullUrl value="urn:uuid:8a6af307-4c57-42ce-aab9-b3ace56afd63"></fullUrl>
+      <fullUrl value="urn:uuid:1fe05990-4e49-4cad-9728-96964eb9e79a"></fullUrl>
       <resource>
          <Patient xmlns="http://hl7.org/fhir">
             <meta>
@@ -10,14 +10,14 @@
             <text>
                <status value="generated"></status>
                <div xmlns="http://www.w3.org/1999/xhtml"> 
-                  <div class="hapiHeaderText">14657276 
-                     <b>PATIENT_14657276 </b> 
+                  <div class="hapiHeaderText">10000117 
+                     <b>PATIENT_10000117 </b> 
                   </div> 
                   <table class="hapiPropertyTable"> 
                      <tbody> 
                         <tr> 
                            <td>Identifier</td> 
-                           <td>14657276</td> 
+                           <td>10000117</td> 
                         </tr> 
                         <tr> 
                            <td>Address</td> 
@@ -31,7 +31,7 @@
                         <tr> 
                            <td>Date of birth</td> 
                            <td> 
-                              <span></span> 
+                              <span>01 January 2126</span> 
                            </td> 
                         </tr> 
                      </tbody> 
@@ -46,20 +46,20 @@
                      <code value="MR"></code>
                   </coding>
                </type>
-               <system value="http://www.imi-mimic.de/patients"></system>
-               <value value="14657276"></value>
+               <system value="http://www.umontreal.ca/patients"></system>
+               <value value="10000117"></value>
             </identifier>
             <name>
                <use value="official"></use>
-               <family value="Patient_14657276">
+               <family value="Patient_10000117">
                   <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
-                     <valueString value="Patient_14657276"></valueString>
+                     <valueString value="Patient_10000117"></valueString>
                   </extension>
                </family>
-               <given value="14657276"></given>
+               <given value="10000117"></given>
             </name>
             <gender value="female"></gender>
-            <birthDate>
+            <birthDate value="2126-01-01">
                <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
                   <valueCode value="masked"></valueCode>
                </extension>
@@ -82,8 +82,8 @@
             <maritalStatus>
                <coding>
                   <system value="http://hl7.org/fhir/ValueSet/marital-status"></system>
-                  <code value="S"></code>
-                  <display value="Never Married"></display>
+                  <code value="D"></code>
+                  <display value="Divorced"></display>
                </coding>
             </maritalStatus>
          </Patient>
@@ -91,15 +91,15 @@
       <request>
          <method value="POST"></method>
          <url value="Patient"></url>
-         <ifNoneExist value="identifier=http://www.imi-mimic.de/patients|14657276"></ifNoneExist>
+         <ifNoneExist value="identifier=http://www.umontreal.ca/patients|10000117"></ifNoneExist>
       </request>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:92a986d8-2139-43b3-9ec7-2f123182a08c"></fullUrl>
+      <fullUrl value="urn:uuid:2cd27265-a906-45af-ac9d-9a51f1ac6aae"></fullUrl>
       <resource>
          <Organization xmlns="http://hl7.org/fhir">
             <identifier>
-               <system value="http://www.imi-mimic.de"></system>
+               <system value="http://www.umontreal.ca"></system>
                <value value="hospital"></value>
             </identifier>
             <type>
@@ -115,65 +115,11 @@
       <request>
          <method value="POST"></method>
          <url value="Organization"></url>
-         <ifNoneExist value="identifier=http://www.imi-mimic.de|hospital"></ifNoneExist>
+         <ifNoneExist value="identifier=http://www.umontreal.ca|hospital"></ifNoneExist>
       </request>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:c289e93c-e920-4825-9e31-4bb81a4a050e"></fullUrl>
-      <resource>
-         <Condition xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"></profile>
-            </meta>
-            <identifier>
-               <system value="http://www.imi-mimic.de/diags"></system>
-               <value value="null_11"></value>
-            </identifier>
-            <subject>
-               <reference value="14657276"></reference>
-            </subject>
-            <recordedDate>
-               <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
-                  <valueCode value="unknown"></valueCode>
-               </extension>
-            </recordedDate>
-         </Condition>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="Condition"></url>
-         <ifNoneExist value="identifier=http://www.imi-mimic.de/diags|null_11"></ifNoneExist>
-      </request>
-   </entry>
-   <entry>
-      <fullUrl value="urn:uuid:922cfc6a-83ad-400a-8701-ed564cd2bafe"></fullUrl>
-      <resource>
-         <Condition xmlns="http://hl7.org/fhir">
-            <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"></profile>
-            </meta>
-            <identifier>
-               <system value="http://www.imi-mimic.de/diags"></system>
-               <value value="null_10"></value>
-            </identifier>
-            <subject>
-               <reference value="14657276"></reference>
-            </subject>
-            <recordedDate>
-               <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
-                  <valueCode value="unknown"></valueCode>
-               </extension>
-            </recordedDate>
-         </Condition>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="Condition"></url>
-         <ifNoneExist value="identifier=http://www.imi-mimic.de/diags|null_10"></ifNoneExist>
-      </request>
-   </entry>
-   <entry>
-      <fullUrl value="urn:uuid:4c9d24b1-deb4-4cdc-93ab-a4e21149d1bc"></fullUrl>
+      <fullUrl value="urn:uuid:8b60cbc4-c1ea-475a-ada3-384a03a61a5a"></fullUrl>
       <resource>
          <Condition xmlns="http://hl7.org/fhir">
             <meta>
@@ -184,7 +130,7 @@
                <value value="null_9"></value>
             </identifier>
             <subject>
-               <reference value="14657276"></reference>
+               <reference value="10000117"></reference>
             </subject>
             <recordedDate>
                <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
@@ -200,7 +146,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:d4a7233f-b5df-4c16-b615-374cd419bb5b"></fullUrl>
+      <fullUrl value="urn:uuid:637cdc2f-513e-4585-807a-4bc9f5e4a9a0"></fullUrl>
       <resource>
          <Condition xmlns="http://hl7.org/fhir">
             <meta>
@@ -211,7 +157,7 @@
                <value value="null_8"></value>
             </identifier>
             <subject>
-               <reference value="14657276"></reference>
+               <reference value="10000117"></reference>
             </subject>
             <recordedDate>
                <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
@@ -227,7 +173,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:b3d49552-947d-43d9-b8c5-a8d44b7db15f"></fullUrl>
+      <fullUrl value="urn:uuid:c6109760-22c6-4a47-9365-c21a0579a52d"></fullUrl>
       <resource>
          <Condition xmlns="http://hl7.org/fhir">
             <meta>
@@ -238,7 +184,7 @@
                <value value="null_7"></value>
             </identifier>
             <subject>
-               <reference value="14657276"></reference>
+               <reference value="10000117"></reference>
             </subject>
             <recordedDate>
                <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
@@ -254,7 +200,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:c732c0fb-6ac4-46b7-be24-bde44d96f337"></fullUrl>
+      <fullUrl value="urn:uuid:5f02e45c-81d4-4016-982a-c46f7fa340ba"></fullUrl>
       <resource>
          <Condition xmlns="http://hl7.org/fhir">
             <meta>
@@ -265,7 +211,7 @@
                <value value="null_6"></value>
             </identifier>
             <subject>
-               <reference value="14657276"></reference>
+               <reference value="10000117"></reference>
             </subject>
             <recordedDate>
                <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
@@ -281,7 +227,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:0ac1e99c-1246-4a5f-99b9-1aef2ced209e"></fullUrl>
+      <fullUrl value="urn:uuid:06936be0-2507-4d7b-a431-3e50a8f35f67"></fullUrl>
       <resource>
          <Condition xmlns="http://hl7.org/fhir">
             <meta>
@@ -292,7 +238,7 @@
                <value value="null_5"></value>
             </identifier>
             <subject>
-               <reference value="14657276"></reference>
+               <reference value="10000117"></reference>
             </subject>
             <recordedDate>
                <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
@@ -308,7 +254,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:d33ea551-d4e2-4812-97ae-4a316168fe73"></fullUrl>
+      <fullUrl value="urn:uuid:e23a2931-910e-4d8e-9bdf-9d3f71ec0331"></fullUrl>
       <resource>
          <Condition xmlns="http://hl7.org/fhir">
             <meta>
@@ -319,7 +265,7 @@
                <value value="null_4"></value>
             </identifier>
             <subject>
-               <reference value="14657276"></reference>
+               <reference value="10000117"></reference>
             </subject>
             <recordedDate>
                <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
@@ -335,7 +281,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:c1c92712-c2b7-4c7a-8831-03b8b7821fcb"></fullUrl>
+      <fullUrl value="urn:uuid:76963089-3df7-4bd9-9747-e2a06dbcd1b2"></fullUrl>
       <resource>
          <Condition xmlns="http://hl7.org/fhir">
             <meta>
@@ -346,7 +292,7 @@
                <value value="null_3"></value>
             </identifier>
             <subject>
-               <reference value="14657276"></reference>
+               <reference value="10000117"></reference>
             </subject>
             <recordedDate>
                <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
@@ -362,7 +308,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:ea81c0fe-b980-4fb4-804a-de45bb279617"></fullUrl>
+      <fullUrl value="urn:uuid:17c1a3b0-ef08-4134-9134-c05234d48320"></fullUrl>
       <resource>
          <Condition xmlns="http://hl7.org/fhir">
             <meta>
@@ -373,7 +319,7 @@
                <value value="null_2"></value>
             </identifier>
             <subject>
-               <reference value="14657276"></reference>
+               <reference value="10000117"></reference>
             </subject>
             <recordedDate>
                <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
@@ -389,7 +335,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:9b5d054a-fa80-48a8-8ece-80af6881cd46"></fullUrl>
+      <fullUrl value="urn:uuid:8d94d5dd-46aa-441d-ad8d-de787bd6ab27"></fullUrl>
       <resource>
          <Condition xmlns="http://hl7.org/fhir">
             <meta>
@@ -400,7 +346,7 @@
                <value value="null_1"></value>
             </identifier>
             <subject>
-               <reference value="14657276"></reference>
+               <reference value="10000117"></reference>
             </subject>
             <recordedDate>
                <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
@@ -416,86 +362,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:28ac4abd-6b6a-444e-8b81-07b358f59155"></fullUrl>
-      <resource>
-         <Location xmlns="http://hl7.org/fhir">
-            <identifier>
-               <system value="http://www.imi-mimic.de/location/Obstetrics_Antepartum"></system>
-               <value value="Obstetrics Antepartum"></value>
-            </identifier>
-            <name value="Obstetrics Antepartum"></name>
-            <type>
-               <coding>
-                  <system value="http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType"></system>
-                  <code value="_ServiceDeliveryLocationRoleType"></code>
-                  <display value="ServiceDeliveryLocationRoleType"></display>
-               </coding>
-            </type>
-            <physicalType>
-               <coding>
-                  <system value="http://terminology.hl7.org/CodeSystem/location-physical-type"></system>
-                  <code value="wa"></code>
-                  <display value="Ward"></display>
-               </coding>
-            </physicalType>
-            <managingOrganization>
-               <reference value="urn:uuid:3ab470ca-b6b4-4d58-9748-45ee6e3dbd80"></reference>
-            </managingOrganization>
-         </Location>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="Location"></url>
-         <ifNoneExist value="identifier=http://www.imi-mimic.de/location/Obstetrics_Antepartum|Obstetrics Antepartum"></ifNoneExist>
-      </request>
-   </entry>
-   <entry>
-      <fullUrl value="urn:uuid:dc93e294-f096-4ee3-be99-ccbb8609788b"></fullUrl>
-      <resource>
-         <Encounter xmlns="http://hl7.org/fhir">
-            <status value="finished"></status>
-            <class>
-               <system value="https://www.medizininformatik-initiative.de/fhir/core/CodeSystem/EncounterClassAdditionsDE"></system>
-               <code value="_ActEncounterCode"></code>
-               <display value="ActEncounterCode"></display>
-            </class>
-            <period>
-               <start value="2152-08-14T00:00:00+00:00"></start>
-               <end value="2152-08-15T00:00:00+00:00"></end>
-            </period>
-            <location>
-               <location>
-                  <reference value="urn:uuid:28ac4abd-6b6a-444e-8b81-07b358f59155"></reference>
-               </location>
-               <status value="completed"></status>
-               <physicalType>
-                  <coding>
-                     <system value="http://terminology.hl7.org/CodeSystem/location-physical-type"></system>
-                     <code value="wa"></code>
-                     <display value="Ward"></display>
-                  </coding>
-               </physicalType>
-               <period>
-                  <start value="2152-08-14T00:00:00+00:00"></start>
-                  <end value="2152-08-15T00:00:00+00:00"></end>
-               </period>
-            </location>
-            <serviceProvider>
-               <reference value="urn:uuid:3ab470ca-b6b4-4d58-9748-45ee6e3dbd80"></reference>
-            </serviceProvider>
-            <partOf>
-               <reference value="urn:uuid:aaa5e8ee-4e37-4c08-9267-d0598c796d79"></reference>
-            </partOf>
-         </Encounter>
-      </resource>
-      <request>
-         <method value="POST"></method>
-         <url value="Encounter"></url>
-         <ifNoneExist value="identifier=null|null"></ifNoneExist>
-      </request>
-   </entry>
-   <entry>
-      <fullUrl value="urn:uuid:9c58d650-cf9b-4fb9-b921-4cd6761183b4"></fullUrl>
+      <fullUrl value="urn:uuid:4338d3a9-d48a-46dd-bfd8-6fd8722080b0"></fullUrl>
       <resource>
          <Location xmlns="http://hl7.org/fhir">
             <identifier>
@@ -518,7 +385,7 @@
                </coding>
             </physicalType>
             <managingOrganization>
-               <reference value="urn:uuid:7db6d84d-c544-44b0-8555-12c77b7ea32b"></reference>
+               <reference value="urn:uuid:36ad2032-0307-431e-be03-410e49e859e4"></reference>
             </managingOrganization>
          </Location>
       </resource>
@@ -529,7 +396,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:486b2867-0e64-4ff9-99f0-cc526e186108"></fullUrl>
+      <fullUrl value="urn:uuid:8e130f50-c23e-4538-a24f-0baf72e14951"></fullUrl>
       <resource>
          <Encounter xmlns="http://hl7.org/fhir">
             <status value="finished"></status>
@@ -539,11 +406,11 @@
                <display value="ActEncounterCode"></display>
             </class>
             <period>
-               <start value="2152-08-15T00:00:00+00:00"></start>
+               <start value="2181-11-15T00:00:00+00:00"></start>
             </period>
             <location>
                <location>
-                  <reference value="urn:uuid:9c58d650-cf9b-4fb9-b921-4cd6761183b4"></reference>
+                  <reference value="urn:uuid:4338d3a9-d48a-46dd-bfd8-6fd8722080b0"></reference>
                </location>
                <status value="completed"></status>
                <physicalType>
@@ -554,14 +421,14 @@
                   </coding>
                </physicalType>
                <period>
-                  <start value="2152-08-15T00:00:00+00:00"></start>
+                  <start value="2181-11-15T00:00:00+00:00"></start>
                </period>
             </location>
             <serviceProvider>
-               <reference value="urn:uuid:7db6d84d-c544-44b0-8555-12c77b7ea32b"></reference>
+               <reference value="urn:uuid:36ad2032-0307-431e-be03-410e49e859e4"></reference>
             </serviceProvider>
             <partOf>
-               <reference value="urn:uuid:aaa5e8ee-4e37-4c08-9267-d0598c796d79"></reference>
+               <reference value="urn:uuid:de620dcf-c760-4951-9984-b9cce005c02a"></reference>
             </partOf>
          </Encounter>
       </resource>
@@ -572,11 +439,248 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:aaa5e8ee-4e37-4c08-9267-d0598c796d79"></fullUrl>
+      <fullUrl value="urn:uuid:02cc4162-33a3-4ed3-848f-0ebb7ab06076"></fullUrl>
+      <resource>
+         <Location xmlns="http://hl7.org/fhir">
+            <identifier>
+               <system value="http://www.imi-mimic.de/location/Emergency_Department"></system>
+               <value value="Emergency Department"></value>
+            </identifier>
+            <name value="Emergency Department"></name>
+            <type>
+               <coding>
+                  <system value="http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType"></system>
+                  <code value="_ServiceDeliveryLocationRoleType"></code>
+                  <display value="ServiceDeliveryLocationRoleType"></display>
+               </coding>
+            </type>
+            <physicalType>
+               <coding>
+                  <system value="http://terminology.hl7.org/CodeSystem/location-physical-type"></system>
+                  <code value="wa"></code>
+                  <display value="Ward"></display>
+               </coding>
+            </physicalType>
+            <managingOrganization>
+               <reference value="urn:uuid:3e5cb101-0673-4bb5-85dd-9e4192001f7c"></reference>
+            </managingOrganization>
+         </Location>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Location"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/location/Emergency_Department|Emergency Department"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:ba0862ce-3ae0-4192-aa14-57febcb85eb6"></fullUrl>
+      <resource>
+         <Encounter xmlns="http://hl7.org/fhir">
+            <status value="finished"></status>
+            <class>
+               <system value="https://www.medizininformatik-initiative.de/fhir/core/CodeSystem/EncounterClassAdditionsDE"></system>
+               <code value="_ActEncounterCode"></code>
+               <display value="ActEncounterCode"></display>
+            </class>
+            <period>
+               <start value="2181-11-14T00:00:00+00:00"></start>
+               <end value="2181-11-15T00:00:00+00:00"></end>
+            </period>
+            <location>
+               <location>
+                  <reference value="urn:uuid:02cc4162-33a3-4ed3-848f-0ebb7ab06076"></reference>
+               </location>
+               <status value="completed"></status>
+               <physicalType>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/location-physical-type"></system>
+                     <code value="wa"></code>
+                     <display value="Ward"></display>
+                  </coding>
+               </physicalType>
+               <period>
+                  <start value="2181-11-14T00:00:00+00:00"></start>
+                  <end value="2181-11-15T00:00:00+00:00"></end>
+               </period>
+            </location>
+            <serviceProvider>
+               <reference value="urn:uuid:3e5cb101-0673-4bb5-85dd-9e4192001f7c"></reference>
+            </serviceProvider>
+            <partOf>
+               <reference value="urn:uuid:de620dcf-c760-4951-9984-b9cce005c02a"></reference>
+            </partOf>
+         </Encounter>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Encounter"></url>
+         <ifNoneExist value="identifier=null|null"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:cc854014-7512-4ae2-9686-dc15ac4d31fd"></fullUrl>
+      <resource>
+         <Location xmlns="http://hl7.org/fhir">
+            <identifier>
+               <system value="http://www.imi-mimic.de/location/Med/Surg"></system>
+               <value value="Med/Surg"></value>
+            </identifier>
+            <name value="Med/Surg"></name>
+            <type>
+               <coding>
+                  <system value="http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType"></system>
+                  <code value="_ServiceDeliveryLocationRoleType"></code>
+                  <display value="ServiceDeliveryLocationRoleType"></display>
+               </coding>
+            </type>
+            <physicalType>
+               <coding>
+                  <system value="http://terminology.hl7.org/CodeSystem/location-physical-type"></system>
+                  <code value="wa"></code>
+                  <display value="Ward"></display>
+               </coding>
+            </physicalType>
+            <managingOrganization>
+               <reference value="urn:uuid:888ab577-bd26-42e2-87e2-a9d27bf376fd"></reference>
+            </managingOrganization>
+         </Location>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Location"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/location/Med/Surg|Med/Surg"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:0496e9ab-20ea-4867-81ba-0775e1697a3f"></fullUrl>
+      <resource>
+         <Encounter xmlns="http://hl7.org/fhir">
+            <status value="finished"></status>
+            <class>
+               <system value="https://www.medizininformatik-initiative.de/fhir/core/CodeSystem/EncounterClassAdditionsDE"></system>
+               <code value="_ActEncounterCode"></code>
+               <display value="ActEncounterCode"></display>
+            </class>
+            <period>
+               <start value="2181-11-15T00:00:00+00:00"></start>
+               <end value="2181-11-15T00:00:00+00:00"></end>
+            </period>
+            <location>
+               <location>
+                  <reference value="urn:uuid:cc854014-7512-4ae2-9686-dc15ac4d31fd"></reference>
+               </location>
+               <status value="completed"></status>
+               <physicalType>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/location-physical-type"></system>
+                     <code value="wa"></code>
+                     <display value="Ward"></display>
+                  </coding>
+               </physicalType>
+               <period>
+                  <start value="2181-11-15T00:00:00+00:00"></start>
+                  <end value="2181-11-15T00:00:00+00:00"></end>
+               </period>
+            </location>
+            <serviceProvider>
+               <reference value="urn:uuid:888ab577-bd26-42e2-87e2-a9d27bf376fd"></reference>
+            </serviceProvider>
+            <partOf>
+               <reference value="urn:uuid:de620dcf-c760-4951-9984-b9cce005c02a"></reference>
+            </partOf>
+         </Encounter>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Encounter"></url>
+         <ifNoneExist value="identifier=null|null"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:74b6b06e-2353-46f7-beaa-b534039bac18"></fullUrl>
+      <resource>
+         <Location xmlns="http://hl7.org/fhir">
+            <identifier>
+               <system value="http://www.imi-mimic.de/location/Emergency_Department_Observation"></system>
+               <value value="Emergency Department Observation"></value>
+            </identifier>
+            <name value="Emergency Department Observation"></name>
+            <type>
+               <coding>
+                  <system value="http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType"></system>
+                  <code value="_ServiceDeliveryLocationRoleType"></code>
+                  <display value="ServiceDeliveryLocationRoleType"></display>
+               </coding>
+            </type>
+            <physicalType>
+               <coding>
+                  <system value="http://terminology.hl7.org/CodeSystem/location-physical-type"></system>
+                  <code value="wa"></code>
+                  <display value="Ward"></display>
+               </coding>
+            </physicalType>
+            <managingOrganization>
+               <reference value="urn:uuid:6e027ea7-33aa-4009-845a-6353523d8b0f"></reference>
+            </managingOrganization>
+         </Location>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Location"></url>
+         <ifNoneExist value="identifier=http://www.imi-mimic.de/location/Emergency_Department_Observation|Emergency Department Observation"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:798046b4-7d53-492c-8f83-97797c0462ce"></fullUrl>
+      <resource>
+         <Encounter xmlns="http://hl7.org/fhir">
+            <status value="finished"></status>
+            <class>
+               <system value="https://www.medizininformatik-initiative.de/fhir/core/CodeSystem/EncounterClassAdditionsDE"></system>
+               <code value="_ActEncounterCode"></code>
+               <display value="ActEncounterCode"></display>
+            </class>
+            <period>
+               <start value="2181-11-15T00:00:00+00:00"></start>
+               <end value="2181-11-15T00:00:00+00:00"></end>
+            </period>
+            <location>
+               <location>
+                  <reference value="urn:uuid:74b6b06e-2353-46f7-beaa-b534039bac18"></reference>
+               </location>
+               <status value="completed"></status>
+               <physicalType>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/location-physical-type"></system>
+                     <code value="wa"></code>
+                     <display value="Ward"></display>
+                  </coding>
+               </physicalType>
+               <period>
+                  <start value="2181-11-15T00:00:00+00:00"></start>
+                  <end value="2181-11-15T00:00:00+00:00"></end>
+               </period>
+            </location>
+            <serviceProvider>
+               <reference value="urn:uuid:6e027ea7-33aa-4009-845a-6353523d8b0f"></reference>
+            </serviceProvider>
+            <partOf>
+               <reference value="urn:uuid:de620dcf-c760-4951-9984-b9cce005c02a"></reference>
+            </partOf>
+         </Encounter>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Encounter"></url>
+         <ifNoneExist value="identifier=null|null"></ifNoneExist>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:de620dcf-c760-4951-9984-b9cce005c02a"></fullUrl>
       <resource>
          <Encounter xmlns="http://hl7.org/fhir">
             <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-fall/StructureDefinition/KontaktGesundheitseinrichtung"></profile>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-fall/StructureDefinition/KontaktGesundheitseinrichtung"></profile>
             </meta>
             <identifier>
                <type>
@@ -585,89 +689,77 @@
                      <code value="VN"></code>
                   </coding>
                </type>
-               <system value="http://www.imi-mimic.de/encs"></system>
-               <value value="21593023"></value>
+               <system value="http://www.umontreal.ca/encs"></system>
+               <value value="22927623"></value>
             </identifier>
             <status value="finished"></status>
             <class>
-               <system value="https://www.medizininformatik-initiative.de/fhir/core/ValueSet/EncounterClassDE"></system>
+               <system value="https://www.umontreal.ca/fhir/core/ValueSet/EncounterClassDE"></system>
                <code value="N"></code>
                <display value="Segment nicht anwendbar"></display>
             </class>
             <period>
-               <start value="2152-08-14T00:00:00+00:00"></start>
-               <end value="2152-08-15T00:00:00+00:00"></end>
+               <start value="2181-11-15T00:00:00+00:00"></start>
+               <end value="2181-11-15T00:00:00+00:00"></end>
             </period>
             <diagnosis>
                <condition>
-                  <reference value="urn:uuid:c289e93c-e920-4825-9e31-4bb81a4a050e"></reference>
-               </condition>
-               <rank value="11"></rank>
-            </diagnosis>
-            <diagnosis>
-               <condition>
-                  <reference value="urn:uuid:922cfc6a-83ad-400a-8701-ed564cd2bafe"></reference>
-               </condition>
-               <rank value="10"></rank>
-            </diagnosis>
-            <diagnosis>
-               <condition>
-                  <reference value="urn:uuid:4c9d24b1-deb4-4cdc-93ab-a4e21149d1bc"></reference>
+                  <reference value="urn:uuid:8b60cbc4-c1ea-475a-ada3-384a03a61a5a"></reference>
                </condition>
                <rank value="9"></rank>
             </diagnosis>
             <diagnosis>
                <condition>
-                  <reference value="urn:uuid:d4a7233f-b5df-4c16-b615-374cd419bb5b"></reference>
+                  <reference value="urn:uuid:637cdc2f-513e-4585-807a-4bc9f5e4a9a0"></reference>
                </condition>
                <rank value="8"></rank>
             </diagnosis>
             <diagnosis>
                <condition>
-                  <reference value="urn:uuid:b3d49552-947d-43d9-b8c5-a8d44b7db15f"></reference>
+                  <reference value="urn:uuid:c6109760-22c6-4a47-9365-c21a0579a52d"></reference>
                </condition>
                <rank value="7"></rank>
             </diagnosis>
             <diagnosis>
                <condition>
-                  <reference value="urn:uuid:c732c0fb-6ac4-46b7-be24-bde44d96f337"></reference>
+                  <reference value="urn:uuid:5f02e45c-81d4-4016-982a-c46f7fa340ba"></reference>
                </condition>
                <rank value="6"></rank>
             </diagnosis>
             <diagnosis>
                <condition>
-                  <reference value="urn:uuid:0ac1e99c-1246-4a5f-99b9-1aef2ced209e"></reference>
+                  <reference value="urn:uuid:06936be0-2507-4d7b-a431-3e50a8f35f67"></reference>
                </condition>
                <rank value="5"></rank>
             </diagnosis>
             <diagnosis>
                <condition>
-                  <reference value="urn:uuid:d33ea551-d4e2-4812-97ae-4a316168fe73"></reference>
+                  <reference value="urn:uuid:e23a2931-910e-4d8e-9bdf-9d3f71ec0331"></reference>
                </condition>
                <rank value="4"></rank>
             </diagnosis>
             <diagnosis>
                <condition>
-                  <reference value="urn:uuid:c1c92712-c2b7-4c7a-8831-03b8b7821fcb"></reference>
+                  <reference value="urn:uuid:76963089-3df7-4bd9-9747-e2a06dbcd1b2"></reference>
                </condition>
                <rank value="3"></rank>
             </diagnosis>
             <diagnosis>
                <condition>
-                  <reference value="urn:uuid:ea81c0fe-b980-4fb4-804a-de45bb279617"></reference>
+                  <reference value="urn:uuid:17c1a3b0-ef08-4134-9134-c05234d48320"></reference>
                </condition>
                <rank value="2"></rank>
             </diagnosis>
             <diagnosis>
                <condition>
-                  <reference value="urn:uuid:9b5d054a-fa80-48a8-8ece-80af6881cd46"></reference>
+                  <reference value="urn:uuid:8d94d5dd-46aa-441d-ad8d-de787bd6ab27"></reference>
                </condition>
                <rank value="1"></rank>
             </diagnosis>
             <hospitalization>
                <dischargeDisposition>
                   <coding>
-                     <system value="https://www.medizininformatik-initiative.de/fhir/core/modul-fall/CodeSystem/Entlassungsgrund"></system>
+                     <system value="https://www.umontreal.ca/fhir/core/modul-fall/CodeSystem/Entlassungsgrund"></system>
                      <code value="039"></code>
                      <display value="Behandlung aus sonstigen Gruenden beendet, keine Angabe"></display>
                   </coding>
@@ -678,11 +770,11 @@
       <request>
          <method value="POST"></method>
          <url value="Encounter"></url>
-         <ifNoneExist value="identifier=http://www.imi-mimic.de/encs|21593023"></ifNoneExist>
+         <ifNoneExist value="identifier=http://www.umontreal.ca/encs|22927623"></ifNoneExist>
       </request>
    </entry>
    <entry>
-      <fullUrl value="urn:uuid:5db60866-9ec8-4cf7-859b-bdbd8e7e4eda"></fullUrl>
+      <fullUrl value="urn:uuid:e998a5c2-af70-42a7-b082-78e0279a47fd"></fullUrl>
       <resource>
          <Medication xmlns="http://hl7.org/fhir">
             <text>
@@ -703,22 +795,22 @@
                <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
             </meta>
             <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21593023_0"></value>
+               <system value="http://umontreal.ca/prescriptions"></system>
+               <value value="22927623_0"></value>
             </identifier>
             <status value="completed"></status>
             <medicationReference>
-               <reference value="urn:uuid:5db60866-9ec8-4cf7-859b-bdbd8e7e4eda"></reference>
+               <reference value="urn:uuid:e998a5c2-af70-42a7-b082-78e0279a47fd"></reference>
             </medicationReference>
             <subject>
-               <reference value="14657276"></reference>
+               <reference value="10000117"></reference>
             </subject>
             <context>
-               <reference value="21593023"></reference>
+               <reference value="22927623"></reference>
             </context>
             <effectivePeriod>
-               <start value="2152-08-15T00:00:00+00:00"></start>
-               <end value="2152-08-17T00:00:00+00:00"></end>
+               <start value="2181-11-15T00:00:00+00:00"></start>
+               <end value="2181-11-15T00:00:00+00:00"></end>
             </effectivePeriod>
          </MedicationAdministration>
       </resource>
@@ -734,22 +826,22 @@
                <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
             </meta>
             <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21593023_1"></value>
+               <system value="http://umontreal.ca/prescriptions"></system>
+               <value value="22927623_1"></value>
             </identifier>
             <status value="completed"></status>
             <medicationReference>
-               <reference value="urn:uuid:5db60866-9ec8-4cf7-859b-bdbd8e7e4eda"></reference>
+               <reference value="urn:uuid:e998a5c2-af70-42a7-b082-78e0279a47fd"></reference>
             </medicationReference>
             <subject>
-               <reference value="14657276"></reference>
+               <reference value="10000117"></reference>
             </subject>
             <context>
-               <reference value="21593023"></reference>
+               <reference value="22927623"></reference>
             </context>
             <effectivePeriod>
-               <start value="2152-08-14T00:00:00+00:00"></start>
-               <end value="2152-08-15T00:00:00+00:00"></end>
+               <start value="2181-11-15T00:00:00+00:00"></start>
+               <end value="2181-11-15T00:00:00+00:00"></end>
             </effectivePeriod>
          </MedicationAdministration>
       </resource>
@@ -760,312 +852,1389 @@
    </entry>
    <entry>
       <resource>
-         <MedicationAdministration xmlns="http://hl7.org/fhir">
+         <Observation xmlns="http://hl7.org/fhir">
             <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
             </meta>
             <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21593023_2"></value>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1435"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
             </identifier>
-            <status value="completed"></status>
-            <medicationReference>
-               <reference value="urn:uuid:5db60866-9ec8-4cf7-859b-bdbd8e7e4eda"></reference>
-            </medicationReference>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="Green Top Hold (plasma)"></text>
+            </code>
             <subject>
-               <reference value="14657276"></reference>
+               <reference value="10000117"></reference>
             </subject>
-            <context>
-               <reference value="21593023"></reference>
-            </context>
-            <effectivePeriod>
-               <start value="2152-08-14T00:00:00+00:00"></start>
-               <end value="2152-08-15T00:00:00+00:00"></end>
-            </effectivePeriod>
-         </MedicationAdministration>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <dataAbsentReason>
+               <coding>
+                  <system value="http://terminology.hl7.org/CodeSystem/data-absent-reason"></system>
+                  <code value="asked-unknown"></code>
+                  <display value="Asked But Unknown"></display>
+               </coding>
+            </dataAbsentReason>
+            <note>
+               <text value="___"></text>
+            </note>
+         </Observation>
       </resource>
       <request>
          <method value="POST"></method>
-         <url value="MedicationAdministration"></url>
+         <url value="Observation"></url>
       </request>
    </entry>
    <entry>
       <resource>
-         <MedicationAdministration xmlns="http://hl7.org/fhir">
+         <Observation xmlns="http://hl7.org/fhir">
             <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
             </meta>
             <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21593023_3"></value>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1436"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
             </identifier>
-            <status value="completed"></status>
-            <medicationReference>
-               <reference value="urn:uuid:5db60866-9ec8-4cf7-859b-bdbd8e7e4eda"></reference>
-            </medicationReference>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="Alanine Aminotransferase (ALT)"></text>
+            </code>
             <subject>
-               <reference value="14657276"></reference>
+               <reference value="10000117"></reference>
             </subject>
-            <context>
-               <reference value="21593023"></reference>
-            </context>
-            <effectivePeriod>
-               <start value="2152-08-14T00:00:00+00:00"></start>
-               <end value="2152-08-15T00:00:00+00:00"></end>
-            </effectivePeriod>
-         </MedicationAdministration>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="11.0"></value>
+               <unit value="IU/L"></unit>
+            </valueQuantity>
+         </Observation>
       </resource>
       <request>
          <method value="POST"></method>
-         <url value="MedicationAdministration"></url>
+         <url value="Observation"></url>
       </request>
    </entry>
    <entry>
       <resource>
-         <MedicationAdministration xmlns="http://hl7.org/fhir">
+         <Observation xmlns="http://hl7.org/fhir">
             <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
             </meta>
             <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21593023_4"></value>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1437"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
             </identifier>
-            <status value="completed"></status>
-            <medicationReference>
-               <reference value="urn:uuid:5db60866-9ec8-4cf7-859b-bdbd8e7e4eda"></reference>
-            </medicationReference>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="Albumin"></text>
+            </code>
             <subject>
-               <reference value="14657276"></reference>
+               <reference value="10000117"></reference>
             </subject>
-            <context>
-               <reference value="21593023"></reference>
-            </context>
-            <effectivePeriod>
-               <start value="2152-08-14T00:00:00+00:00"></start>
-               <end value="2152-08-15T00:00:00+00:00"></end>
-            </effectivePeriod>
-         </MedicationAdministration>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="4.8"></value>
+               <unit value="g/dL"></unit>
+            </valueQuantity>
+         </Observation>
       </resource>
       <request>
          <method value="POST"></method>
-         <url value="MedicationAdministration"></url>
+         <url value="Observation"></url>
       </request>
    </entry>
    <entry>
       <resource>
-         <MedicationAdministration xmlns="http://hl7.org/fhir">
+         <Observation xmlns="http://hl7.org/fhir">
             <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
             </meta>
             <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21593023_5"></value>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1438"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
             </identifier>
-            <status value="completed"></status>
-            <medicationReference>
-               <reference value="urn:uuid:5db60866-9ec8-4cf7-859b-bdbd8e7e4eda"></reference>
-            </medicationReference>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="Alkaline Phosphatase"></text>
+            </code>
             <subject>
-               <reference value="14657276"></reference>
+               <reference value="10000117"></reference>
             </subject>
-            <context>
-               <reference value="21593023"></reference>
-            </context>
-            <effectivePeriod>
-               <start value="2152-08-15T00:00:00+00:00"></start>
-               <end value="2152-08-15T00:00:00+00:00"></end>
-            </effectivePeriod>
-         </MedicationAdministration>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="63.0"></value>
+               <unit value="IU/L"></unit>
+            </valueQuantity>
+         </Observation>
       </resource>
       <request>
          <method value="POST"></method>
-         <url value="MedicationAdministration"></url>
+         <url value="Observation"></url>
       </request>
    </entry>
    <entry>
       <resource>
-         <MedicationAdministration xmlns="http://hl7.org/fhir">
+         <Observation xmlns="http://hl7.org/fhir">
             <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
             </meta>
             <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21593023_6"></value>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1439"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
             </identifier>
-            <status value="completed"></status>
-            <medicationReference>
-               <reference value="urn:uuid:5db60866-9ec8-4cf7-859b-bdbd8e7e4eda"></reference>
-            </medicationReference>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="Anion Gap"></text>
+            </code>
             <subject>
-               <reference value="14657276"></reference>
+               <reference value="10000117"></reference>
             </subject>
-            <context>
-               <reference value="21593023"></reference>
-            </context>
-            <effectivePeriod>
-               <start value="2152-08-14T00:00:00+00:00"></start>
-               <end value="2152-08-15T00:00:00+00:00"></end>
-            </effectivePeriod>
-         </MedicationAdministration>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="20.0"></value>
+               <unit value="mEq/L"></unit>
+            </valueQuantity>
+         </Observation>
       </resource>
       <request>
          <method value="POST"></method>
-         <url value="MedicationAdministration"></url>
+         <url value="Observation"></url>
       </request>
    </entry>
    <entry>
       <resource>
-         <MedicationAdministration xmlns="http://hl7.org/fhir">
+         <Observation xmlns="http://hl7.org/fhir">
             <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
             </meta>
             <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21593023_7"></value>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1440"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
             </identifier>
-            <status value="completed"></status>
-            <medicationReference>
-               <reference value="urn:uuid:5db60866-9ec8-4cf7-859b-bdbd8e7e4eda"></reference>
-            </medicationReference>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="Asparate Aminotransferase (AST)"></text>
+            </code>
             <subject>
-               <reference value="14657276"></reference>
+               <reference value="10000117"></reference>
             </subject>
-            <context>
-               <reference value="21593023"></reference>
-            </context>
-            <effectivePeriod>
-               <start value="2152-08-14T00:00:00+00:00"></start>
-               <end value="2152-08-15T00:00:00+00:00"></end>
-            </effectivePeriod>
-         </MedicationAdministration>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="16.0"></value>
+               <unit value="IU/L"></unit>
+            </valueQuantity>
+         </Observation>
       </resource>
       <request>
          <method value="POST"></method>
-         <url value="MedicationAdministration"></url>
+         <url value="Observation"></url>
       </request>
    </entry>
    <entry>
       <resource>
-         <MedicationAdministration xmlns="http://hl7.org/fhir">
+         <Observation xmlns="http://hl7.org/fhir">
             <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
             </meta>
             <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21593023_8"></value>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1441"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
             </identifier>
-            <status value="completed"></status>
-            <medicationReference>
-               <reference value="urn:uuid:5db60866-9ec8-4cf7-859b-bdbd8e7e4eda"></reference>
-            </medicationReference>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="Bicarbonate"></text>
+            </code>
             <subject>
-               <reference value="14657276"></reference>
+               <reference value="10000117"></reference>
             </subject>
-            <context>
-               <reference value="21593023"></reference>
-            </context>
-            <effectivePeriod>
-               <start value="2152-08-14T00:00:00+00:00"></start>
-               <end value="2152-08-15T00:00:00+00:00"></end>
-            </effectivePeriod>
-         </MedicationAdministration>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="22.0"></value>
+               <unit value="mEq/L"></unit>
+            </valueQuantity>
+         </Observation>
       </resource>
       <request>
          <method value="POST"></method>
-         <url value="MedicationAdministration"></url>
+         <url value="Observation"></url>
       </request>
    </entry>
    <entry>
       <resource>
-         <MedicationAdministration xmlns="http://hl7.org/fhir">
+         <Observation xmlns="http://hl7.org/fhir">
             <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
             </meta>
             <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21593023_9"></value>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1442"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
             </identifier>
-            <status value="completed"></status>
-            <medicationReference>
-               <reference value="urn:uuid:5db60866-9ec8-4cf7-859b-bdbd8e7e4eda"></reference>
-            </medicationReference>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="Bilirubin, Total"></text>
+            </code>
             <subject>
-               <reference value="14657276"></reference>
+               <reference value="10000117"></reference>
             </subject>
-            <context>
-               <reference value="21593023"></reference>
-            </context>
-            <effectivePeriod>
-               <start value="2152-08-14T00:00:00+00:00"></start>
-               <end value="2152-08-15T00:00:00+00:00"></end>
-            </effectivePeriod>
-         </MedicationAdministration>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="1.0"></value>
+               <unit value="mg/dL"></unit>
+            </valueQuantity>
+         </Observation>
       </resource>
       <request>
          <method value="POST"></method>
-         <url value="MedicationAdministration"></url>
+         <url value="Observation"></url>
       </request>
    </entry>
    <entry>
       <resource>
-         <MedicationAdministration xmlns="http://hl7.org/fhir">
+         <Observation xmlns="http://hl7.org/fhir">
             <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
             </meta>
             <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21593023_10"></value>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1443"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
             </identifier>
-            <status value="completed"></status>
-            <medicationReference>
-               <reference value="urn:uuid:5db60866-9ec8-4cf7-859b-bdbd8e7e4eda"></reference>
-            </medicationReference>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="Chloride"></text>
+            </code>
             <subject>
-               <reference value="14657276"></reference>
+               <reference value="10000117"></reference>
             </subject>
-            <context>
-               <reference value="21593023"></reference>
-            </context>
-            <effectivePeriod>
-               <start value="2152-08-14T00:00:00+00:00"></start>
-               <end value="2152-08-15T00:00:00+00:00"></end>
-            </effectivePeriod>
-         </MedicationAdministration>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="104.0"></value>
+               <unit value="mEq/L"></unit>
+            </valueQuantity>
+         </Observation>
       </resource>
       <request>
          <method value="POST"></method>
-         <url value="MedicationAdministration"></url>
+         <url value="Observation"></url>
       </request>
    </entry>
    <entry>
       <resource>
-         <MedicationAdministration xmlns="http://hl7.org/fhir">
+         <Observation xmlns="http://hl7.org/fhir">
             <meta>
-               <profile value="https://www.medizininformatik-initiative.de/fhir/core/modul-medikation/StructureDefinition/MedicationAdministration"></profile>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
             </meta>
             <identifier>
-               <system value="http://www.imi-mimic.de/prescriptions"></system>
-               <value value="21593023_11"></value>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1444"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
             </identifier>
-            <status value="completed"></status>
-            <medicationReference>
-               <reference value="urn:uuid:5db60866-9ec8-4cf7-859b-bdbd8e7e4eda"></reference>
-            </medicationReference>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="Creatinine"></text>
+            </code>
             <subject>
-               <reference value="14657276"></reference>
+               <reference value="10000117"></reference>
             </subject>
-            <context>
-               <reference value="21593023"></reference>
-            </context>
-            <effectivePeriod>
-               <start value="2152-08-14T00:00:00+00:00"></start>
-               <end value="2152-08-15T00:00:00+00:00"></end>
-            </effectivePeriod>
-         </MedicationAdministration>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="0.9"></value>
+               <unit value="mg/dL"></unit>
+            </valueQuantity>
+         </Observation>
       </resource>
       <request>
          <method value="POST"></method>
-         <url value="MedicationAdministration"></url>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1446"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="Glucose"></text>
+            </code>
+            <subject>
+               <reference value="10000117"></reference>
+            </subject>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="85.0"></value>
+               <unit value="mg/dL"></unit>
+            </valueQuantity>
+            <note>
+               <text value="If fasting, 70-100 normal, &gt;125 provisional diabetes."></text>
+            </note>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1447"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="H"></text>
+            </code>
+            <subject>
+               <reference value="10000117"></reference>
+            </subject>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="4.0"></value>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1448"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="I"></text>
+            </code>
+            <subject>
+               <reference value="10000117"></reference>
+            </subject>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="2.0"></value>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1449"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="Lactate Dehydrogenase (LD)"></text>
+            </code>
+            <subject>
+               <reference value="10000117"></reference>
+            </subject>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="154.0"></value>
+               <unit value="IU/L"></unit>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1450"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="Potassium"></text>
+            </code>
+            <subject>
+               <reference value="10000117"></reference>
+            </subject>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="3.6"></value>
+               <unit value="mEq/L"></unit>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1451"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="Sodium"></text>
+            </code>
+            <subject>
+               <reference value="10000117"></reference>
+            </subject>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="142.0"></value>
+               <unit value="mEq/L"></unit>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1452"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="Urea Nitrogen"></text>
+            </code>
+            <subject>
+               <reference value="10000117"></reference>
+            </subject>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="8.0"></value>
+               <unit value="mg/dL"></unit>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1453"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="L"></text>
+            </code>
+            <subject>
+               <reference value="10000117"></reference>
+            </subject>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="7.0"></value>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1454"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="INR(PT)"></text>
+            </code>
+            <subject>
+               <reference value="10000117"></reference>
+            </subject>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="1.1"></value>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1455"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="PT"></text>
+            </code>
+            <subject>
+               <reference value="10000117"></reference>
+            </subject>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="11.6"></value>
+               <unit value="sec"></unit>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1456"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="PTT"></text>
+            </code>
+            <subject>
+               <reference value="10000117"></reference>
+            </subject>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="28.6"></value>
+               <unit value="sec"></unit>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1457"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="Hematocrit"></text>
+            </code>
+            <subject>
+               <reference value="10000117"></reference>
+            </subject>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="44.4"></value>
+               <unit value="%"></unit>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1458"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="Hemoglobin"></text>
+            </code>
+            <subject>
+               <reference value="10000117"></reference>
+            </subject>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="14.9"></value>
+               <unit value="g/dL"></unit>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1459"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="MCH"></text>
+            </code>
+            <subject>
+               <reference value="10000117"></reference>
+            </subject>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="30.9"></value>
+               <unit value="pg"></unit>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1460"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="MCHC"></text>
+            </code>
+            <subject>
+               <reference value="10000117"></reference>
+            </subject>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="33.6"></value>
+               <unit value="g/dL"></unit>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1461"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="MCV"></text>
+            </code>
+            <subject>
+               <reference value="10000117"></reference>
+            </subject>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="92.0"></value>
+               <unit value="fL"></unit>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1462"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="Platelet Count"></text>
+            </code>
+            <subject>
+               <reference value="10000117"></reference>
+            </subject>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="248.0"></value>
+               <unit value="K/uL"></unit>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1463"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="RDW"></text>
+            </code>
+            <subject>
+               <reference value="10000117"></reference>
+            </subject>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="12.1"></value>
+               <unit value="%"></unit>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1464"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="Red Blood Cells"></text>
+            </code>
+            <subject>
+               <reference value="10000117"></reference>
+            </subject>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="4.82"></value>
+               <unit value="m/uL"></unit>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1465"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="White Blood Cells"></text>
+            </code>
+            <subject>
+               <reference value="10000117"></reference>
+            </subject>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="5.0"></value>
+               <unit value="K/uL"></unit>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1466"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="RDW-SD"></text>
+            </code>
+            <subject>
+               <reference value="10000117"></reference>
+            </subject>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <valueQuantity>
+               <value value="41.3"></value>
+               <unit value="fL"></unit>
+            </valueQuantity>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
+      </request>
+   </entry>
+   <entry>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <meta>
+               <profile value="https://www.umontreal.ca/fhir/core/modul-labor/StructureDefinition/ObservationLab"></profile>
+            </meta>
+            <identifier>
+               <use value="usual"></use>
+               <type>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/v2-0203"></system>
+                     <code value="OBI"></code>
+                     <display value="Optometrist license number"></display>
+                  </coding>
+               </type>
+               <system value="http://www.umontreal.ca/labevents"></system>
+               <value value="1467"></value>
+               <assigner>
+                  <reference value="10000117"></reference>
+               </assigner>
+            </identifier>
+            <partOf>
+               <reference value="22927623"></reference>
+            </partOf>
+            <status value="final"></status>
+            <code>
+               <text value="Light Green Top Hold"></text>
+            </code>
+            <subject>
+               <reference value="10000117"></reference>
+            </subject>
+            <effectiveDateTime value="2181-11-15T00:00:00+00:00"></effectiveDateTime>
+            <dataAbsentReason>
+               <coding>
+                  <system value="http://terminology.hl7.org/CodeSystem/data-absent-reason"></system>
+                  <code value="asked-unknown"></code>
+                  <display value="Asked But Unknown"></display>
+               </coding>
+            </dataAbsentReason>
+            <note>
+               <text value="HOLD."></text>
+            </note>
+         </Observation>
+      </resource>
+      <request>
+         <method value="POST"></method>
+         <url value="Observation"></url>
       </request>
    </entry>
 </Bundle>

@@ -5,13 +5,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.GregorianCalendar;
-
-//import javax.xml.parsers.ParserConfigurationException;
-//import javax.xml.xpath.XPathExpressionException;
-
+import java.util.HashMap;
+import java.util.Set;
 import org.eclipse.rdf4j.model.Literal;
 import org.eclipse.rdf4j.model.Model;
 import org.eclipse.rdf4j.model.util.ModelBuilder;
@@ -22,17 +17,17 @@ import org.eclipse.rdf4j.rio.RDFFormat;
 import org.eclipse.rdf4j.rio.RDFHandlerException;
 import org.eclipse.rdf4j.rio.Rio;
 import org.eclipse.rdf4j.rio.UnsupportedRDFormatException;
-import org.hl7.fhir.r4.model.Bundle;
-//import org.xml.sax.SAXException;
-
-import prescriptomeCore.Encounter;
-import prescriptomeCore.Observation;
-import prescriptomeCore.Patient;
-import prescriptomeCore.Person;
-import prescriptomeCore.Adress;
-import prescriptomeCore.PatientGroup;
-import prescriptomeCore.Prescription;
-import processFHIR.GetRessource;
+import org.hl7.fhir.r4.model.Resource;
+import fromFIHRtoPrescriptome3.DrugAdministrationParsing;
+import fromFIHRtoPrescriptome3.DrugDispenseparsing;
+import fromFIHRtoPrescriptome3.DrugPrescritpionParsing;
+import fromFIHRtoPrescriptome3.DiagnosisParsing;
+import fromFIHRtoPrescriptome3.EncounterParsing;
+import fromFIHRtoPrescriptome3.ObservationParsing;
+import fromFIHRtoPrescriptome3.PatientParsing;
+import fromFIHRtoPrescriptome3.ProcedureParsing;
+import fromFIHRtoPrescriptome3.ProviderParsing;
+import processFHIR.GetFhirResources;
 
 
 
@@ -60,7 +55,7 @@ public class dataModel {
 	 * @return
 	 */
 	public ModelBuilder PropertyHasAdress(ModelBuilder builder){
-		builder.subject( "CDMHPresc:has_adress")
+		builder.subject( HasAdress)
 		.add(RDF.TYPE, RDF.PROPERTY)
 		.add(RDFS.LABEL, Values.literal("has adress","en"))
 		.add(RDFS.LABEL, Values.literal("a pour adresse","fr"));
@@ -276,8 +271,8 @@ public class dataModel {
 	public ModelBuilder AdressClass(ModelBuilder builder){
 		builder.subject(Adress)
 		.add(RDF.TYPE, RDFS.CLASS)
-		.add(RDFS.LABEL, AdressNameFR)
-		.add(RDFS.LABEL, AdressNameEN);
+		.add(RDFS.LABEL, Values.literal("Adresse","fr"))
+		.add(RDFS.LABEL, Values.literal("Adress","en"));
 		return builder;
 	}
 
@@ -289,8 +284,8 @@ public class dataModel {
 	public ModelBuilder DeathInformationClass(ModelBuilder builder){
 		builder.subject(DeathInformation)
 		.add(RDF.TYPE, RDFS.CLASS)
-		.add(RDFS.LABEL, DeathInformationNameFR)
-		.add(RDFS.LABEL, DeathInformationNameEN);
+		.add(RDFS.LABEL, Values.literal("Information sur le décès","fr"))
+		.add(RDFS.LABEL, Values.literal("Death Information","en"));
 		return builder;
 	}
 
@@ -539,78 +534,77 @@ public class dataModel {
 	
 	public ModelBuilder ClassBuilt(ModelBuilder builder) throws IOException, ParseException {
 		FromClassToRDF fromClassToRDF = new FromClassToRDF() ;
+//		String serverBase = "http://hapi.fhir.org/baseR4";
+//		FhirContext ctx = FhirContext.forR4();
+//		IGenericClient client = ctx.newRestfulGenericClient(serverBase);
 		
-		GetRessource getResource = new GetRessource() ;
-		Bundle bundle = getResource.getFile("output/bundle7_1_1.xml");
+		//		Load ressources file
+		GetFhirResources getResource = new GetFhirResources() ;
+		HashMap<String, Resource> resources = getResource.getFile("output/bundle11_1_1.xml");
 		
-		ArrayList<prescriptomeCore.Encounter> encounters = getResource.getEncounterFromResourceFile(bundle) ;
-		for(Encounter encounter : encounters) {
-			builder=fromClassToRDF.EncounterClass(encounter,  builder);
+
+		//		Encounter
+		EncounterParsing encounterPars = new EncounterParsing();
+		Set<prescriptomeCore.Encounter> encounters = encounterPars.getEncounterFromResourceFile("22434606", resources);
+		for(prescriptomeCore.Encounter encounter : encounters) {
+			builder=fromClassToRDF.EncounterClass(encounter, builder);
+		}
+		
+		//2
+		ProviderParsing providerPars = new ProviderParsing();
+		prescriptomeCore.Provider provider = providerPars.getProvider("P56AFM", resources) ;
+		builder=fromClassToRDF.ProviderClass( provider,  builder);
+		
+		//		PatientClass
+		PatientParsing patientParsing = new PatientParsing();
+		prescriptomeCore.Patient pat = patientParsing.getPatientFromResourceFile("18173897", resources);
+		builder=fromClassToRDF.PatientClass(pat, builder);
+		
+		//11
+		ObservationParsing obsPars = new ObservationParsing();
+		Set<prescriptomeCore.Observation>  observations =obsPars.getObservationFromResource(resources);
+		for(prescriptomeCore.Observation observation : observations) {
+			builder=fromClassToRDF.ObservationClass(observation, builder);
+		}
+		
+		//	=============================== Diagnosis =========================
+		DiagnosisParsing diagnosisPars = new DiagnosisParsing();
+		Set<prescriptomeCore.Diagnosis> diagnosis = diagnosisPars.getDiagnosisFromFHIR("diag-22434606", resources);
+		for(prescriptomeCore.Diagnosis diag:diagnosis) {
+			builder=fromClassToRDF.DiagnosisClass(diag,  builder);
+		}
+		
+		ProcedureParsing procedureParsing = new ProcedureParsing();
+		Set<prescriptomeCore.Procedure> procedures= procedureParsing.getProcedureFromFHIR("proc-2243460", resources);
+		for(prescriptomeCore.Procedure procedure:procedures) {
+			builder=fromClassToRDF.ProcedureClass(procedure,  builder);
+		}
+		
+		DrugDispenseparsing drugDispensePars = new DrugDispenseparsing();
+		Set<prescriptomeCore.Dispense> drugDispenses = drugDispensePars.getDrugDispenseFromFHIR("30077", resources);
+		for(prescriptomeCore.Dispense drugDispense : drugDispenses) {
+			builder=fromClassToRDF.DispenseClass(drugDispense, builder);
 		}
 		
 		
-		//1
-		// PersonClass
-		Person person = getResource.getPerson(bundle) ;
-		builder=fromClassToRDF.PersonClass(person, builder);
+		DrugAdministrationParsing drgAdministr = new DrugAdministrationParsing();
+		prescriptomeCore.DrugAdministration drug = drgAdministr.getMedicationAdministFromResource("22434606_1", resources);
+		builder=fromClassToRDF.DrugAdministrationClass(drug,   builder);
+		
+		
+//		DrugPrescritpionParsing prescripPars = new DrugPrescritpionParsing();
+		prescriptomeCore.Prescription rescrip=DrugPrescritpionParsing.getDrugPrescritpionFromFHIR("961806", resources);
+		builder=fromClassToRDF.PrescriptionClass(rescrip, builder);
 
-		//2
-		prescriptomeCore.Provider provider = getResource.getProvider(bundle) ;
-		builder=fromClassToRDF.ProviderClass( provider,  builder);
-		
-		//3
-//		PatientClass
-		Patient patient = getResource.getPatientFromResourceFile(bundle) ;
-		builder=fromClassToRDF.PatientClass(patient, builder);
-		
-		//4
-		PatientGroup patGroup = getResource.getPatientGroup();
-		builder=fromClassToRDF.PatientGroupClass(patGroup,  builder);
-//
-		
-		//5
-		prescriptomeCore.Facility fac = getResource.getFacility(bundle);
-		builder=fromClassToRDF.FacilityClass(fac,  builder);
-
-		
-		//6
-		Adress adress  = getResource.getAdress(bundle);
-		builder=fromClassToRDF.AdressClass(adress,  builder);
-
-		
-		//7
-//		builder=fromClassToRDF.DeathInformationClass(prescriptomeCore.DeathInformation deahIn, builder);
-//
-//		//8
-//		builder=fromClassToRDF.CauseOfDeathClass(prescriptomeCore.CauseDeathInformation cause,  builder);
-//
-		//9
-		
-//
-//		//10
-//		builder=fromClassToRDF.ProcedureClass(prescriptomeCore.Procedure proc,  builder);
-		//11
-		Observation observation = getResource.getObservationFromResource(bundle);
-		builder=fromClassToRDF.ObservationClass( observation, builder);
-//		
-//		builder=fromClassToRDF.DiagnosisClass( prescriptomeCore.Diagnosis diag,  builder);
-//		
-//		builder=fromClassToRDF.StayClass( prescriptomeCore.Stay stay,   builder);
-//		builder=fromClassToRDF.DrugEncounterClass( prescriptomeCore.DrugEncounter drugEncount,  builder);
-//		
-//		builder=fromClassToRDF.DispenseClass(prescriptomeCore.Dispense disp,   builder);
-//		
-		Prescription prescription = getResource.getMedicationAdministFromResource(bundle);
-		builder=fromClassToRDF.PrescriptionClass(prescription,   builder);
-//		
-//		builder=fromClassToRDF.DrugAdministrationClass( DrugAdministration DrugAdmin,   builder);
-//		
-//		builder=fromClassToRDF.DeviceClass( prescriptomeCore.DrugAdministration DrugAdmin,   builder);
-//		
-//		builder=fromClassToRDF.DrugAdministrationClass(prescriptomeCore.Device device,   builder);
-		
+	//		builder=fromClassToRDF.DrugAdministrationClass( DrugAdministration DrugAdmin,   builder);
+	//		
+	//		builder=fromClassToRDF.DeviceClass( prescriptomeCore.DrugAdministration DrugAdmin,   builder);
+	//		
+	//		builder=fromClassToRDF.DrugAdministrationClass(prescriptomeCore.Device device,   builder);
+	
 		return builder ;
 	}
+	
 	
 	// constructeur
 	public dataModel(String PrescriptomeModelVersion) throws IOException, RDFHandlerException, UnsupportedRDFormatException, URISyntaxException, ParseException {
@@ -628,6 +622,7 @@ public class dataModel {
 		Rio.write(model, new FileOutputStream("./Prescriptome.ttl"), "", RDFFormat.TURTLE);
 		Rio.write(model, System.out, RDFFormat.TURTLE);
 	}
+	
 	
 	public static void main(String[] args) throws IOException, URISyntaxException, ParseException {
 		try {

@@ -11,7 +11,7 @@ import java.util.Set;
 import org.eclipse.rdf4j.model.IRI;
 import org.hl7.fhir.r4.model.CodeableConcept;
 import org.hl7.fhir.r4.model.MedicationRequest;
-
+import org.hl7.fhir.r4.model.MedicationAdministration;
 import prescriptomeCore.DrugAdministration;
 import prescriptomeCore.Stay;
 
@@ -26,7 +26,7 @@ public class DrugAdministrationParsing {
 	 * @param medicationAdministration
 	 * @return
 	 */
-	public static prescriptomeCore.DrugAdministration   getDrugAdministrationFromFHIR(String AdministrationID, org.hl7.fhir.r4.model.MedicationAdministration medicationAdministration){
+	public DrugAdministration   getDrugAdministrationFromFHIR(String AdministrationID, MedicationAdministration medicationAdministration){
 
 		String encounterID = AdministrationID;
 		String providerID = medicationAdministration.getPerformerFirstRep().getId();

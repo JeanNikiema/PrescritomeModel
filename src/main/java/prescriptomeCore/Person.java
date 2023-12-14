@@ -14,8 +14,8 @@ public class Person {
 	private int BirthMonth;
 	private int BirthYear;
 	private int BirthDay; // 
-	private String identifierSource;
-	private String DataBaseIdentifier;
+	private String identifierSource; // id dans la base de données d'origine
+	private String DataBaseIdentifier; // La provenance de la données
 	private String genderCode;
 	private String EthnicID; //
 	private String SexeCode;

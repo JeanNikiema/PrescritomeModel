@@ -44,7 +44,6 @@ public class PatientParsing {
 		Date BirthDate = FhirPatient.getBirthDate();
 		BooleanType Diceased = FhirPatient.getDeceasedBooleanType();
 
-
 		Date date = new Date();
 		Address adress = FhirPatient.getAddressFirstRep();
 		String PatientID = patientID ;
@@ -121,12 +120,7 @@ public class PatientParsing {
 				AdressIDS,ligne1, ligne2, City, State, ZipCode, Country, ValiditytimeDate, ValidityDate, 
 				CreatetimeDate, ModifytimeDate);
 		
-		prescriptomeCore.Patient patient = new  prescriptomeCore.Patient(
-				PatientID, ModifytimePatient, CreatetimePatient, ValiditytimePatient,
-				deathInformation, cause, Group, BirthMonth, BirthYear, BirthDay, identifierSource, 
-				DataBaseIdentifier, genderCode,
-				EthnicID, SexeCode, Name, Validitytime, DeathIndicator, CreatetimeDate, Modifytime,patientAdress);
-
+		prescriptomeCore.Patient patient = new  prescriptomeCore.Patient();
 		patient.setPatientID(PatientID);
 		patient.setBirthDay(BirthDay);
 		patient.setBirthMonth(BirthMonth);

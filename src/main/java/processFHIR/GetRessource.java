@@ -18,13 +18,12 @@ import org.eclipse.rdf4j.model.util.Values;
 import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.CanonicalType;
 import org.hl7.fhir.r4.model.Condition;
-import org.hl7.fhir.r4.model.DateTimeType;
 import org.hl7.fhir.r4.model.Encounter;
 import org.hl7.fhir.r4.model.Encounter.DiagnosisComponent;
 import org.hl7.fhir.r4.model.Encounter.EncounterLocationStatus;
 import org.hl7.fhir.r4.model.Encounter.EncounterStatus;
 import org.hl7.fhir.r4.model.Enumerations.AdministrativeGender;
-import org.hl7.fhir.r4.model.IdType;
+import org.hl7.fhir.r4.model.Identifier;
 import org.hl7.fhir.r4.model.Location;
 import org.hl7.fhir.r4.model.Medication;
 import org.hl7.fhir.r4.model.MedicationAdministration;
@@ -34,9 +33,9 @@ import org.hl7.fhir.r4.model.Observation;
 import org.hl7.fhir.r4.model.Observation.ObservationStatus;
 import org.hl7.fhir.r4.model.Organization;
 import org.hl7.fhir.r4.model.Patient;
+import org.hl7.fhir.r4.model.Address;
 import org.hl7.fhir.r4.model.Resource;
-import org.hl7.fhir.r4.model.ResourceType;
-import org.hl7.fhir.r4.model.Type;
+import org.hl7.fhir.r4.model.StringType;
 
 import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.parser.IParser;
@@ -82,13 +81,18 @@ public class GetRessource {
 	
 
 	//	 ***************************** Function to get the PatientGroup ********************************
-	public prescriptomeCore.PatientGroup getPatientGroup(){
+	public prescriptomeCore.PatientGroup getPatientGroup(Bundle bundle){
 		prescriptomeCore.PatientGroup patientGroup = new prescriptomeCore.PatientGroup() ;
 		GregorianCalendar patGroupCreatetime = new GregorianCalendar(2022,06, 12);
 		GregorianCalendar patGroupModifytime = new GregorianCalendar(2023,01, 05);
-
+		
+		HashMap<String, Resource> resources = mapResource(bundle);
+		Patient pat = (Patient) resources.get("Patient");
+//		System.out.println(pat) ;
 		patientGroup.setDatabaseSource( "MIMIC-IV-v2.2");
-		patientGroup.setGroupID("2023-MIT-LCP");
+		Identifier identifier = pat.getIdentifierFirstRep() ;
+		String patientID = identifier.getValue();
+		patientGroup.setGroupID("2023-MIT-LCP-"+patientID); // Identifiant du patient dans la base données
 		patientGroup.setCreatetime(patGroupCreatetime.getTime());
 		patientGroup.setModifytime(patGroupModifytime.getTime());
 		return patientGroup ;
@@ -100,33 +104,35 @@ public class GetRessource {
 		HashMap<String, Resource> resources = mapResource(bundle);
 		Patient pat = (Patient) resources.get("Patient");
 		listPersons = new ArrayList<prescriptomeCore.Person>();
-		String identifier = pat.getIdentifierFirstRep().getValue();
-		String name = pat.getNameFirstRep().getFamily() ;
-		AdministrativeGender gender = pat.getGender();
-		Date birthDate = pat.getBirthDate();
+		
+		Identifier identifier = pat.getIdentifierFirstRep() ;
+		String personID = identifier.getValue();
+		String personName = pat.getNameFirstRep().getFamily() ;
+		AdministrativeGender PersonGender = pat.getGender();
+		Date personBirthDate = pat.getBirthDate();
 		Boolean is_deceded = pat.getDeceasedBooleanType().getValue();
+		
 		GregorianCalendar calendar = new GregorianCalendar();
-		calendar.setTime(birthDate) ;
+		calendar.setTime(personBirthDate) ;
 		String genderCode = "";
 		String SexeCode = ""  ;
 		String EthnicID="Unknow";
 		
-		if (gender.toString().equals("Male") || gender.toString().equals("Female")) {
-			SexeCode = gender.toString() ;
+		if (PersonGender.toString().equals("Male") || PersonGender.toString().equals("Female")) {
+			SexeCode = PersonGender.toString() ;
 		}
 		else {
-			genderCode = gender.toString() ;
+			genderCode = PersonGender.toString() ;
 		}
 		
 		int birthDay = calendar.get(Calendar.DAY_OF_MONTH) ;
 		int birthMonth = calendar.get(Calendar.MONTH) ;
 		int birthYear = calendar.get(Calendar.YEAR) ;
 		
-		// Les admissions des patients en soin 
-		Encounter fhirEnc = (Encounter) resources.get("Encounter");
-		Date createtime = fhirEnc.getPeriod().getStart(); 
-		Date modifytime = fhirEnc.getPeriod().getStart(); 
-		Date validitytime = fhirEnc.getPeriod().getEnd(); 
+		Date date = new Date();
+		Date validitytime=  date;
+		Date createtime=  date;
+		Date modifytime=  date;
 		
 		prescriptomeCore.Adress adress = getAdress(bundle);
 		prescriptomeCore.Person prescripPers = new prescriptomeCore.Person();
@@ -134,19 +140,18 @@ public class GetRessource {
 		prescripPers.setBirthMonth(birthMonth);
 		prescripPers.setBirthYear(birthYear);
 		prescripPers.setBirthDay(birthDay);
-		prescripPers.setIdentifierSource("MIMIC-IV-v2.2");
-		prescripPers.setDataBaseIdentifier("2023-MIT-LCP");
+		prescripPers.setIdentifierSource(personID); // id dans la base de données d'origine
+		prescripPers.setDataBaseIdentifier("MIMIC-IV-v2.2"); // La provenance de la données
 		prescripPers.setGenderCode(genderCode);
 		prescripPers.setEthnicID(EthnicID);
 		prescripPers.setSexeCode(SexeCode);
-		prescripPers.setName(name);
+		prescripPers.setName(personName);
 		prescripPers.setValiditytime(validitytime);
 		prescripPers.setDeathIndicator(is_deceded);
 		prescripPers.setCreatetime(createtime);
 		prescripPers.setModifytime(modifytime);
 		prescripPers.setAdress(adress);
 		
-		listPersons.add(prescripPers);
 		return prescripPers ;
 	}
 	
@@ -157,46 +162,62 @@ public class GetRessource {
 		Patient fhirPat = (Patient) resources.get("Patient");
 		
 		listPatients = new ArrayList<prescriptomeCore.Patient>();
-		String identifier = fhirPat.getIdentifierFirstRep().getValue();
-		String name = fhirPat.getNameFirstRep().getFamily() ;
-		AdministrativeGender gender = fhirPat.getGender();
-		Date birthDate = fhirPat.getBirthDate();
+		Identifier identifier = fhirPat.getIdentifierFirstRep();
+		String patientID = identifier.getValue();
+		String patientName = fhirPat.getNameFirstRep().getFamily() ;
+		AdministrativeGender patientGender = fhirPat.getGender();
+		Date patientBirthDate = fhirPat.getBirthDate();
 		Boolean is_deceded = fhirPat.getDeceasedBooleanType().getValue();
+		
 		GregorianCalendar birthDateCalendar = new GregorianCalendar();
-		birthDateCalendar.setTime(birthDate) ;
+		birthDateCalendar.setTime(patientBirthDate) ;
 		Date deathDate = birthDateCalendar.getTime() ; // Table patient
 		String genderCode = "";
 		String SexeCode = "Undefined"  ;
 		String EthnicID="Unknow";
 		
-		if (gender.toString().equals("Male") || gender.toString().equals("Female")) {
-			SexeCode = gender.toString() ;
+		if (patientGender.toString().equals("Male") || patientGender.toString().equals("Female")) {
+			SexeCode = patientGender.toString() ;
 		}
 		else {
-			genderCode = gender.toString() ;
+			genderCode = patientGender.toString() ;
 		}
 
 		int birthDay = birthDateCalendar.get(Calendar.DAY_OF_MONTH) ;
 		int birthMonth = birthDateCalendar.get(Calendar.MONTH) ;
 		int birthYear = birthDateCalendar.get(Calendar.YEAR) ;
-
-		//   	Les admissions des patients en soin 
-		Encounter enc = (Encounter) resources.get("Encounter");
-		Date createtime = enc.getPeriod().getStart(); 
-		Date modifytime = enc.getPeriod().getStart(); 
-		Date validitytime = enc.getPeriod().getEnd(); 
+		
+		Date date = new Date();
+		Date modifytimePatient = date;
+		Date createtimePatient = date;
+		Date validitytimePatient = date;
+		
+		Date validitytime=  date;
+		Date createtime=  date;
+		Date modifytime=  date;
+		
+		if(identifier.getPeriod().getStart() != null) {
+			modifytimePatient = identifier.getPeriod().getStart();
+			createtimePatient = identifier.getPeriod().getStart();
+		}
+		if (identifier.getPeriod().getEnd() != null) {
+			validitytimePatient = identifier.getPeriod().getEnd();
+		}
+		
+		DeathInformation deathInformation = null;
+		CauseDeathInformation causeDeathInformation= null;
+		String CauseDeath = "";
 		
 		prescriptomeCore.Adress adress = getAdress(bundle);
 
-		// if (is_deceded) {
-		// 	// DateTimeType diceasedDate =  pat.getDeceasedDateTimeType();
-			Date diceasedDate =  validitytime;
-		// 	// deathInformation = new DeathInformation(createtime, modifytime, diceasedDate.getValue());
-			DeathInformation deathInformation = new DeathInformation(createtime, modifytime, diceasedDate);
-			CauseDeathInformation causeDeathInformation = new CauseDeathInformation(createtime, modifytime, "Unknow");
-		// }
+//		 if (is_deceded) {
+//			Date diceasedDate =  fhirPat.getDeceasedDateTimeType().getValue();
+			Date diceasedDate = date ;
+			deathInformation = new DeathInformation(createtime, modifytime, diceasedDate);
+			causeDeathInformation = new CauseDeathInformation(createtimePatient, modifytimePatient, CauseDeath);
+//		 }
 
-		PatientGroup patGroup = getPatientGroup();
+		PatientGroup patGroup = getPatientGroup(bundle);
 		prescriptomeCore.Patient prescripPatient = new prescriptomeCore.Patient();
 		prescripPatient.setAdress(adress);
 		prescripPatient.setBirthDay(birthDay) ;
@@ -204,21 +225,21 @@ public class GetRessource {
 		prescripPatient.setBirthYear(birthYear);
 		prescripPatient.setCauseDeathInformation(causeDeathInformation) ;
 		prescripPatient.setCreatetime(createtime) ;
-		prescripPatient.setCreatetimePatient(createtime) ;
-		prescripPatient.setDataBaseIdentifier(identifier) ;
+		prescripPatient.setCreatetimePatient(createtimePatient) ;
+		prescripPatient.setDataBaseIdentifier("MIMIC-IV-v2.2") ; // La provenance de la données
 		prescripPatient.setDeathIndicator(is_deceded) ;
-		prescripPatient.setDeathInformation(deathInformation);
+		prescripPatient.setDeathInformation(deathInformation) ;
 		prescripPatient.setEthnicID(EthnicID);
 		prescripPatient.setGenderCode(genderCode);
-		prescripPatient.setIdentifierSource(identifier);
+		prescripPatient.setIdentifierSource(patientID); // id dans la base de données d'origine
 		prescripPatient.setModifytime(modifytime);
-		prescripPatient.setModifytimePatient(modifytime);
-		prescripPatient.setName(name);
+		prescripPatient.setModifytimePatient(modifytimePatient);
+		prescripPatient.setName(patientName);
 		prescripPatient.setPatientGroup(patGroup);
-		prescripPatient.setPatientID(identifier);
+		prescripPatient.setPatientID("2023-MIT-LCP-"+patientID);
 		prescripPatient.setSexeCode(SexeCode) ;
 		prescripPatient.setValiditytime(validitytime);
-		prescripPatient.setValiditytimePatient(validitytime);
+		prescripPatient.setValiditytimePatient(validitytimePatient);
 		
 		listPatients.add(prescripPatient);
 		return prescripPatient ;
@@ -230,7 +251,6 @@ public class GetRessource {
 		HashMap<String, Resource> resources = mapResource(bundle);
 		Encounter fhirEnc = (Encounter) resources.get("Encounter");
 
-		IdType idElement = fhirEnc.getIdElement();
 		String encIdentifier = fhirEnc.getIdentifierFirstRep().getValue();
 		EncounterStatus status = fhirEnc.getStatus();
 		Date createtime = fhirEnc.getPeriod().getStart(); 
@@ -329,6 +349,7 @@ public class GetRessource {
 		BigDecimal valueQuantity = ob.getValueQuantity().getValue();
 		String valueQuantityUnit = ob.getValueQuantity().getUnit();
 		
+		
 		IRI typeCode = Values.iri(identifierSys, "observation");
 		IRI originaleTypeCode = Values.iri(identifierSys, "observation");
 		IRI informationSourceTypeCode = Values.iri(identifierSys, "observation");
@@ -357,14 +378,11 @@ public class GetRessource {
 	}
 	
 	
+//	 ============= Function to get prescription -----> MedicationAdministration ========================
 	public prescriptomeCore.Prescription  getMedicationAdministFromResource(Bundle bundle){
 		HashMap<String, Resource> resources = mapResource(bundle);
-		
-		//		Liste des prescriptions de médicaments
-		//		listPrescriptions = new ArrayList<prescriptomeCore.Prescription>();
-		
 		MedicationAdministration medAdminis = (MedicationAdministration) resources.get("MedicationAdministration");
-		
+
 		List<CanonicalType> metaProfil = medAdminis.getMeta().getProfile();
 		String idenSystem = medAdminis.getIdentifierFirstRep().getSystem();
 		String idenCode = medAdminis.getIdentifierFirstRep().getValue();
@@ -377,27 +395,16 @@ public class GetRessource {
 		String ex2 = "http://umontreal.ca" ;
 		IRI drugIDDataSource = Values.iri(ex2, "drugIDDataSource") ;
 		IRI drugIDOCRx  = Values.iri(ex2, "drugIDOCRx");
-		Patient pat = (Patient) bundle.getEntry().get(0).getResource();
-		String patientID = pat.getIdentifierFirstRep().getValue();
-		
 		prescriptomeCore.Encounter encounter = listEncounters.get(0);
 		String encounterID = encounter.getEncounterID();
 		String providerID = encounter.getProviderID();
 		String fcilityID = encounter.getFacilityID();
 		
 		Encounter enc = (Encounter) resources.get("Encounter");
-		Date createtime = enc.getPeriod().getStart(); 
-		Date modifytime = enc.getPeriod().getStart(); 
 		Date validitytime = enc.getPeriod().getEnd(); 
-		
-		Facility facility = getFacility(bundle);
-		String facilityID = facility.getFacilityID();
-		
-		//    	Sejour du patient
-		Stay stay = new Stay(
-			effectivePeriodStart, effectivePeriodEnd, context,  providerID,  patientID,  facilityID,  validitytime,
-			createtime,  modifytime
-		);
+
+		// Sejour du patient
+		Stay stay = getStay(bundle) ;
 		Stay stayExposure  =  stay;
 		Set<IRI> drugIDTherapeuticIndication = new HashSet<IRI>();
 		drugIDTherapeuticIndication.add(Values.iri(ex2, "http://umontreal.ca")) ;
@@ -417,25 +424,52 @@ public class GetRessource {
 	}
 
 	
-	// Function to get Adress
+	// ==========================  Function to get Adress ========================
 	public prescriptomeCore.Adress getAdress(Bundle bundle){
 		HashMap<String, Resource> resources = mapResource(bundle);
 		Patient pat = (Patient) resources.get("Patient");
-		String address = (String) pat.getAddressFirstRep().getLine().get(0).toString();
-		Type streetName= pat.getAddressFirstRep().getLine().get(0).getExtension().get(1).getValue();
-		Type houseNumber= pat.getAddressFirstRep().getLine().get(0).getExtension().get(1).getValue();
-		String city = pat.getAddressFirstRep().getCity();
-		String country = pat.getAddressFirstRep().getCountry();
-		String postalCode = pat.getAddressFirstRep().getPostalCode();
+		Address address = pat.getAddressFirstRep();
+		List<StringType> line= address.getLine();
+		String ligne1 = "";
+		String ligne2 = "";
+		int i =1;
+		for(StringType lab : line) {
+			if(i==1) {
+				ligne1 = lab.asStringValue();
+			}
+			else if(i==2) {
+				ligne2 = lab.asStringValue();
+			}
+		}
+		String city = address.getCity();
+		String state = address.getCountry();
+		String country = address.getCountry();
+		String adressID = address.getPostalCode();
+		String zipCode = address.getPostalCode();
+		Date date = new Date();
 
-		//   	Les admissions des patients en soin 
-		Encounter enc = (Encounter) resources.get("Encounter");
-		Date createtime = enc.getPeriod().getStart(); 
-		Date modifytime = enc.getPeriod().getStart(); 
-		Date validitytime = enc.getPeriod().getEnd(); 
+		Date createtimeDate = date; 
+		Date modifytimeDate = date ;
+		Date validitytimeDate = date ;
+		if (address.getPeriod().getStart() != null) {
+			createtimeDate = address.getPeriod().getStart(); 
+			modifytimeDate = address.getPeriod().getStart();
+		}
+		if (address.getPeriod().getEnd() != null) {
+			validitytimeDate = address.getPeriod().getEnd(); 
+		}
+		
+		boolean validityDate = false;
+		if(date.compareTo(validitytimeDate)<1) {
+			validityDate = true;
+		}
+		else {
+			validityDate = false;
+		}
 		
 		prescriptomeCore.Adress adress = new prescriptomeCore.Adress(
-				postalCode, address, city,"", country, postalCode, country, validitytime, true, createtime, modifytime
+				adressID, ligne1, ligne2, city, state, zipCode, country, validitytimeDate, 
+				validityDate, createtimeDate, modifytimeDate
 		);
 		return adress ;
 	}
@@ -485,7 +519,7 @@ public class GetRessource {
 	}
 	
 	public prescriptomeCore.Facility getFacility(Bundle bundle){
-//    	Structure de soins Facility ----> Location
+		//    	Structure de soins Facility ----> Location
 		HashMap<String, Resource> resources = mapResource(bundle);
 		Encounter enc = (Encounter) resources.get("Encounter");
 		
@@ -505,9 +539,32 @@ public class GetRessource {
 	}
 	
 	
+	// =======================  Sejour du patient ========================================
 	public prescriptomeCore.Stay getStay(Bundle bundle){
+		HashMap<String, Resource> resources = mapResource(bundle);
+		Encounter enc = (Encounter) resources.get("Encounter");
+		MedicationAdministration medAdminis = (MedicationAdministration) resources.get("MedicationAdministration");
+
+		String context=medAdminis.getContext().getReference();
+		Date effectivePeriodStart = medAdminis.getEffectivePeriod().getStart();
+		Date effectivePeriodEnd = medAdminis.getEffectivePeriod().getEnd();
+		Date createtime = enc.getPeriod().getStart(); 
+		Date modifytime = enc.getPeriod().getStart(); 
+		Date validitytime = enc.getPeriod().getEnd(); 
 		
-		return null ;
+		Facility facility = getFacility(bundle);
+		String facilityID = facility.getFacilityID();
+		prescriptomeCore.Encounter prescriptomeEnc = listEncounters.get(0);
+		String providerID = prescriptomeEnc.getProviderID();
+		
+		Patient pat = (Patient) resources.get("Patient");
+		String patientID = pat.getIdentifierFirstRep().getValue();
+		// Sejour du patient
+		Stay stay = new Stay(
+			effectivePeriodStart, effectivePeriodEnd, context,  providerID,  patientID,  facilityID,  validitytime,
+			createtime,  modifytime
+		);
+		return stay ;
 	}
 	
 //	public static void main(String[] args) throws FileNotFoundException {

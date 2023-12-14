@@ -14,7 +14,7 @@ public class Patient extends Person{
 	private Date CreatetimePatient;
 	private Date ModifytimePatient;
 	
-	public Patient( String PatientID, Date ModifytimePatient,Date CreatetimePatient, Date ValiditytimePatient, DeathInformation deathInformation, CauseDeathInformation cause,  PatientGroup Group, int BirthMonth, int BirthYear, int BirthDay, String identifierSource, String DataBaseIdentifier,
+	public Patient( String PatientID, Date ModifytimePatient,Date CreatetimePatient, Date ValiditytimePatient, PatientGroup Group, int BirthMonth, int BirthYear, int BirthDay, String identifierSource, String DataBaseIdentifier,
 			String genderCode, String EthnicID, String SexeCode, String Name, Date Validitytime, boolean DeathIndicator,
 			Date Createtime, Date Modifytime,Adress adress) {
 		
@@ -22,8 +22,8 @@ public class Patient extends Person{
 				Validitytime, DeathIndicator, Createtime, Modifytime,adress);
 		
 		this.setPatientID(PatientID);
-		this.setDeathInformation(deathInformation);
-		this.setCauseDeathInformation(cause);
+//		this.setDeathInformation(deathInformation);
+//		this.setCauseDeathInformation(cause);
 		this.setPatientGroup(Group);
 		this.setValiditytimePatient(ValiditytimePatient);
 		this.setCreatetimePatient(CreatetimePatient);

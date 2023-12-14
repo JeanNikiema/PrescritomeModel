@@ -43,12 +43,6 @@ public class Prescription extends DrugEncounter {
 //	// ENCOUNTER THAT LEADING TO THE PRESCRIPTION
 //	PRIVATE ENCOUNTER ENCOUNTERPRESCRIPTION;
 
-
-
-
-
-
-
 	/**
 	 * @param encounterID
 	 * @param providerID
@@ -84,6 +78,7 @@ public class Prescription extends DrugEncounter {
 		super(encounterID, providerID, patientID, facilityID, validitytime, createtime, modifytime, drugIDDataSource,
 				drugIDOCRx, stayExposure, drugIDTherapeuticIndication, routeOfAdministrationSource,
 				routeOfAdministrationOCRx, encounterUnitOfPresentation);
+		
 		this.setRefills(refills);
 		this.setOrderedDate(orderedDate);
 		this.setOrderedDose(orderedDose);
@@ -135,8 +130,6 @@ public class Prescription extends DrugEncounter {
 				((this.getEncounterUnitOfPresentation()==null && other.getEncounterUnitOfPresentation()==null) ||
 						(this.getEncounterUnitOfPresentation()!=null &&
 						this.getEncounterUnitOfPresentation().equals(other.getEncounterUnitOfPresentation())))  &&
-
-
 
 				(this.getRefills()==other.getRefills())  &&
 

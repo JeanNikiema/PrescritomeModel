@@ -193,7 +193,7 @@ public class FromClassToRDF {
 		.add(HasCreatetime, Createtime)
 		.add(HasModifytime, Modifytime)
 		.add(Hasadress, adress)
-		.add(Hasadress, "CDMHPresc:"+adress.getAdressID())
+		.add(Hasadress, "CDMHPresc:"+AdressID)
 		.add(HasDeathIndicator, DeathIndicator);
 
 		builder.subject("CDMHPresc:"+AdressID)
@@ -217,7 +217,6 @@ public class FromClassToRDF {
 
 	//2
 	private String Provider = "CDMHPresc:200000000";
-
 	public ModelBuilder ProviderClass(prescriptomeCore.Provider prov, ModelBuilder builder){
 
 		Date ValiditytimeProvider= prov.getValiditytimeProvider();
@@ -423,12 +422,14 @@ public class FromClassToRDF {
 		String GroupID=group.getGroupID();
 		Date Createtime=group.getCreatetime();
 		Date Modifytime=group.getModifytime();
+		
 		builder.subject("CDMHPresc:"+GroupID)
 		.add(RDF.TYPE, PatientGroup)
 		.add(HasDatabaseSource, DatabaseSource)
 		.add(HasGroupID, GroupID)
 		.add(HasCreatetime, Createtime)
 		.add(HasModifytime, Modifytime);
+		
 		return builder;
 	}
 	
@@ -447,7 +448,7 @@ public class FromClassToRDF {
 
 		builder.subject("CDMHPresc:"+facilityID)
 		.add(RDF.TYPE, Facility)
-		.add(HasAdress, Adress)
+		.add(HasAdress, facilityAdress)
 		.add(HasName, name)
 		.add(HasValiditytime, validitytimeFacility)
 		.add(HasCreatetime, createtimeFacility)
@@ -457,32 +458,31 @@ public class FromClassToRDF {
 
 	//6
 	private String Adress = "CDMHPresc:600000000";
-
 	public ModelBuilder AdressClass(Adress adress, ModelBuilder builder){
-		String AdressID =adress.getAdressID();
-		String ligne1=adress.getLigne1();
-		String ligne2=adress.getLigne2();
-		String City=adress.getCity();
-		String State=adress.getState();
-		String ZipCode=adress.getZipCode();
-		String Country=adress.getCountry();
-		Date ValiditytimeAd=adress.getValiditytime();
-		boolean Validity=adress.isValidity();
-		Date CreatetimeAd=adress.getCreatetime();
-		Date ModifytimeAd=adress.getModifytime();
+//		String AdressID =adress.getAdressID();
+//		String ligne1=adress.getLigne1();
+//		String ligne2=adress.getLigne2();
+//		String City=adress.getCity();
+//		String State=adress.getState();
+//		String ZipCode=adress.getZipCode();
+//		String Country=adress.getCountry();
+//		Date ValiditytimeAd=adress.getValiditytime();
+//		boolean Validity=adress.isValidity();
+//		Date CreatetimeAd=adress.getCreatetime();
+//		Date ModifytimeAd=adress.getModifytime();
 
-		builder.subject("CDMHPresc:"+AdressID)
+		builder.subject("CDMHPresc:"+adress.getAdressID())
 		.add(RDF.TYPE, Adress)
-		.add(Hasligne1, ligne1)
-		.add(Hasligne2, ligne2)
-		.add(HasCity, City)
-		.add(HasState, State)
-		.add(HasZipCode, ZipCode)
-		.add(HasCountry, Country)
-		.add(HasValiditytime, ValiditytimeAd)
-		.add(HasCreatetime, CreatetimeAd)
-		.add(HasModifytime, ModifytimeAd)
-		.add(HasValidity, Validity);
+		.add(Hasligne1, adress.getLigne1())
+		.add(Hasligne2, adress.getLigne2())
+		.add(HasCity, adress.getCity())
+		.add(HasState, adress.getState())
+		.add(HasZipCode, adress.getZipCode())
+		.add(HasCountry, adress.getCountry())
+		.add(HasValiditytime, adress.getValiditytime())
+		.add(HasCreatetime, adress.getCreatetime())
+		.add(HasModifytime, adress.getModifytime())
+		.add(HasValidity, adress.isValidity());
 		return builder;
 	}
 
@@ -494,6 +494,7 @@ public class FromClassToRDF {
 		Date modifytime =deahIn.getModifytime();
 		Date deathDate  =deahIn.getDeathDate();
 		BNode deahtin = Values.bnode();
+		
 		builder.subject(deahtin)
 		.add(RDF.TYPE, DeathInformation)
 		.add(HasDeathDate, deathDate)
@@ -510,6 +511,7 @@ public class FromClassToRDF {
 		Date modifytime=cause.getModifytime();
 		IRI Cause =cause.getCauseOfDeathICD();
 		BNode deathcau = Values.bnode();
+		
 		builder.subject(deathcau )
 		.add(RDF.TYPE, CauseOfDeath)
 		.add(CauseOfDeathICD, Cause)
@@ -521,7 +523,6 @@ public class FromClassToRDF {
 
 	//9
 	private String Encounter = "CDMHPresc:900000000";
-
 	public ModelBuilder EncounterClass(prescriptomeCore.Encounter encou, ModelBuilder builder){
 		String encounterID = encou.getEncounterID();
 		String providerID = encou.getProviderID();
@@ -530,7 +531,6 @@ public class FromClassToRDF {
 		Date validitytime = encou.getValiditytime();
 		Date createtime = encou.getCreatetime();
 		Date modifytime = encou.getModifytime();
-
 
 		builder.subject("CDMHPresc:"+encounterID )
 		.add(RDF.TYPE, Encounter)
